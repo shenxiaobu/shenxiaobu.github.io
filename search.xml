@@ -14,16 +14,34 @@
   <entry>
     <title><![CDATA[vue]]></title>
     <url>%2F2019%2F03%2F04%2Fvue%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[vue笔记]]></content>
+      <categories>
+        <category>前端纪录</category>
+      </categories>
+      <tags>
+        <tag>-&quot;vue&quot; -&quot;前端&quot;</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[詹密]]></title>
     <url>%2F2019%2F03%2F04%2F%E8%A9%B9%E5%AF%86%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[###勒布朗詹姆斯]]></content>
+      <categories>
+        <category>浅谈NBA</category>
+      </categories>
+      <tags>
+        <tag>-&quot;NBA&quot;</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[篮球]]></title>
     <url>%2F2019%2F03%2F04%2F%E7%AF%AE%E7%90%83%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[###湖人总冠军]]></content>
+      <categories>
+        <category>浅谈NBA</category>
+      </categories>
+      <tags>
+        <tag>-&quot;NBA&quot; -&quot;lebron james&quot; -&quot;lakers&quot;</tag>
+      </tags>
   </entry>
 </search>
