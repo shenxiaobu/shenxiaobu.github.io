@@ -46,7 +46,7 @@
     <link href="https://shenxiaobu.github.io/2019/03/04/vue/"/>
     <id>https://shenxiaobu.github.io/2019/03/04/vue/</id>
     <published>2019-03-04T06:14:37.000Z</published>
-    <updated>2019-03-05T01:32:25.892Z</updated>
+    <updated>2019-03-05T01:50:37.430Z</updated>
     
     <content type="html"><![CDATA[<h2 id="vue笔记"><a href="#vue笔记" class="headerlink" title="vue笔记"></a>vue笔记</h2>]]></content>
     
@@ -62,7 +62,9 @@
       <category term="前端纪录" scheme="https://shenxiaobu.github.io/categories/%E5%89%8D%E7%AB%AF%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="-&quot;vue&quot; -&quot;前端&quot;" scheme="https://shenxiaobu.github.io/tags/vue-%E5%89%8D%E7%AB%AF/"/>
+      <category term="vue" scheme="https://shenxiaobu.github.io/tags/vue/"/>
+    
+      <category term="前端" scheme="https://shenxiaobu.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
