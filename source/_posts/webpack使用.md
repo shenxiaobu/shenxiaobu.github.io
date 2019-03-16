@@ -507,7 +507,7 @@ n[2]
 
 2. 打开webpack的配置文件，在module节点下的rules数组中，添加一个新的匹配规则：
 
-   1. {test: /\.js$/, use: 'babel-loader',exclude: /node_modules/}
+   1. `{test: /\.js$/, use: 'babel-loader',exclude: /node_modules/}`
 
    2. 注意：在配置babel的loader规则的时候，必须把node_modules目录，通过exclude选项排除掉，原因有两
 
