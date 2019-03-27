@@ -119,6 +119,10 @@ mint-UI特性
    <button type="button" class="mui-btn mui-btn-royal">紫色</button> 
    ```
 
+MUI的使用，查看example，复制代码，然后检查需要的类，如果复制后代码没有效果的，查看example的源代码，看看是否引入了哪些样式我们没有引入的，然后把缺少的样式文件引入，最后根据错误提示，补缺补漏。
+
+
+
 【参考】
 
 [MUI官网](http://dev.dcloud.net.cn/mui/)
