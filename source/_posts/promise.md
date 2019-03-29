@@ -334,7 +334,7 @@ p.then(function(data){
 
 新建一个 promise3.js
 
-```
+```js
 const fs = require('fs')
 
 function getFileByPath(fpath){
@@ -453,11 +453,215 @@ ENOENT: no such file or directory, open 'G:promise\files\4.txt'
 
 
 
+#### promise的使用场景
+
+比如数据库有一张表是 人员信息，人员信息里面有 职业id，得再从职业表中获取职业名称。
+
+```json
+//使用data.json代替数据库
+{
+	"users":[
+		{
+			"id": 1,
+			"name": "小布",
+			"age": 24,
+			"jobId": 3
+		},
+		{
+			"id": 2,
+			"name": "沈延祥",
+			"age": 23,
+			"jobId": 2
+		},
+		{
+			"id": 3,
+			"name": "祥你的365夜",
+			"age": 22,
+			"jobId": 1
+		}
+	],
+	"jobs":[
+		{
+			"id": 1,
+			"job": "学生" 
+		},
+		{
+			"id": 2,
+			"job": "老师" 
+		},
+		{
+			"id": 3,
+			"job": "演员" 
+		}
+	]
+}
+```
+
+##### json-server
+
+定义一个data.json文件
+
+```shell
+#全局安装一个 json-server  一个能够使用地址访问文件的包
+cnpm install json-server -global
+```
+
+在所在目录执行命令，打开要成为接口的json文件
+
+```shell
+json-server --watch data.json
+```
+
+在浏览器输入地址，即可获取数据，同理使用ajax请求也可以获取数据
+
+跟地址为： 127.0.0.1:3000
+
+新建一个index.html文件
+
+```html
+<!--index.html文件-->
+<!doctype html>
+	<head>
+		<title>promise</title>
+		<meta content-type="text/html" charset='utf-8'>
+	</head>
+	<body>
+		<form action="1111.js" id="box">
+		</form>
+		<script type="text/template" id="temp">
+			<div>
+				<label for="name">姓名</label>
+				<input type="text" value="{{user.name}}" id="name" >
+			</div>
+			<div>
+				<label for="age">年龄</label>
+				<input type="text" value="{{user.age}}" id="age" >
+			</div>
+			<div>
+				<label for="job">职业</label>
+				<select>
+					{{each jobs}}
+					{{if user.jobId == $value.id}}
+					<option value="{{$value.id}}" selected >{{$value.job}}</option>
+					{{else}}
+					<option value="{{$value.id}}" >{{$value.job}}</option>
+					{{/if}}					
+					{{/each}}
+				</select>
+			</div>
+		</script>
+	</body>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/art-template/lib/template-web.js"></script>
+	<script>
+		$(function(){
+            //自己封装一个ajax的get请求
+
+				// function get(url,callback){
+				// 	var xml = new XMLHttpRequest();
+
+				// 	xml.onload = function(){
+				// 		callback(xml.responseText)
+				// 	}
+				// 	xml.open('get',url,true);
+				// 	xml.send()
+				// }
+
+				// get('http://localhost:3000/user/2',function(userdata){
+				// 	get('http://localhost:3000/jobs',function(jobsdata){
+				// 		console.log(userdata)   //是一个字符串，需要转以为对象
+				// 		var htmlStr = template('temp',{
+				// 			user: JSON.parse(userdata),
+				// 			jobs: JSON.parse(jobsdata)
+				// 		})
+				// 		document.querySelector("#box").innerHTML = htmlStr;
+				// 	})
+				// })
+            
+			// $.get('http://localhost:3000/user/2',function(userdata){
+			// 	$.get('http://localhost:3000/jobs',function(jobdata){
+			// 		console.log(userdata)
+			// 		console.log(jobdata)
+					// var htmlStr = template('temp',{
+					// 	user: userdata,
+					// 	jobs: jobdata
+					// })
+			// 		console.log(htmlStr);
+			// 		$('#box').html(htmlStr)
+			// 	})
+			// })
 
 
+			//使用jquery的promise
+			var obj = {}
+			$.get('http://localhost:3000/user/2')
+			.then(function(userData){
+				obj.user = userData;
+				return $.get('http://localhost:3000/jobs')
+			})
+			.then(function(jobData){
+				obj.jobs = jobData;
+				var htmlStr = template('temp',obj)
+				console.log(htmlStr);
+				$('#box').html(htmlStr)
+			})
+            
+            //封装promise版的 get方法
+			function promiseGet(url){
+				return new Promise(function(resolve,reject){
+					var xml = new XMLHttpRequest();
+					xml.onload = function(){
+						resolve(JSON.parse(xml.responseText))
+					}
+					xml.open("get",url,true)
+					xml.send()
+				})
+			}
+
+			promiseGet('http://127.0.0.1:3000/user')
+			.then(function(userdata){
+				console.log(userdata)      //成功获取到数据
+			})
 
 
+			//封装像jquery那样即可以使用回调函数也可以使用promise的then方法 
+			function bothGet(url,callback){
+				return new Promise(function(resolve,reject){
+					var xml = new XMLHttpRequest();
+					xml.onload = function(){
+						 //前面加一个callback是防止使用promise方式而没有传递callback函数导致错误
+						callback && callback(JSON.parse(xml.responseText))     
+						resolve(JSON.parse(xml.responseText))
+					}
+                    xml.onerror = function(err){
+                        reject(err)
+                    }
+					xml.open("get",url,true)
+					xml.send()
+				})
+			}
 
+			bothGet('http://127.0.0.1:3000/user')
+			.then(function(userdata){
+				console.log(userdata)      //成功获取到数据
+			})
 
+			bothGet('http://127.0.0.1:3000/jobs',function(userdata){
+				console.log(userdata)   //成功获取数据
+			})
 
+		})
+
+		})
+	</script>
+</html>
+```
+
+因为使用到了 art-template 模板引擎和 jquery，所以得先安装
+
+`cnpm install art-template jquery -S`
+
+![1553848165505](1553848165505.png)
+
+![1553850736436](1553850736436.png)
 
