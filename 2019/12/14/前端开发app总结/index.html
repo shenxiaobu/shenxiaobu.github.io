@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="web前端基于vue利用H5+接口开发APP总结下载HbuilderX，并利用HbuilderX将web项目打包成App1 打开hbuildx软件，新建一个H5+app的空项目为  xiaobutest ，  2 xiaobutest项目就会生成如下文件  3  将可删除和可替换的文件删除掉，然后将 vue打包后生成的dist文件夹下的文件放置到xiaobutest下。文件如下  4 打开mani">
+<meta name="keywords" content="Hbuilder">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端开发app总结">
+<meta property="og:url" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/index.html">
+<meta property="og:site_name" content="祥你的365夜">
+<meta property="og:description" content="web前端基于vue利用H5+接口开发APP总结下载HbuilderX，并利用HbuilderX将web项目打包成App1 打开hbuildx软件，新建一个H5+app的空项目为  xiaobutest ，  2 xiaobutest项目就会生成如下文件  3  将可删除和可替换的文件删除掉，然后将 vue打包后生成的dist文件夹下的文件放置到xiaobutest下。文件如下  4 打开mani">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576299772847.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576300223480.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576300381128.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576300798774.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576301012667.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576301284946.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576301836792.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576301960583.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576302098656.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576302202716.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576302483507.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576302815309.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576302997871.png">
+<meta property="og:updated_time" content="2020-03-22T13:49:33.130Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端开发app总结">
+<meta name="twitter:description" content="web前端基于vue利用H5+接口开发APP总结下载HbuilderX，并利用HbuilderX将web项目打包成App1 打开hbuildx软件，新建一个H5+app的空项目为  xiaobutest ，  2 xiaobutest项目就会生成如下文件  3  将可删除和可替换的文件删除掉，然后将 vue打包后生成的dist文件夹下的文件放置到xiaobutest下。文件如下  4 打开mani">
+<meta name="twitter:image" content="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/1576299772847.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="祥你的365夜" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>前端开发app总结 | 祥你的365夜</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">祥你的365夜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/shenxiaobu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenxiaobu.github.io/2019/12/14/前端开发app总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenxiaobu">
+      <meta itemprop="description" content="如果有一腔热血，又足够努力，人生最坏的结果，也不过是大器晚成而已！">
+      <meta itemprop="image" content="/images/xiaobu.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="祥你的365夜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端开发app总结
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-14 12:15:44" itemprop="dateCreated datePublished" datetime="2019-12-14T12:15:44+08:00">2019-12-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-22 21:49:33" itemprop="dateModified" datetime="2020-03-22T21:49:33+08:00">2020-03-22</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/12/14/前端开发app总结/" class="leancloud_visitors" data-flag-title="前端开发app总结">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">56k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">51 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="web前端基于vue利用H5-接口开发APP总结"><a href="#web前端基于vue利用H5-接口开发APP总结" class="headerlink" title="web前端基于vue利用H5+接口开发APP总结"></a>web前端基于vue利用H5+接口开发APP总结</h3><h5 id="下载HbuilderX，并利用HbuilderX将web项目打包成App"><a href="#下载HbuilderX，并利用HbuilderX将web项目打包成App" class="headerlink" title="下载HbuilderX，并利用HbuilderX将web项目打包成App"></a>下载HbuilderX，并利用HbuilderX将web项目打包成App</h5><p>1 打开hbuildx软件，新建一个H5+app的空项目为  xiaobutest ，</p>
+<p><img src="/2019/12/14/前端开发app总结/1576299772847.png" alt="1576299772847"></p>
+<p>2 xiaobutest项目就会生成如下文件</p>
+<p><img src="/2019/12/14/前端开发app总结/1576300223480.png" alt="1576300223480"></p>
+<p>3  将可删除和可替换的文件删除掉，然后将 vue打包后生成的dist文件夹下的文件放置到xiaobutest下。文件如下</p>
+<p><img src="/2019/12/14/前端开发app总结/1576300381128.png" alt="1576300381128"></p>
+<p>4 打开manifest.json文件对app进行配置</p>
+<p><img src="/2019/12/14/前端开发app总结/1576300798774.png" alt="1576300798774"></p>
+<p><img src="/2019/12/14/前端开发app总结/1576301012667.png" alt="1576301012667"></p>
+<p>上面的图标问题讲错了，是只能选择png图标，但是不能有透明的地方，否则applestore审核不通过，打包也可能失败。</p>
+<p><img src="/2019/12/14/前端开发app总结/1576301284946.png" alt="1576301284946"></p>
+<p><img src="/2019/12/14/前端开发app总结/1576301836792.png" alt="1576301836792"></p>
+<p><img src="/2019/12/14/前端开发app总结/1576301960583.png" alt="1576301960583"></p>
+<p><img src="/2019/12/14/前端开发app总结/1576302098656.png" alt="1576302098656"></p>
+<p><img src="/2019/12/14/前端开发app总结/1576302202716.png" alt="1576302202716"></p>
+<p>源码配置</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br><span class="line">721</span><br><span class="line">722</span><br><span class="line">723</span><br><span class="line">724</span><br><span class="line">725</span><br><span class="line">726</span><br><span class="line">727</span><br><span class="line">728</span><br><span class="line">729</span><br><span class="line">730</span><br><span class="line">731</span><br><span class="line">732</span><br><span class="line">733</span><br><span class="line">734</span><br><span class="line">735</span><br><span class="line">736</span><br><span class="line">737</span><br><span class="line">738</span><br><span class="line">739</span><br><span class="line">740</span><br><span class="line">741</span><br><span class="line">742</span><br><span class="line">743</span><br><span class="line">744</span><br><span class="line">745</span><br><span class="line">746</span><br><span class="line">747</span><br><span class="line">748</span><br><span class="line">749</span><br><span class="line">750</span><br><span class="line">751</span><br><span class="line">752</span><br><span class="line">753</span><br><span class="line">754</span><br><span class="line">755</span><br><span class="line">756</span><br><span class="line">757</span><br><span class="line">758</span><br><span class="line">759</span><br><span class="line">760</span><br><span class="line">761</span><br><span class="line">762</span><br><span class="line">763</span><br><span class="line">764</span><br><span class="line">765</span><br><span class="line">766</span><br><span class="line">767</span><br><span class="line">768</span><br><span class="line">769</span><br><span class="line">770</span><br><span class="line">771</span><br><span class="line">772</span><br><span class="line">773</span><br><span class="line">774</span><br><span class="line">775</span><br><span class="line">776</span><br><span class="line">777</span><br><span class="line">778</span><br><span class="line">779</span><br><span class="line">780</span><br><span class="line">781</span><br><span class="line">782</span><br><span class="line">783</span><br><span class="line">784</span><br><span class="line">785</span><br><span class="line">786</span><br><span class="line">787</span><br><span class="line">788</span><br><span class="line">789</span><br><span class="line">790</span><br><span class="line">791</span><br><span class="line">792</span><br><span class="line">793</span><br><span class="line">794</span><br><span class="line">795</span><br><span class="line">796</span><br><span class="line">797</span><br><span class="line">798</span><br><span class="line">799</span><br><span class="line">800</span><br><span class="line">801</span><br><span class="line">802</span><br><span class="line">803</span><br><span class="line">804</span><br><span class="line">805</span><br><span class="line">806</span><br><span class="line">807</span><br><span class="line">808</span><br><span class="line">809</span><br><span class="line">810</span><br><span class="line">811</span><br><span class="line">812</span><br><span class="line">813</span><br><span class="line">814</span><br><span class="line">815</span><br><span class="line">816</span><br><span class="line">817</span><br><span class="line">818</span><br><span class="line">819</span><br><span class="line">820</span><br><span class="line">821</span><br><span class="line">822</span><br><span class="line">823</span><br><span class="line">824</span><br><span class="line">825</span><br><span class="line">826</span><br><span class="line">827</span><br><span class="line">828</span><br><span class="line">829</span><br><span class="line">830</span><br><span class="line">831</span><br><span class="line">832</span><br><span class="line">833</span><br><span class="line">834</span><br><span class="line">835</span><br><span class="line">836</span><br><span class="line">837</span><br><span class="line">838</span><br><span class="line">839</span><br><span class="line">840</span><br><span class="line">841</span><br><span class="line">842</span><br><span class="line">843</span><br><span class="line">844</span><br><span class="line">845</span><br><span class="line">846</span><br><span class="line">847</span><br><span class="line">848</span><br><span class="line">849</span><br><span class="line">850</span><br><span class="line">851</span><br><span class="line">852</span><br><span class="line">853</span><br><span class="line">854</span><br><span class="line">855</span><br><span class="line">856</span><br><span class="line">857</span><br><span class="line">858</span><br><span class="line">859</span><br><span class="line">860</span><br><span class="line">861</span><br><span class="line">862</span><br><span class="line">863</span><br><span class="line">864</span><br><span class="line">865</span><br><span class="line">866</span><br><span class="line">867</span><br><span class="line">868</span><br><span class="line">869</span><br><span class="line">870</span><br><span class="line">871</span><br><span class="line">872</span><br><span class="line">873</span><br><span class="line">874</span><br><span class="line">875</span><br><span class="line">876</span><br><span class="line">877</span><br><span class="line">878</span><br><span class="line">879</span><br><span class="line">880</span><br><span class="line">881</span><br><span class="line">882</span><br><span class="line">883</span><br><span class="line">884</span><br><span class="line">885</span><br><span class="line">886</span><br><span class="line">887</span><br><span class="line">888</span><br><span class="line">889</span><br><span class="line">890</span><br><span class="line">891</span><br><span class="line">892</span><br><span class="line">893</span><br><span class="line">894</span><br><span class="line">895</span><br><span class="line">896</span><br><span class="line">897</span><br><span class="line">898</span><br><span class="line">899</span><br><span class="line">900</span><br><span class="line">901</span><br><span class="line">902</span><br><span class="line">903</span><br><span class="line">904</span><br><span class="line">905</span><br><span class="line">906</span><br><span class="line">907</span><br><span class="line">908</span><br><span class="line">909</span><br><span class="line">910</span><br><span class="line">911</span><br><span class="line">912</span><br><span class="line">913</span><br><span class="line">914</span><br><span class="line">915</span><br><span class="line">916</span><br><span class="line">917</span><br><span class="line">918</span><br><span class="line">919</span><br><span class="line">920</span><br><span class="line">921</span><br><span class="line">922</span><br><span class="line">923</span><br><span class="line">924</span><br><span class="line">925</span><br><span class="line">926</span><br><span class="line">927</span><br><span class="line">928</span><br><span class="line">929</span><br><span class="line">930</span><br><span class="line">931</span><br><span class="line">932</span><br><span class="line">933</span><br><span class="line">934</span><br><span class="line">935</span><br><span class="line">936</span><br><span class="line">937</span><br><span class="line">938</span><br><span class="line">939</span><br><span class="line">940</span><br><span class="line">941</span><br><span class="line">942</span><br><span class="line">943</span><br><span class="line">944</span><br><span class="line">945</span><br><span class="line">946</span><br><span class="line">947</span><br><span class="line">948</span><br><span class="line">949</span><br><span class="line">950</span><br><span class="line">951</span><br><span class="line">952</span><br><span class="line">953</span><br><span class="line">954</span><br><span class="line">955</span><br><span class="line">956</span><br><span class="line">957</span><br><span class="line">958</span><br><span class="line">959</span><br><span class="line">960</span><br><span class="line">961</span><br><span class="line">962</span><br><span class="line">963</span><br><span class="line">964</span><br><span class="line">965</span><br><span class="line">966</span><br><span class="line">967</span><br><span class="line">968</span><br><span class="line">969</span><br><span class="line">970</span><br><span class="line">971</span><br><span class="line">972</span><br><span class="line">973</span><br><span class="line">974</span><br><span class="line">975</span><br><span class="line">976</span><br><span class="line">977</span><br><span class="line">978</span><br><span class="line">979</span><br><span class="line">980</span><br><span class="line">981</span><br><span class="line">982</span><br><span class="line">983</span><br><span class="line">984</span><br><span class="line">985</span><br><span class="line">986</span><br><span class="line">987</span><br><span class="line">988</span><br><span class="line">989</span><br><span class="line">990</span><br><span class="line">991</span><br><span class="line">992</span><br><span class="line">993</span><br><span class="line">994</span><br><span class="line">995</span><br><span class="line">996</span><br><span class="line">997</span><br><span class="line">998</span><br><span class="line">999</span><br><span class="line">1000</span><br><span class="line">1001</span><br><span class="line">1002</span><br><span class="line">1003</span><br><span class="line">1004</span><br><span class="line">1005</span><br><span class="line">1006</span><br><span class="line">1007</span><br><span class="line">1008</span><br><span class="line">1009</span><br><span class="line">1010</span><br><span class="line">1011</span><br><span class="line">1012</span><br><span class="line">1013</span><br><span class="line">1014</span><br><span class="line">1015</span><br><span class="line">1016</span><br><span class="line">1017</span><br><span class="line">1018</span><br><span class="line">1019</span><br><span class="line">1020</span><br><span class="line">1021</span><br><span class="line">1022</span><br><span class="line">1023</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"@platforms"</span> : [ <span class="string">"android"</span>, <span class="string">"iPhone"</span>, <span class="string">"iPad"</span> ],</span><br><span class="line">    <span class="attr">"id"</span> : <span class="string">"H553BC94C"</span>, <span class="comment">/*应用的标识，创建应用时自动生成，勿手动修改*/</span></span><br><span class="line">    <span class="attr">"name"</span> : <span class="string">"有课"</span>, <span class="comment">/*应用名称，程序桌面图标名称*/</span></span><br><span class="line">    <span class="attr">"version"</span> : &#123;</span><br><span class="line">        <span class="attr">"name"</span> : <span class="string">"1.3.3"</span>, <span class="comment">/*应用版本名称*/</span></span><br><span class="line">        <span class="attr">"code"</span> : <span class="number">4</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"description"</span> : <span class="string">""</span>, <span class="comment">/*应用描述信息*/</span></span><br><span class="line">    <span class="attr">"icons"</span> : &#123;</span><br><span class="line">        <span class="attr">"72"</span> : <span class="string">"icon.png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"launch_path"</span> : <span class="string">"index.html"</span>, <span class="comment">/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/</span></span><br><span class="line">    <span class="attr">"developer"</span> : &#123;</span><br><span class="line">        <span class="attr">"name"</span> : <span class="string">""</span>, <span class="comment">/*开发者名称*/</span></span><br><span class="line">        <span class="attr">"email"</span> : <span class="string">""</span>, <span class="comment">/*开发者邮箱地址*/</span></span><br><span class="line">        <span class="attr">"url"</span> : <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"permissions"</span> : &#123;</span><br><span class="line">        <span class="attr">"Cache"</span> : &#123;</span><br><span class="line">            <span class="attr">"description"</span> : <span class="string">"管理应用缓存"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"Console"</span> : &#123;</span><br><span class="line">            <span class="attr">"description"</span> : <span class="string">"跟踪调试输出日志"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"Events"</span> : &#123;</span><br><span class="line">            <span class="attr">"description"</span> : <span class="string">"应用扩展事件"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"Push"</span> : &#123;&#125;,</span><br><span class="line">        <span class="attr">"VideoPlayer"</span> : &#123;&#125;,</span><br><span class="line">        <span class="attr">"Speech"</span> : &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"plus"</span> : &#123;</span><br><span class="line">		<span class="attr">"locales"</span>:&#123;</span><br><span class="line">			<span class="attr">"zh"</span>: &#123;<span class="comment">//中文（简体）  </span></span><br><span class="line">				<span class="attr">"name"</span>: <span class="string">"有课"</span>,  </span><br><span class="line">				<span class="attr">"ios"</span>: &#123;  </span><br><span class="line">					<span class="attr">"privacyDescription"</span> : &#123;</span><br><span class="line">					    <span class="attr">"NSPhotoLibraryUsageDescription"</span> : <span class="string">"允许应用访问相册,用来上传图片附件功能"</span>,</span><br><span class="line">					    <span class="attr">"NSCameraUsageDescription"</span> : <span class="string">"允许应用使用相机,用来扫描二维码以及拍照功能"</span>,</span><br><span class="line">					    <span class="attr">"NSPhotoLibraryAddUsageDescription"</span> : <span class="string">"允许应用保存图片至本机,用来上传图片附件功能"</span>,</span><br><span class="line">					    <span class="attr">"NSMicrophoneUsageDescription"</span> : <span class="string">"允许应用使用麦克风,用于老师点评作业使用"</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,  </span><br><span class="line">			<span class="attr">"zh-TW"</span>: &#123;<span class="comment">//中文繁体（台湾)</span></span><br><span class="line">				<span class="attr">"name"</span>: <span class="string">"有課"</span>,</span><br><span class="line">				<span class="attr">"ios"</span>: &#123;</span><br><span class="line">					<span class="attr">"privacyDescription"</span> : &#123;</span><br><span class="line">					    <span class="attr">"NSPhotoLibraryUsageDescription"</span> : <span class="string">"允許應用訪問相冊,用來上傳圖片附件功能"</span>,</span><br><span class="line">					    <span class="attr">"NSCameraUsageDescription"</span> : <span class="string">"允許應用使用相機,用來掃描二維碼以及拍照功能"</span>,</span><br><span class="line">					    <span class="attr">"NSPhotoLibraryAddUsageDescription"</span> : <span class="string">"允許應用保存圖片至本機,用來上傳圖片附件功能"</span>,</span><br><span class="line">					    <span class="attr">"NSMicrophoneUsageDescription"</span> : <span class="string">"允許應用使用麥克風,用於老師點評作業使用"</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,  </span><br><span class="line">			<span class="attr">"zh-HK"</span>: &#123;<span class="comment">//中文繁体（香港）  </span></span><br><span class="line">				<span class="attr">"name"</span>: <span class="string">"有課"</span>,</span><br><span class="line">				<span class="attr">"ios"</span>: &#123;</span><br><span class="line">					<span class="attr">"privacyDescription"</span> : &#123;</span><br><span class="line">					    <span class="attr">"NSPhotoLibraryUsageDescription"</span> : <span class="string">"允許應用訪問相冊,用來上傳圖片附件功能"</span>,</span><br><span class="line">					    <span class="attr">"NSCameraUsageDescription"</span> : <span class="string">"允許應用使用相機,用來掃描二維碼以及拍照功能"</span>,</span><br><span class="line">					    <span class="attr">"NSPhotoLibraryAddUsageDescription"</span> : <span class="string">"允許應用保存圖片至本機,用來上傳圖片附件功能"</span>,</span><br><span class="line">					    <span class="attr">"NSMicrophoneUsageDescription"</span> : <span class="string">"允許應用使用麥克風,用於老師點評作業使用"</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,  </span><br><span class="line">			<span class="attr">"en"</span>: &#123;  </span><br><span class="line">				<span class="attr">"name"</span>: <span class="string">"UClass"</span>,</span><br><span class="line">				<span class="attr">"ios"</span>: &#123;</span><br><span class="line">					<span class="attr">"privacyDescription"</span> : &#123;</span><br><span class="line">						<span class="attr">"NSPhotoLibraryUsageDescription"</span> : <span class="string">"Alllow UClass to access your album in Settings"</span>,</span><br><span class="line">						<span class="attr">"NSCameraUsageDescription"</span> : <span class="string">"Allow UClass to access your camera in Settings"</span>,</span><br><span class="line">						<span class="attr">"NSPhotoLibraryAddUsageDescription"</span> : <span class="string">"Alllow UClass to access your album in Settings"</span>,</span><br><span class="line">						<span class="attr">"NSMicrophoneUsageDescription"</span> : <span class="string">"Allow UClass to access your microphone in Settings"</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;,  </span><br><span class="line">		<span class="attr">"safearea"</span>:&#123;</span><br><span class="line">			<span class="attr">"background"</span>:<span class="string">"#ffffff"</span>,</span><br><span class="line">			<span class="attr">"bottom"</span>:&#123;</span><br><span class="line">				<span class="attr">"offset"</span>: <span class="string">"auto"</span>    <span class="comment">/*解决iphoneX系列底部横杠问题*/</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">        <span class="attr">"splashscreen"</span> : &#123;</span><br><span class="line">            <span class="attr">"autoclose"</span> : <span class="literal">true</span>, <span class="comment">/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/</span></span><br><span class="line">            <span class="attr">"waiting"</span> : <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"popGesture"</span> : <span class="string">"close"</span>, <span class="comment">/*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/</span></span><br><span class="line">        <span class="attr">"runmode"</span> : <span class="string">"normal"</span>, <span class="comment">/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/</span></span><br><span class="line">        <span class="attr">"signature"</span> : <span class="string">"Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw=="</span>, <span class="comment">/*可选，保留给应用签名，暂不使用*/</span></span><br><span class="line">        <span class="attr">"distribute"</span> : &#123;</span><br><span class="line">            <span class="attr">"plugins"</span> : &#123;</span><br><span class="line">                <span class="attr">"push"</span> : &#123;</span><br><span class="line">                    <span class="attr">"igexin"</span> : &#123;</span><br><span class="line">                        <span class="attr">"appid"</span> : <span class="string">"PLGJS93Osc9QhkjR2iiW41"</span>,</span><br><span class="line">                        <span class="attr">"appkey"</span> : <span class="string">"hkKagRaTFV6KhZuyKnEaF9"</span>,</span><br><span class="line">                        <span class="attr">"appsecret"</span> : <span class="string">"xG4dJznxZs6xD5M8yQBl39"</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">"speech"</span> : &#123;</span><br><span class="line">                    <span class="attr">"ifly"</span> : &#123;&#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">"payment"</span> : &#123;&#125;,</span><br><span class="line">                <span class="attr">"oauth"</span> : &#123;&#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"apple"</span> : &#123;</span><br><span class="line">                <span class="attr">"appid"</span> : <span class="string">""</span>, <span class="comment">/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/</span></span><br><span class="line">                <span class="attr">"mobileprovision"</span> : <span class="string">""</span>, <span class="comment">/*iOS应用打包配置文件*/</span></span><br><span class="line">                <span class="attr">"password"</span> : <span class="string">""</span>, <span class="comment">/*iOS应用打包个人证书导入密码*/</span></span><br><span class="line">                <span class="attr">"p12"</span> : <span class="string">""</span>, <span class="comment">/*iOS应用打包个人证书，打包配置文件关联的个人证书*/</span></span><br><span class="line">                <span class="attr">"devices"</span> : <span class="string">"universal"</span>, <span class="comment">/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/</span></span><br><span class="line">                <span class="attr">"frameworks"</span> : [],</span><br><span class="line">                <span class="attr">"privacyDescription"</span> : &#123;</span><br><span class="line">                    <span class="attr">"NSPhotoLibraryUsageDescription"</span> : <span class="string">"允许应用访问相册,用来上传图片附件功能"</span>,</span><br><span class="line">                    <span class="attr">"NSCameraUsageDescription"</span> : <span class="string">"允许应用使用相机,用来扫描二维码以及拍照功能"</span>,</span><br><span class="line">                    <span class="attr">"NSPhotoLibraryAddUsageDescription"</span> : <span class="string">"允许应用保存图片至本机，用来上传图片附件功能"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"google"</span> : &#123;</span><br><span class="line">                <span class="attr">"packagename"</span> : <span class="string">""</span>, <span class="comment">/*Android应用包名，如io.dcloud.HelloH5*/</span></span><br><span class="line">                <span class="attr">"keystore"</span> : <span class="string">""</span>, <span class="comment">/*Android应用打包使用的密库文件*/</span></span><br><span class="line">                <span class="attr">"password"</span> : <span class="string">""</span>, <span class="comment">/*Android应用打包使用密钥库中证书的密码*/</span></span><br><span class="line">                <span class="attr">"aliasname"</span> : <span class="string">""</span>, <span class="comment">/*Android应用打包使用密钥库中证书的别名*/</span></span><br><span class="line">                <span class="attr">"permissions"</span> : [</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.CALL_PHONE\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.CAMERA\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.INTERNET\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.RECORD_AUDIO\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.SYSTEM_ALERT_WINDOW\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.VIBRATE\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.WAKE_LOCK\"/&gt;"</span>,</span><br><span class="line">                    <span class="string">"&lt;uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/&gt;"</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"orientation"</span> : [ <span class="string">"portrait-primary"</span> ], <span class="comment">/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/</span></span><br><span class="line">            <span class="attr">"icons"</span> : &#123;</span><br><span class="line">                <span class="attr">"ios"</span> : &#123;</span><br><span class="line">                    <span class="attr">"prerendered"</span> : <span class="literal">true</span>, <span class="comment">/*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">/*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/</span></span><br><span class="line">                    <span class="attr">"iphone"</span> : &#123;</span><br><span class="line">                        <span class="attr">"normal"</span> : <span class="string">""</span>, <span class="comment">/*iPhone3/3GS程序图标，分辨率：57x57*/</span></span><br><span class="line">                        <span class="attr">"retina"</span> : <span class="string">""</span>, <span class="comment">/*iPhone4程序图标，分辨率：114x114*/</span></span><br><span class="line"></span><br><span class="line">                        <span class="comment">/*iPhone4S/5/6程序图标，分辨率：120x120*/</span><span class="comment">/*iPhone6 Plus程序图标，分辨率：180x180*/</span></span><br><span class="line">                        <span class="attr">"spotlight-normal"</span> : <span class="string">""</span>, <span class="comment">/*iPhone3/3GS Spotlight搜索程序图标，分辨率：29x29*/</span></span><br><span class="line">                        <span class="attr">"spotlight-retina"</span> : <span class="string">""</span>, <span class="comment">/*iPhone4 Spotlight搜索程序图标，分辨率：58x58*/</span></span><br><span class="line"></span><br><span class="line">                        <span class="comment">/*iPhone4S/5/6 Spotlight搜索程序图标，分辨率：80x80*/</span></span><br><span class="line">                        <span class="attr">"settings-normal"</span> : <span class="string">""</span>, <span class="comment">/*iPhone4设置页面程序图标，分辨率：29x29*/</span></span><br><span class="line"></span><br><span class="line">                        <span class="comment">/*iPhone4S/5/6设置页面程序图标，分辨率：58x58*/</span></span><br><span class="line">                        <span class="attr">"app@2x"</span> : <span class="string">"unpackage/res/icons/120x120.png"</span>,</span><br><span class="line">                        <span class="attr">"app@3x"</span> : <span class="string">"unpackage/res/icons/180x180.png"</span>,</span><br><span class="line">                        <span class="attr">"settings@3x"</span> : <span class="string">"unpackage/res/icons/87x87.png"</span>,</span><br><span class="line">                        <span class="attr">"settings@2x"</span> : <span class="string">"unpackage/res/icons/58x58.png"</span>,</span><br><span class="line">                        <span class="attr">"spotlight@2x"</span> : <span class="string">"unpackage/res/icons/80x80.png"</span>,</span><br><span class="line">                        <span class="attr">"spotlight@3x"</span> : <span class="string">"unpackage/res/icons/120x120.png"</span>,</span><br><span class="line">                        <span class="attr">"notification@3x"</span> : <span class="string">"unpackage/res/icons/60x60.png"</span>,</span><br><span class="line">                        <span class="attr">"notification@2x"</span> : <span class="string">"unpackage/res/icons/40x40.png"</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"ipad"</span> : &#123;</span><br><span class="line">                        <span class="attr">"normal"</span> : <span class="string">""</span>, <span class="comment">/*iPad普通屏幕程序图标，分辨率：72x72*/</span></span><br><span class="line">                        <span class="attr">"retina"</span> : <span class="string">""</span>, <span class="comment">/*iPad高分屏程序图标，分辨率：144x144*/</span></span><br><span class="line"></span><br><span class="line">                        <span class="comment">/*iPad iOS7程序图标，分辨率：76x76*/</span><span class="comment">/*iPad iOS7高分屏程序图标，分辨率：152x152*/</span></span><br><span class="line">                        <span class="attr">"spotlight-normal"</span> : <span class="string">""</span>, <span class="comment">/*iPad Spotlight搜索程序图标，分辨率：50x50*/</span></span><br><span class="line">                        <span class="attr">"spotlight-retina"</span> : <span class="string">""</span>, <span class="comment">/*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/</span></span><br><span class="line"></span><br><span class="line">                        <span class="comment">/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/</span><span class="comment">/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/</span><span class="comment">/*iPad设置页面程序图标，分辨率：29x29*/</span></span><br><span class="line">                        <span class="attr">"app"</span> : <span class="string">"unpackage/res/icons/76x76.png"</span>,</span><br><span class="line">                        <span class="attr">"app@2x"</span> : <span class="string">"unpackage/res/icons/152x152.png"</span>,</span><br><span class="line">                        <span class="attr">"settings"</span> : <span class="string">"unpackage/res/icons/29x29.png"</span>,</span><br><span class="line">                        <span class="attr">"proapp@2x"</span> : <span class="string">"unpackage/res/icons/167x167.png"</span>,</span><br><span class="line">                        <span class="attr">"spotlight"</span> : <span class="string">"unpackage/res/icons/40x40.png"</span>,</span><br><span class="line">                        <span class="attr">"settings@2x"</span> : <span class="string">"unpackage/res/icons/58x58.png"</span>,</span><br><span class="line">                        <span class="attr">"notification"</span> : <span class="string">"unpackage/res/icons/20x20.png"</span>,</span><br><span class="line">                        <span class="attr">"spotlight@2x"</span> : <span class="string">"unpackage/res/icons/80x80.png"</span>,</span><br><span class="line">                        <span class="attr">"notification@2x"</span> : <span class="string">"unpackage/res/icons/40x40.png"</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"appstore"</span> : <span class="string">"unpackage/res/icons/1024x1024.png"</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">"android"</span> : &#123;</span><br><span class="line">                    <span class="attr">"mdpi"</span> : <span class="string">"unpackage/res/icons/48x48.png"</span>, <span class="comment">/*普通屏程序图标，分辨率：48x48*/</span></span><br><span class="line">                    <span class="attr">"ldpi"</span> : <span class="string">"unpackage/res/icons/48x48.png"</span>, <span class="comment">/*大屏程序图标，分辨率：48x48*/</span></span><br><span class="line">                    <span class="attr">"hdpi"</span> : <span class="string">"unpackage/res/icons/72x72.png"</span>, <span class="comment">/*高分屏程序图标，分辨率：72x72*/</span></span><br><span class="line">                    <span class="attr">"xhdpi"</span> : <span class="string">"unpackage/res/icons/96x96.png"</span>, <span class="comment">/*720P高分屏程序图标，分辨率：96x96*/</span></span><br><span class="line">                    <span class="attr">"xxhdpi"</span> : <span class="string">"unpackage/res/icons/144x144.png"</span>,</span><br><span class="line">                    <span class="attr">"xxxhdpi"</span> : <span class="string">"unpackage/res/icons/192x192.png"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"splashscreen"</span> : &#123;</span><br><span class="line">                <span class="attr">"ios"</span> : &#123;</span><br><span class="line">                    <span class="attr">"iphone"</span> : &#123;</span><br><span class="line">                        <span class="attr">"default"</span> : <span class="string">""</span>, <span class="comment">/*iPhone3启动图片选，分辨率：320x480*/</span></span><br><span class="line">                        <span class="attr">"retina35"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/Android720x1280.png"</span>, <span class="comment">/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/</span></span><br><span class="line">                        <span class="attr">"retina40"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/Android720x1280.png"</span>, <span class="comment">/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/</span></span><br><span class="line">                        <span class="attr">"retina47"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/Android375x667.png"</span>, <span class="comment">/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/</span></span><br><span class="line">                        <span class="attr">"retina55"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/iPhoneX1125x2436.png"</span>, <span class="comment">/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/</span></span><br><span class="line">                        <span class="attr">"retina55l"</span> : <span class="string">""</span>,</span><br><span class="line">                        <span class="attr">"iphonex"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/iPhoneX1125x2436.png"</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"ipad"</span> : &#123;</span><br><span class="line">                        <span class="attr">"portrait"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/Android720x1280.png"</span>, <span class="comment">/*iPad竖屏启动图片，分辨率：768x1004*/</span></span><br><span class="line"></span><br><span class="line">                        <span class="comment">/*iPad高分屏竖屏图片，分辨率：1536x2008*/</span></span><br><span class="line">                        <span class="attr">"landscape"</span> : <span class="string">""</span>, <span class="comment">/*iPad横屏启动图片，分辨率：1024x748*/</span></span><br><span class="line">                        <span class="attr">"landscape-retina"</span> : <span class="string">""</span>, <span class="comment">/*iPad高分屏横屏启动图片，分辨率：2048x1496*/</span></span><br><span class="line">                        <span class="attr">"portrait7"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/Android720x1280.png"</span>, <span class="comment">/*iPad iOS7竖屏启动图片，分辨率：768x1024*/</span></span><br><span class="line">                        <span class="attr">"portrait-retina7"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/ipad 1536X2048.png"</span>, <span class="comment">/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/</span></span><br><span class="line">                        <span class="attr">"landscape7"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/Android1080x1920.png"</span>, <span class="comment">/*iPad iOS7横屏启动图片，分辨率：1024x768*/</span></span><br><span class="line">                        <span class="attr">"landscape-retina7"</span> : <span class="string">""</span>,</span><br><span class="line">                        <span class="attr">"portrait-retina"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/ipad 1536X2048.png"</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">"android"</span> : &#123;</span><br><span class="line">                    <span class="attr">"mdpi"</span> : <span class="string">""</span>, <span class="comment">/*普通屏启动图片，分辨率：240x282*/</span></span><br><span class="line">                    <span class="attr">"ldpi"</span> : <span class="string">""</span>, <span class="comment">/*大屏启动图片，分辨率：320x442*/</span></span><br><span class="line">                    <span class="attr">"hdpi"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/Android375x667.png"</span>, <span class="comment">/*高分屏启动图片，分辨率：480x762*/</span></span><br><span class="line">                    <span class="attr">"xhdpi"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/Android720x1280.png"</span>, <span class="comment">/*720P高分屏启动图片，分辨率：720x1242*/</span></span><br><span class="line">                    <span class="attr">"xxhdpi"</span> : <span class="string">"D:/work/uclass-xiaobu/sc-wxstu/static/images/app_config/Android1080x1920.png"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"dependencies"</span> : &#123;</span><br><span class="line">        <span class="attr">"pages"</span> : &#123;</span><br><span class="line">            <span class="attr">"index.html"</span> : &#123;</span><br><span class="line">                <span class="attr">"href"</span> : <span class="string">"index.html"</span>,</span><br><span class="line">                <span class="attr">"resources"</span> : [ <span class="string">"static/svg/loading.svg"</span> ],</span><br><span class="line">                <span class="attr">"priority"</span> : <span class="number">0</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"idle"</span> : &#123;</span><br><span class="line">            <span class="attr">"resources"</span> : [</span><br><span class="line">                <span class="string">"static/images/teacher/delete_img.png"</span>,</span><br><span class="line">                <span class="string">"static/js/26.2e209f7a31c67645cd17.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_btn_xz@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/sjz_qh@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/40.0d52cfa1c7d05d87380a.js"</span>,</span><br><span class="line">                <span class="string">"static/js/5.70e29c0a6329537db4b2.js"</span>,</span><br><span class="line">                <span class="string">"static/js/16.18e0ca2fb6b0fdb39904.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/course/3.png"</span>,</span><br><span class="line">                <span class="string">"static/images/sjz_g@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_xq_tz@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/76.a945c2b73d728c061af3.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/sjz_sh@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/good_big.png"</span>,</span><br><span class="line">                <span class="string">"static/js/record.js"</span>,</span><br><span class="line">                <span class="string">"static/js/33.f53b62dd3c0c6619122b.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/footer_msg.png"</span>,</span><br><span class="line">                <span class="string">"static/lang/zh-CN.js"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_kp_bg@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/course_bg_gray@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/14.68e1922ee459f196bf8b.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/hu.js"</span>,</span><br><span class="line">                <span class="string">"static/img/8-bg.07ae696.png"</span>,</span><br><span class="line">                <span class="string">"static/js/6.b2048bdcbb1f969aefdf.js"</span>,</span><br><span class="line">                <span class="string">"static/js/56.fc5005d969da42c68bc0.js"</span>,</span><br><span class="line">                <span class="string">"static/js/27.1326df69a26889652fd6.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/xitong.png"</span>,</span><br><span class="line">                <span class="string">"static/images/login/ico_fuwuqidizhi@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/courseware/detail.css"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/courseware_blue.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/url.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/ko.js"</span>,</span><br><span class="line">                <span class="string">"static/images/login/ico_mima.png"</span>,</span><br><span class="line">                <span class="string">"static/js/teacher/reg.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/ja.js"</span>,</span><br><span class="line">                <span class="string">"static/js/71.6905b7eca93d75949006.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/no_n.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/bg.js"</span>,</span><br><span class="line">                <span class="string">"static/js/10.b9083fe2d547cdc4b9c6.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/icon_kecheng@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/responder-ok.png"</span>,</span><br><span class="line">                <span class="string">"static/images/more@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/edit@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/39.2c7f53f140893d7d48d3.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/renwu.png"</span>,</span><br><span class="line">                <span class="string">"static/js/util.js"</span>,</span><br><span class="line">                <span class="string">"static/css/student/course/interaction.css"</span>,</span><br><span class="line">                <span class="string">"static/js/35.6cb97a5cf8e96c570a3b.js"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/url.png"</span>,</span><br><span class="line">                <span class="string">"static/js/40.0d52cfa1c7d05d87380a.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/course/icon_saoma.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/footer_course1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/5.70e29c0a6329537db4b2.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_launch_s@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/app_config/start_icon2.png"</span>,</span><br><span class="line">                <span class="string">"static/js/42.b6dd165ebc6c1378bcf8.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_tx_bg@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_face_female.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/user.png"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/ppt.png"</span>,</span><br><span class="line">                <span class="string">"static/js/16.18e0ca2fb6b0fdb39904.js"</span>,</span><br><span class="line">                <span class="string">"static/js/27.1326df69a26889652fd6.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/ka.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseList_bg_red.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/blackpic@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseware_zi.png"</span>,</span><br><span class="line">                <span class="string">"static/images/login/ico_tishi@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/pdf.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/2-s.png"</span>,</span><br><span class="line">                <span class="string">"static/js/32.26a5a6fd92f00e0289c2.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/sv.js"</span>,</span><br><span class="line">                <span class="string">"static/images/course/2-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/card-green.png"</span>,</span><br><span class="line">                <span class="string">"static/css/app.a147bb1114e3b5709cf48eb9c1574424.css"</span>,</span><br><span class="line">                <span class="string">"static/img/5.b8926d4.png"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/audio.png"</span>,</span><br><span class="line">                <span class="string">"static/js/19.85afabdaf045c2519b74.js"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/excel-s.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/plus.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_bg_c@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/login/banner@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/btn-group.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_cw_bg@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/65.821ff86b65ac72900f2f.js"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_g@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/css/student/task.css"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/course_bg_blue@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/24.77d4995a6babde8d114f.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/th_TH.js"</span>,</span><br><span class="line">                <span class="string">"static/css/courseDetailCommon.css"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/loading.gif"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/pt_BR.js"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_t@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/girl.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/voice-rec.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_launch_s@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/top@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/19.85afabdaf045c2519b74.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/de.js"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/missionDetail.css"</span>,</span><br><span class="line">                <span class="string">"static/js/56.fc5005d969da42c68bc0.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/74.078e4d992daa0653a8cc.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/video.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/msg.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_xz_g@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_xh_bg@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseList_bg_zi.png"</span>,</span><br><span class="line">                <span class="string">"static/img/6-bg.70615bc.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_xz_g@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/ku_IQ.js"</span>,</span><br><span class="line">                <span class="string">"static/js/68.733eacf4768630deb831.js.map"</span>,</span><br><span class="line">                <span class="string">"static/img/7-bg.2f62feb.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_nice_l@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/rednow@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/more_w@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/17.6abbaa99245e826047f5.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/37.65535faa1f357f16f702.js"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/video.png"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_g_1@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseware_orange.png"</span>,</span><br><span class="line">                <span class="string">"static/css/quiz.css"</span>,</span><br><span class="line">                <span class="string">"static/images/mustcard@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/quiz-wrong.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_mes_g@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/config/app-config.json"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/no3.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/shangla_more.png"</span>,</span><br><span class="line">                <span class="string">"static/images/boy@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/css/student/group/vote.css"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_btn_mr@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/9.005d3c492b7abd559677.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/da.js"</span>,</span><br><span class="line">                <span class="string">"static/images/pic@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/USB@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/check_box2.png"</span>,</span><br><span class="line">                <span class="string">"static/js/55.4ab8e60895318983eaf6.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_cy@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/footer_msg.png"</span>,</span><br><span class="line">                <span class="string">"static/css/student/group/index.css"</span>,</span><br><span class="line">                <span class="string">"static/css/course.css"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_right_g@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/page@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/btn_wd_tj@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/delete_img.png"</span>,</span><br><span class="line">                <span class="string">"static/images/up_rs@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_right_s_g@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/rar.png"</span>,</span><br><span class="line">                <span class="string">"static/font/icomoon.ttf"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/minx.png"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/course/detail.css"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/duoxuan_small.png"</span>,</span><br><span class="line">                <span class="string">"static/js/46.2aced9230cd815686141.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/course_bg_yellow@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/ppt.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/4.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/el.js"</span>,</span><br><span class="line">                <span class="string">"static/images/delete@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/photoswipe/default-skin/preloader.gif"</span>,</span><br><span class="line">                <span class="string">"static/js/class-quiz/index.js"</span>,</span><br><span class="line">                <span class="string">"static/img/4.b0801bb.png"</span>,</span><br><span class="line">                <span class="string">"static/images/launch@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_xh_r@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseList_bg_zi@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/card_yellow.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/shangla_more1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/53.fcea8d2e276463b5f13e.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/dele_s@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_book_g@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseList_bg_pink.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/report-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/images/login/ico_mima@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/28.5818d59dace26f3dbf8e.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/plupload.full.min.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/nl.js"</span>,</span><br><span class="line">                <span class="string">"static/js/68.733eacf4768630deb831.js"</span>,</span><br><span class="line">                <span class="string">"static/images/wechat/student.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_mes@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/list_delete.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseList_bg_green@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/close_tc@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/photoswipe/default-skin/default-skin.svg"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/moxie.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/moxie.min.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_mes@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/ppt_1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/23.02b9f64c1831f5f6d17c.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_fin@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/54.019b9806e164eb68499e.js"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/url-s.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/danxuan_small.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/whiteplus.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/footer_msg_on.png"</span>,</span><br><span class="line">                <span class="string">"static/images/login/ico_xuehao.png"</span>,</span><br><span class="line">                <span class="string">"static/js/22.1372eba9688406e9a888.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/49.34a5ee6e610c7934bf29.js.map"</span>,</span><br><span class="line">                <span class="string">"static/css/common.css"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/green_now_1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/photoswipe/photoswipe.min.js"</span>,</span><br><span class="line">                <span class="string">"static/js/63.d3510f4e0e4eefe64c6b.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/card_red.png"</span>,</span><br><span class="line">                <span class="string">"static/js/manifest.da10c0ea397152ee43b4.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_bg_z@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/whiteplus.png"</span>,</span><br><span class="line">                <span class="string">"static/images/sjz_g@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/close_tc@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/course/course-common.js"</span>,</span><br><span class="line">                <span class="string">"static/css/student/course/detail.css"</span>,</span><br><span class="line">                <span class="string">"static/img/8.111135d.png"</span>,</span><br><span class="line">                <span class="string">"static/images/sjz_qh@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/50.b0c4c66c0111e1e3635d.js"</span>,</span><br><span class="line">                <span class="string">"static/js/8.ea9c8e9d4b70d277e92b.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/13.22c2b93aa0508d520996.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/ru.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_xz_w@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/photoswipe/default-skin/default-skin.css"</span>,</span><br><span class="line">                <span class="string">"static/images/course/5-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/daantongji.png"</span>,</span><br><span class="line">                <span class="string">"static/js/photoswipe/photoswipe.css"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_bg_sh@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/9.005d3c492b7abd559677.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseList_bg_green.png"</span>,</span><br><span class="line">                <span class="string">"static/js/63.d3510f4e0e4eefe64c6b.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/close@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/footer_mine_on.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_book@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/img/word.a91ffb8.png"</span>,</span><br><span class="line">                <span class="string">"static/images/pic-s@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/footer_course_on1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/course_bg_zi@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/btn_r_b@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/48.0e1627cbf94504061dc7.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/courseware_orange.png"</span>,</span><br><span class="line">                <span class="string">"static/images/app_config/return.png"</span>,</span><br><span class="line">                <span class="string">"static/images/app_config/Android720x1280.png"</span>,</span><br><span class="line">                <span class="string">"static/images/personalCenter/jiantou_right@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_t@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/missionItem.css"</span>,</span><br><span class="line">                <span class="string">"static/js/0.5a0076969dd89e2068d6.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/up_rs@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/icon_saoma@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/1-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/excel.png"</span>,</span><br><span class="line">                <span class="string">"static/css/student/group/vote-result.css"</span>,</span><br><span class="line">                <span class="string">"static/images/page@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/course_bg_green@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/logo-admin-login.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_right_s_g@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_xq_zs@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ketang.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/left_line.png"</span>,</span><br><span class="line">                <span class="string">"static/js/29.6eaeabde1c2d204e7fb2.js.map"</span>,</span><br><span class="line">                <span class="string">"static/css/student/course.css"</span>,</span><br><span class="line">                <span class="string">"static/js/60.2be964a16727732621bd.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/57.a0ab6885cde4b53cddf3.js.map"</span>,</span><br><span class="line">                <span class="string">"static/css/cropper.css"</span>,</span><br><span class="line">                <span class="string">"static/images/course/1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/ico_now@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/7-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/plupload.dev.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/right_line.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/duoxuan_samll1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/62.df120f08dd6de7cb3ad5.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/xiala_more.png"</span>,</span><br><span class="line">                <span class="string">"static/images/sjz_sh@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/panduan_small.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/sk.js"</span>,</span><br><span class="line">                <span class="string">"static/js/38.07570ba8f93e5b1da25f.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/footer_course.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_f@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/73.bd7bcfbcb7596fe607ca.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/wenda1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_r@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/2.479db8c5381e52b4094b.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/17.6abbaa99245e826047f5.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/list_edit.png"</span>,</span><br><span class="line">                <span class="string">"static/images/pic_delete@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_g_1@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_cw_bg@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/delete@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/75.f75b137dff93584306c2.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/dianxing.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/2.png"</span>,</span><br><span class="line">                <span class="string">"static/js/zepto.min.js"</span>,</span><br><span class="line">                <span class="string">"static/images/pic-s@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/group/stu-move.css"</span>,</span><br><span class="line">                <span class="string">"static/images/btn_r_w@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/close@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/54.019b9806e164eb68499e.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/me_g@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/74.078e4d992daa0653a8cc.js"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/course/groupDetail.css"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_bg_sh@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/37.65535faa1f357f16f702.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/word.png"</span>,</span><br><span class="line">                <span class="string">"static/images/word@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/add-stu.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/danxuan1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/8-s.png"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/group/info.css"</span>,</span><br><span class="line">                <span class="string">"static/images/login/ico_tishi.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/duoxuan1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/close.png"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/excel.png"</span>,</span><br><span class="line">                <span class="string">"static/js/33.f53b62dd3c0c6619122b.js"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/video_1.png"</span>,</span><br><span class="line">                <span class="string">"static/css/student/discuss/free.css"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/panduan_small1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/36.e2314e7b3fdff24cc7c0.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/image.png"</span>,</span><br><span class="line">                <span class="string">"static/js/3.5776986484d75528975e.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/ppt-s.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/et.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/red_now.png"</span>,</span><br><span class="line">                <span class="string">"static/images/btn_r_w@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/55.4ab8e60895318983eaf6.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/45.651e51522305da41208a.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/25.e8357b9f3da064dc2104.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_btn_xz@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/responder-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/fonts/MaterialIcons-Regular.570eb83.woff2"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_tx_zz@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/audio-1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/72.b18f4d06e605b404b0c9.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/list_delete_course.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/fa.js"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/pdf_1.png"</span>,</span><br><span class="line">                <span class="string">"static/css/student/group/jump.css"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_right@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/38.07570ba8f93e5b1da25f.js"</span>,</span><br><span class="line">                <span class="string">"static/js/photoswipe/photoswipe-ui-default.js"</span>,</span><br><span class="line">                <span class="string">"static/js/61.f653095737f99f319a58.js"</span>,</span><br><span class="line">                <span class="string">"static/img/1.fc2374e.png"</span>,</span><br><span class="line">                <span class="string">"static/js/76.a945c2b73d728c061af3.js"</span>,</span><br><span class="line">                <span class="string">"static/js/30.492abee30cefd9a94f5e.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/0.5a0076969dd89e2068d6.js"</span>,</span><br><span class="line">                <span class="string">"static/js/29.6eaeabde1c2d204e7fb2.js"</span>,</span><br><span class="line">                <span class="string">"static/img/1-bg.f9622db.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseList_bg_blue.png"</span>,</span><br><span class="line">                <span class="string">"static/js/66.bc9e62a02f6b6dffba73.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/share.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_nice_s@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_xh_bg@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/3-s.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/dianzan.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_nice_l@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/btn_wd_tj@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/nice@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/53.fcea8d2e276463b5f13e.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseware_green_left.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/6-s.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/it.js"</span>,</span><br><span class="line">                <span class="string">"static/js/49.34a5ee6e610c7934bf29.js"</span>,</span><br><span class="line">                <span class="string">"static/images/course/8.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_cy@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/kc_banner_mzd@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/no1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/audio-3.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/stu-no-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/js/21.19cca0ccf09f52f1fe65.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/sr.js"</span>,</span><br><span class="line">                <span class="string">"static/css/student/user/validate-new-phone.css"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/footer_course_on.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/course_bg_orange@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/login/ico_xuehao@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/az.js"</span>,</span><br><span class="line">                <span class="string">"static/js/34.808020b1b786ff046f33.js"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_tx_zz@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/card_pink.png"</span>,</span><br><span class="line">                <span class="string">"static/images/personalCenter/headPhoto.jpg"</span>,</span><br><span class="line">                <span class="string">"static/js/22.1372eba9688406e9a888.js"</span>,</span><br><span class="line">                <span class="string">"static/img/3.ad6619e.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/icon_kecheng_xuanzhong@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/13.22c2b93aa0508d520996.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/edi_zm@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_kp_bg@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/73.bd7bcfbcb7596fe607ca.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/after.png"</span>,</span><br><span class="line">                <span class="string">"static/js/72.b18f4d06e605b404b0c9.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/manifest.da10c0ea397152ee43b4.js"</span>,</span><br><span class="line">                <span class="string">"static/images/blackpic@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/user/center.js"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/word_1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/44.639a93c28f5a1788ca1e.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/reupload@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_tx_bg_s@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/male.png"</span>,</span><br><span class="line">                <span class="string">"static/js/47.9e4fea3527f8f8d33c0e.js"</span>,</span><br><span class="line">                <span class="string">"static/images/course/empty-schedule.png"</span>,</span><br><span class="line">                <span class="string">"static/js/25.e8357b9f3da064dc2104.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_book@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/video-s.png"</span>,</span><br><span class="line">                <span class="string">"static/font/MaterialIcons-Regular.woff2"</span>,</span><br><span class="line">                <span class="string">"static/js/31.b4efd46f891c4f68adef.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/Houses@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/css/student/class-quiz/index.css"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/bs.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/rednow@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/autoTextarea.js"</span>,</span><br><span class="line">                <span class="string">"static/js/60.2be964a16727732621bd.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_r@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/51.62a5a2b1be68b5cec8bd.js"</span>,</span><br><span class="line">                <span class="string">"static/js/43.a87a8c120bd2f9a9e5d4.js"</span>,</span><br><span class="line">                <span class="string">"static/js/41.b3fe7c5923d1a4f9b0f6.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/word@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_nice_s@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_kx_cg@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/nice@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/fr.js"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_xq_tm@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/audio-2.png"</span>,</span><br><span class="line">                <span class="string">"static/images/top@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/rotate.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/txt_1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/more_right_arrow.png"</span>,</span><br><span class="line">                <span class="string">"static/images/app_config/start_icon.png"</span>,</span><br><span class="line">                <span class="string">"static/images/app_config/Android375x667.png"</span>,</span><br><span class="line">                <span class="string">"static/js/vendor.84d599022bb33b0b6aae.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/card_gray.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/group-stu-index.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/zhanweitu_wuxiaoxi.png"</span>,</span><br><span class="line">                <span class="string">"static/images/search@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/st_g@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_zq_bg@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/hm-commit-success.png"</span>,</span><br><span class="line">                <span class="string">"static/images/mustcard@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/hr.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/close_tc@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/css/student/group/board.css"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/wenda_small1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/duoxuan_small1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/43.a87a8c120bd2f9a9e5d4.js.map"</span>,</span><br><span class="line">                <span class="string">"static/font/cour.ttf"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/comment-more.png"</span>,</span><br><span class="line">                <span class="string">"static/js/4.44be454250d9e3649a40.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_right_g@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/btn_r_b@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/edit_green.png"</span>,</span><br><span class="line">                <span class="string">"static/js/46.2aced9230cd815686141.js.map"</span>,</span><br><span class="line">                <span class="string">"static/css/student/course/responder.css"</span>,</span><br><span class="line">                <span class="string">"static/js/28.5818d59dace26f3dbf8e.js"</span>,</span><br><span class="line">                <span class="string">"static/images/search@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/word-s.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/km.js"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_g_bg@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/boy@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/img/3-bg.903ec0a.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/fi.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/plupload.min.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_kjzy@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/img/pdf.bd8f8ab.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/image.png"</span>,</span><br><span class="line">                <span class="string">"static/images/nice_s_s@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/girl@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/orange_title.png"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_g@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/group-btn.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/shoucang_on.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/prev.png"</span>,</span><br><span class="line">                <span class="string">"static/css/student/course/board.css"</span>,</span><br><span class="line">                <span class="string">"static/img/2.ca5b2cc.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/wenda_small.png"</span>,</span><br><span class="line">                <span class="string">"static/js/47.9e4fea3527f8f8d33c0e.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/bg_dian@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/footer_msg_on.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/share.png"</span>,</span><br><span class="line">                <span class="string">"static/images/selectcard@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/mp3.png"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/courseware_green.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/people@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/1.51bbc5b102a31e3b4274.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/courseware-index.jpg"</span>,</span><br><span class="line">                <span class="string">"static/images/login/ico_qingchu@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/rar(1)@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/daifabu.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/footer_course_on.png"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/txt-s.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/right.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/panduan.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/panduan1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_f@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/app_config/Android1080x1920.png"</span>,</span><br><span class="line">                <span class="string">"static/js/66.bc9e62a02f6b6dffba73.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/course_bg_qing@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/question_more.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/kk.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/good.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/delete@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/7-s.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/4-s.png"</span>,</span><br><span class="line">                <span class="string">"static/css/weui.css"</span>,</span><br><span class="line">                <span class="string">"static/css/app.a147bb1114e3b5709cf48eb9c1574424.css.map"</span>,</span><br><span class="line">                <span class="string">"static/js/7.a25eeb813f874473b08b.js"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/ico_right.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/7.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/no2.png"</span>,</span><br><span class="line">                <span class="string">"static/images/group@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/Moxie.xap"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_face_male.png"</span>,</span><br><span class="line">                <span class="string">"static/images/pic@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/img/banner.90232c3.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_bg_c@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/11.0b6b5a4434f53e174d27.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_kx_cg@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/footer_mine.png"</span>,</span><br><span class="line">                <span class="string">"static/js/61.f653095737f99f319a58.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/footer_mine_on.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_mes_g@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/doc.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/bangdingshoujichenggong@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/img/7.f02a1f0.png"</span>,</span><br><span class="line">                <span class="string">"static/js/15.deffd44a3ab386e462af.js"</span>,</span><br><span class="line">                <span class="string">"static/css/vueWeui.min.css"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/pdf.png"</span>,</span><br><span class="line">                <span class="string">"static/images/blackpic@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/user/reg.js"</span>,</span><br><span class="line">                <span class="string">"static/js/app.c5f16e22c4f6dc7904e3.js"</span>,</span><br><span class="line">                <span class="string">"static/js/8.ea9c8e9d4b70d277e92b.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/voice.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_book_g@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quanbu.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/voice-rec.jpg"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_tx_bg_s@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/img/4-bg.2d9170d.png"</span>,</span><br><span class="line">                <span class="string">"static/images/bg_dian@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/rem-px.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_kthd@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/css/student/group/screen.css"</span>,</span><br><span class="line">                <span class="string">"static/js/57.a0ab6885cde4b53cddf3.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/hy.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/danxuan_small1.png"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/course/chooseTeam.css"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/attach.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/lt.js"</span>,</span><br><span class="line">                <span class="string">"static/images/course/3-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_bg_z@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/es.js"</span>,</span><br><span class="line">                <span class="string">"static/images/group@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/female.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/zh_TW.js"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/edit_green.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/red_now_1.png"</span>,</span><br><span class="line">                <span class="string">"static/img/5-bg.339e113.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/Bench 2@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/ico_right_g.png"</span>,</span><br><span class="line">                <span class="string">"static/js/1.51bbc5b102a31e3b4274.js"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/txt.png"</span>,</span><br><span class="line">                <span class="string">"static/images/edit@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/31.b4efd46f891c4f68adef.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseList_bg_gray.png"</span>,</span><br><span class="line">                <span class="string">"static/js/20.8e61d518fe12def5beeb.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/75.f75b137dff93584306c2.js"</span>,</span><br><span class="line">                <span class="string">"static/js/44.639a93c28f5a1788ca1e.js"</span>,</span><br><span class="line">                <span class="string">"static/images/st_g@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/like.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/no-attach.png"</span>,</span><br><span class="line">                <span class="string">"static/js/32.26a5a6fd92f00e0289c2.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/boy.png"</span>,</span><br><span class="line">                <span class="string">"static/js/59.27757db0ab06829db933.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/dele_s@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_xq_tz@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/5-s.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/left_arrow.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/he.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/no_2.png"</span>,</span><br><span class="line">                <span class="string">"static/js/23.02b9f64c1831f5f6d17c.js"</span>,</span><br><span class="line">                <span class="string">"static/images/checkUpdate/tanchuangtou.png"</span>,</span><br><span class="line">                <span class="string">"static/js/58.29d13a0cb0a209a2a890.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/leader.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/yiyue.png"</span>,</span><br><span class="line">                <span class="string">"static/css/cropper.min.css"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/wrong.png"</span>,</span><br><span class="line">                <span class="string">"static/images/more@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_me@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/1-s.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/edit.png"</span>,</span><br><span class="line">                <span class="string">"static/js/photoswipe/default-skin/default-skin.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/danxuan.png"</span>,</span><br><span class="line">                <span class="string">"static/images/time-out.png"</span>,</span><br><span class="line">                <span class="string">"static/js/64.a5373ce9d1f41c504a8f.js"</span>,</span><br><span class="line">                <span class="string">"static/images/rednow@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_tx_bg@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_right@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/6.b2048bdcbb1f969aefdf.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/quiz-right.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/6.png"</span>,</span><br><span class="line">                <span class="string">"config/app-config.json"</span>,</span><br><span class="line">                <span class="string">"static/js/18.6f3d829c90c19e7e3a1f.js"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_xq_zs@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/11.0b6b5a4434f53e174d27.js.map"</span>,</span><br><span class="line">                <span class="string">"static/css/teacherCommon.css"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/course/addGroup.css"</span>,</span><br><span class="line">                <span class="string">"static/css/student/group/list.css"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/duoxuan.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/excel_1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/uk_UA.js"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/liked.png"</span>,</span><br><span class="line">                <span class="string">"static/images/upload@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/weui.js"</span>,</span><br><span class="line">                <span class="string">"static/svg/audio.svg"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/teacher_pagedown@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_g_bg@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/edi_zm@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseware_blue.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/green_now.png"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_btn_mr@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/discuss/wall.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/USB(1)@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/62.df120f08dd6de7cb3ad5.js"</span>,</span><br><span class="line">                <span class="string">"static/css/question.css"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/ar.js"</span>,</span><br><span class="line">                <span class="string">"static/js/app.c5f16e22c4f6dc7904e3.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/zh_CN.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/pt.js"</span>,</span><br><span class="line">                <span class="string">"static/js/7.a25eeb813f874473b08b.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/34.808020b1b786ff046f33.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/wrong.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/txt.png"</span>,</span><br><span class="line">                <span class="string">"static/img/2-bg.1dcd998.png"</span>,</span><br><span class="line">                <span class="string">"static/js/42.b6dd165ebc6c1378bcf8.js"</span>,</span><br><span class="line">                <span class="string">"static/images/checkUpdate/tanchuangtou@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/no_3.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/url_1.png"</span>,</span><br><span class="line">                <span class="string">"static/js/vendor.84d599022bb33b0b6aae.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/ro.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/pl.js"</span>,</span><br><span class="line">                <span class="string">"static/images/wechat/teacher.png"</span>,</span><br><span class="line">                <span class="string">"static/js/uploadVoice.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/ca.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_xz_me@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/wenda.png"</span>,</span><br><span class="line">                <span class="string">"static/js/4.44be454250d9e3649a40.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/responder-fail.png"</span>,</span><br><span class="line">                <span class="string">"static/js/51.62a5a2b1be68b5cec8bd.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/67.abb1c370ce4ae2c5b500.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/64.a5373ce9d1f41c504a8f.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/lv.js"</span>,</span><br><span class="line">                <span class="string">"static/js/35.6cb97a5cf8e96c570a3b.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/cy.js"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/excel_1.png.png"</span>,</span><br><span class="line">                <span class="string">"static/images/more_w@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/pos.png"</span>,</span><br><span class="line">                <span class="string">"static/js/20.8e61d518fe12def5beeb.js"</span>,</span><br><span class="line">                <span class="string">"static/images/loading.svg"</span>,</span><br><span class="line">                <span class="string">"static/js/58.29d13a0cb0a209a2a890.js"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/footer_course.png"</span>,</span><br><span class="line">                <span class="string">"static/img/kc_banner_mzd@2x.94bd27e.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/course_none.png"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/audio-s.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_fin@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseList_bg_yellow.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/caogao.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/move.png"</span>,</span><br><span class="line">                <span class="string">"static/images/login/banner.png"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/exe-s.png"</span>,</span><br><span class="line">                <span class="string">"static/js/2.479db8c5381e52b4094b.js"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/groupMission.css"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/shoucang_normal.png"</span>,</span><br><span class="line">                <span class="string">"static/js/3.5776986484d75528975e.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseware_green2.png"</span>,</span><br><span class="line">                <span class="string">"static/images/girl@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/app_config/return_.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/tr.js"</span>,</span><br><span class="line">                <span class="string">"static/css/student/course/screen.css"</span>,</span><br><span class="line">                <span class="string">"static/js/15.deffd44a3ab386e462af.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/ms.js"</span>,</span><br><span class="line">                <span class="string">"static/images/wd_zq_bg@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/more-down.png"</span>,</span><br><span class="line">                <span class="string">"static/images/app_config/Android1080x2160.png"</span>,</span><br><span class="line">                <span class="string">"static/images/nice_s@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/30.492abee30cefd9a94f5e.js"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/ico-search.png"</span>,</span><br><span class="line">                <span class="string">"static/js/weui.min.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_xh_r@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/24.77d4995a6babde8d114f.js"</span>,</span><br><span class="line">                <span class="string">"static/js/18.6f3d829c90c19e7e3a1f.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/en.js"</span>,</span><br><span class="line">                <span class="string">"static/js/65.821ff86b65ac72900f2f.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/more-up.png"</span>,</span><br><span class="line">                <span class="string">"static/js/cookieUtil.js"</span>,</span><br><span class="line">                <span class="string">"static/js/21.19cca0ccf09f52f1fe65.js.map"</span>,</span><br><span class="line">                <span class="string">"static/css/res-icon.css"</span>,</span><br><span class="line">                <span class="string">"static/css/swiper.min.css"</span>,</span><br><span class="line">                <span class="string">"static/css/student/user/center.css"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/hengxian.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/vi.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/cs.js"</span>,</span><br><span class="line">                <span class="string">"static/js/12.e0c233a7dc6aa64eacf4.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/flag.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/footer_mine.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/has_choose.png"</span>,</span><br><span class="line">                <span class="string">"static/js/52.8fe85e4ffdddb41dd7a2.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/course/5.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/list_more.png"</span>,</span><br><span class="line">                <span class="string">"static/css/attach-icon.css"</span>,</span><br><span class="line">                <span class="string">"static/css/student/group/face.css"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_xq_tm@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_xz_me@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/selectcard@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/10.b9083fe2d547cdc4b9c6.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/people_fill@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/1_1/course-index.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_kthd@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/courseware_zi.png"</span>,</span><br><span class="line">                <span class="string">"static/images/word_bg@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/teacher_more@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/photoswipe/photoswipe-ui-default.min.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/yiwancheng.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseware_green.png"</span>,</span><br><span class="line">                <span class="string">"static/js/67.abb1c370ce4ae2c5b500.js"</span>,</span><br><span class="line">                <span class="string">"static/img/report-bg.d7b637d.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/zhanweitu_wuxiaoxi@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/img/courseware-index.f60a962.jpg"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/jinxingzhong.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/no_1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/copy@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/css/teacher/courseware/createEditCourse.css"</span>,</span><br><span class="line">                <span class="string">"static/images/course/8-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/check_box1.png"</span>,</span><br><span class="line">                <span class="string">"static/img/6.bbadfb3.png"</span>,</span><br><span class="line">                <span class="string">"static/js/71.6905b7eca93d75949006.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/photoswipe/photoswipe.js"</span>,</span><br><span class="line">                <span class="string">"static/js/59.27757db0ab06829db933.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_t@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/css/common-unpack.css"</span>,</span><br><span class="line">                <span class="string">"static/images/course/6-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/css/switch.css"</span>,</span><br><span class="line">                <span class="string">"static/js/cropper.min.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/right_answer.png"</span>,</span><br><span class="line">                <span class="string">"static/lang/en-US.js"</span>,</span><br><span class="line">                <span class="string">"static/js/52.8fe85e4ffdddb41dd7a2.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/sl.js"</span>,</span><br><span class="line">                <span class="string">"static/fonts/cour.5dbc191.ttf"</span>,</span><br><span class="line">                <span class="string">"static/js/39.2c7f53f140893d7d48d3.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/grayPlus.png"</span>,</span><br><span class="line">                <span class="string">"static/img/responder-bg.f54dcd3.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/card_blue.png"</span>,</span><br><span class="line">                <span class="string">"static/images/login/ico_fuwuqidizhi.png"</span>,</span><br><span class="line">                <span class="string">"static/js/cropper.js"</span>,</span><br><span class="line">                <span class="string">"static/js/41.b3fe7c5923d1a4f9b0f6.js"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/zh_CN.js"</span>,</span><br><span class="line">                <span class="string">"static/js/36.e2314e7b3fdff24cc7c0.js"</span>,</span><br><span class="line">                <span class="string">"static/images/app_config/huaweiM5.png"</span>,</span><br><span class="line">                <span class="string">"static/js/12.e0c233a7dc6aa64eacf4.js.map"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/yichehui.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/dahui.png"</span>,</span><br><span class="line">                <span class="string">"static/js/14.68e1922ee459f196bf8b.js"</span>,</span><br><span class="line">                <span class="string">"static/js/48.0e1627cbf94504061dc7.js"</span>,</span><br><span class="line">                <span class="string">"static/js/26.2e209f7a31c67645cd17.js"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_xz_w@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_me@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/personalCenter/jiantou_right.png"</span>,</span><br><span class="line">                <span class="string">"static/images/app_config/iPhoneX1125x2436.png"</span>,</span><br><span class="line">                <span class="string">"static/images/copy@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/course/4-bg.png"</span>,</span><br><span class="line">                <span class="string">"static/js/45.651e51522305da41208a.js"</span>,</span><br><span class="line">                <span class="string">"static/img/time-out.f1600cb.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/id.js"</span>,</span><br><span class="line">                <span class="string">"static/images/course/next.png"</span>,</span><br><span class="line">                <span class="string">"static/images/unlaunch@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/me_g@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/tag_t@3x.png"</span>,</span><br><span class="line">                <span class="string">"static/js/teacher/center.js"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseware_none.png"</span>,</span><br><span class="line">                <span class="string">"static/images/word_bg@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/deleteCourseware.png"</span>,</span><br><span class="line">                <span class="string">"static/images/launch@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/login/ico_qingchu.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/course_bg_red@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/quiz_icon/mp3_1.png"</span>,</span><br><span class="line">                <span class="string">"static/images/teacher/courseware_green_right.png"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/i18n/sq.js"</span>,</span><br><span class="line">                <span class="string">"static/images/file_icon/pdf-s.png"</span>,</span><br><span class="line">                <span class="string">"static/images/ico_kjzy@2x.png"</span>,</span><br><span class="line">                <span class="string">"static/images/courseware/courseware_green2.png"</span>,</span><br><span class="line">                <span class="string">"static/js/50.b0c4c66c0111e1e3635d.js.map"</span>,</span><br><span class="line">                <span class="string">"static/js/plupload/Moxie.swf"</span></span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://ask.dcloud.net.cn/article/94" target="_blank" rel="noopener">详细manifest配置请点我</a></p>
+<p>5 就是在所在项目目录下 右键 ——&gt; 发行 ——&gt; 原生app 云打包</p>
+<p><img src="/2019/12/14/前端开发app总结/1576302483507.png" alt="1576302483507"></p>
+<p><img src="/2019/12/14/前端开发app总结/1576302815309.png" alt="1576302815309"></p>
+<p><img src="/2019/12/14/前端开发app总结/1576302997871.png" alt="1576302997871"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hbuilder/" rel="tag"># Hbuilder</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/10/java零基础6/" rel="next" title="java零基础6">
+                <i class="fa fa-chevron-left"></i> java零基础6
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/15/h5+app开发汇总/" rel="prev" title="h5+开发汇总">
+                h5+开发汇总 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/xiaobu.png" alt="shenxiaobu">
+            
+              <p class="site-author-name" itemprop="name">shenxiaobu</p>
+              <div class="site-description motion-element" itemprop="description">如果有一腔热血，又足够努力，人生最坏的结果，也不过是大器晚成而已！</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="https://tech.meituan.com/" rel="noopener" target="_blank">美团技术团队</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="https://75team.com/" rel="noopener" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fex.baidu.com/" title="http://fex.baidu.com/" rel="noopener" target="_blank">百度FEX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taobaofed.org/" title="http://taobaofed.org/" rel="noopener" target="_blank">淘宝FED</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cdc.tencent.com/" title="https://cdc.tencent.com/" rel="noopener" target="_blank">腾讯CDC</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.npmjs.com/" title="https://www.npmjs.com/" rel="noopener" target="_blank">npm官网</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#web前端基于vue利用H5-接口开发APP总结"><span class="nav-number">1.</span> <span class="nav-text">web前端基于vue利用H5+接口开发APP总结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#下载HbuilderX，并利用HbuilderX将web项目打包成App"><span class="nav-number">1.0.1.</span> <span class="nav-text">下载HbuilderX，并利用HbuilderX将web项目打包成App</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-shenyanxiang"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenxiaobu.github.io</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">637k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">9:40</span>
+  
+</div>
+
+
+
+
+
+
+
+
+<div>友情链接：
+ <a class="theme-link" href="http://collect.w3ctrain.com/"> 前端收藏夹 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="http://www.alloyteam.com/nav/"> Web前端导航 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
+</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'zu1NA5ftKmWCJyVXjIaynYDO-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'zu1NA5ftKmWCJyVXjIaynYDO-gzGzoHsz',
+                'X-LC-Key': 'KyI0BMKwyVPDMUjBvTrLQL73',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>

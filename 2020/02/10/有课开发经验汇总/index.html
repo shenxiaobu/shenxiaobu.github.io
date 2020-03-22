@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="有课开发经验汇总随便汇总想到哪写到哪，有些可能是简单的东西，但还是写一下  实现自定义遮盖符号的密码框   解决：  1234567891011121314151617181920212223242526272829    &amp;lt;div class=&amp;quot;currentPwd_box input_box&amp;quot;&amp;gt;            &amp;lt;span&amp;gt;原始密码&amp;lt;/s">
+<meta name="keywords" content="-vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有课开发经验汇总">
+<meta property="og:url" content="https://shenxiaobu.github.io/2020/02/10/有课开发经验汇总/index.html">
+<meta property="og:site_name" content="祥你的365夜">
+<meta property="og:description" content="有课开发经验汇总随便汇总想到哪写到哪，有些可能是简单的东西，但还是写一下  实现自定义遮盖符号的密码框   解决：  1234567891011121314151617181920212223242526272829    &amp;lt;div class=&amp;quot;currentPwd_box input_box&amp;quot;&amp;gt;            &amp;lt;span&amp;gt;原始密码&amp;lt;/s">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://shenxiaobu.github.io/2020/02/10/有课开发经验汇总/">
+<meta property="og:image" content="https://shenxiaobu.github.io/2020/02/10/有课开发经验汇总/1581335169058.png">
+<meta property="og:image" content="https://shenxiaobu.github.io/2020/02/10/有课开发经验汇总/1581335326983.png">
+<meta property="og:updated_time" content="2020-03-22T13:49:33.142Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="有课开发经验汇总">
+<meta name="twitter:description" content="有课开发经验汇总随便汇总想到哪写到哪，有些可能是简单的东西，但还是写一下  实现自定义遮盖符号的密码框   解决：  1234567891011121314151617181920212223242526272829    &amp;lt;div class=&amp;quot;currentPwd_box input_box&amp;quot;&amp;gt;            &amp;lt;span&amp;gt;原始密码&amp;lt;/s">
+<meta name="twitter:image" content="https://shenxiaobu.github.io/2020/02/10/有课开发经验汇总/">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="祥你的365夜" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://shenxiaobu.github.io/2020/02/10/有课开发经验汇总/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>有课开发经验汇总 | 祥你的365夜</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">祥你的365夜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/shenxiaobu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenxiaobu.github.io/2020/02/10/有课开发经验汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenxiaobu">
+      <meta itemprop="description" content="如果有一腔热血，又足够努力，人生最坏的结果，也不过是大器晚成而已！">
+      <meta itemprop="image" content="/images/xiaobu.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="祥你的365夜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">有课开发经验汇总
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-10 19:20:24" itemprop="dateCreated datePublished" datetime="2020-02-10T19:20:24+08:00">2020-02-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-22 21:49:33" itemprop="dateModified" datetime="2020-03-22T21:49:33+08:00">2020-03-22</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2020/02/10/有课开发经验汇总/" class="leancloud_visitors" data-flag-title="有课开发经验汇总">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">19k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">18 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="有课开发经验汇总"><a href="#有课开发经验汇总" class="headerlink" title="有课开发经验汇总"></a>有课开发经验汇总</h3><p>随便汇总想到哪写到哪，有些可能是简单的东西，但还是写一下</p>
+<ol>
+<li>实现自定义遮盖符号的密码框</li>
+</ol>
+<p><img src="/2020/02/10/有课开发经验汇总/" alt="1581334230361.png"></p>
+<p>解决： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">    &lt;div class=&quot;currentPwd_box input_box&quot;&gt;</span><br><span class="line">            &lt;span&gt;原始密码&lt;/span&gt;&lt;input class=&quot;show&quot; type=&quot;text&quot; spellcheck=&quot;false&quot;   readonly=&quot;readonly&quot; unselectable=&quot;on&quot; onfocus=&quot;this.blur()&quot;  v-model=&apos;oldPwd&apos; name=&apos;oldPwd&apos; :placeholder=&quot;请输入原始密码&quot;&gt;</span><br><span class="line">            &lt;input type=&quot;url&quot; class=&quot;really&quot; spellcheck=&quot;false&quot;  @keyup=&quot;validate(0,reallyOldPwd)&quot; autocorrect=&quot;off&quot; v-model=&apos;reallyOldPwd&apos; name=&apos;reallyOldPwd&apos; :placeholder=&quot;$t(&apos;l.s.user.modifyPwd.inputOldPwd&apos;)&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">   .currentPwd_box input.show,</span><br><span class="line">    .currentPwd_box input.really&#123;</span><br><span class="line">        font-family: &apos;Cour&apos;;   /*等宽字体*/</span><br><span class="line">        width: 4.8rem;</span><br><span class="line">        height: 100%;</span><br><span class="line">        border: none;</span><br><span class="line">        outline: none;</span><br><span class="line">        text-align: right;</span><br><span class="line">        padding: 0 0.54rem 0 0.4rem;</span><br><span class="line">        font-size: 0.32rem;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    .currentPwd_box input.really&#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        top: 0;</span><br><span class="line">        right: 0;</span><br><span class="line">        color: transparent;</span><br><span class="line">        caret-color: rgb(91, 186, 180);</span><br><span class="line">        /* caret-color: transparent; */</span><br><span class="line">        background: transparent;</span><br><span class="line">        /* opacity: 0; */</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>真正的输入框覆盖一层显示 替代符的输入框，将真正的输入框背景和文字都设置成透明。</p>
+<p>遇到问题：由于字体宽度不一样，导致光标有时不对，所以需要这些输入框需要使用等宽字体。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@font-face &#123;</span><br><span class="line">    font-family: &apos;Cour&apos;;</span><br><span class="line">    src: url(&apos;../font/cour.ttf&apos;);</span><br><span class="line">    font-weight: normal;</span><br><span class="line">    font-style: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后监听onkeyup，每当输入时将内容改为 替代符号</p>
+<ol start="2">
+<li>输入框在ios上特殊的问题。</li>
+</ol>
+<p><img src="/2020/02/10/有课开发经验汇总/1581335169058.png" alt="1581335169058"></p>
+<p>输入框type类型为 password 且键盘大写锁定且为最新ios系统，在输入框右边会有 大写锁定浮标</p>
+<p><img src="/2020/02/10/有课开发经验汇总/1581335326983.png" alt="1581335326983"></p>
+<p>当type类型不管是啥，在ios系统上输入不是英文单词的字符串时就会出现这个，解决方法就是</p>
+<p>spellcheck=”false”    检查拼写错误关闭掉</p>
+<ol start="3">
+<li>ios上顺畅滚动</li>
+</ol>
+<p>解决办法： -webkit-overflow-scrolling: touch;</p>
+<ol start="4">
+<li>禁止非文本框或输入框文本复制</li>
+</ol>
+<p>解决办法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">     <span class="comment">/* //系统默认菜单被禁用 */</span></span><br><span class="line">    <span class="attribute">-webkit-touch-callout</span>:none;</span><br><span class="line">    <span class="comment">/* /webkit浏览器/ */</span></span><br><span class="line">    <span class="attribute">-webkit-user-select</span>:none;</span><br><span class="line">    <span class="comment">/* /早期浏览器/ */</span></span><br><span class="line">    <span class="attribute">-khtml-user-select</span>:none; </span><br><span class="line">    <span class="comment">/* /火狐/ */</span></span><br><span class="line">    <span class="attribute">-moz-user-select</span>:none;</span><br><span class="line">    <span class="comment">/* /IE10/ */</span></span><br><span class="line">    <span class="attribute">-ms-user-select</span>:none;</span><br><span class="line">    <span class="attribute">user-select</span>:none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">textarea</span>,<span class="selector-tag">input</span>&#123;</span><br><span class="line">    <span class="attribute">-webkit-user-select</span>:auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>flex相关样式</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* flex相关开始 */</span></span><br><span class="line"><span class="selector-class">.flex</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.flex-center</span>&#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.flex-between</span>&#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.flex-around</span>&#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.flex-end</span>&#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-end;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.flex-col</span>&#123;</span><br><span class="line">    <span class="attribute">flex-direction</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.flex-wrap</span>&#123;</span><br><span class="line">    <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.flex-grow</span>&#123;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.flex-shrink</span>&#123;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* flex相关结束 */</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>防止图片图裂</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"headPhoto"</span> <span class="attr">v-show</span>=<span class="string">"headPhoto"</span> @<span class="attr">error</span>=<span class="string">"setDefault"</span>&gt;</span></span><br><span class="line">setDefault 为设置图列时怎么做的方法</span><br></pre></td></tr></table></figure>
+<p>也可以全局替换图列 图标</p>
+<ol start="7">
+<li>上拉加载,以及安卓手机在也页面滚动时点击屏幕停止滚动会触发div的点击事件的解决方法。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">    &lt;div @scroll=&quot;onScroll&quot; @click=&quot;stopScroll&quot; :class=&quot;[&apos;msg-list&apos;,&apos;pull-container&apos;,&#123;pc:isPC&#125;]&quot;&gt;</span><br><span class="line">                &lt;div :class=&quot;[&apos;scroll-box&apos;,&#123;on:show&#125;]&quot; v-infinite-scroll=&quot;loadMore&quot; infinite-scroll-disabled=&quot;busy&quot; infinite-scroll-distance=&quot;10&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;top&quot; v-show=&quot;!show&quot;&gt;</span><br><span class="line">                        &lt;span v-cloak&gt;&#123;&#123;unRead&#125;&#125;&#123;&#123;$t(&apos;l.s.msg.list.unreadMessage&apos;)&#125;&#125;&lt;/span&gt;</span><br><span class="line">                        &lt;button @click=&quot;onAllRead&quot;&gt;&#123;&#123;$t(&apos;l.s.msg.list.allRead&apos;)&#125;&#125;&lt;/button&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;menu flex flex-center&quot; v-show=&quot;!show&quot;&gt;</span><br><span class="line">                        &lt;div v-for=&quot;(item,index) in menuList&quot; @click=&quot;type = index&quot; :key=&quot;index&quot; :class=&quot;[&#123;on:index === type&#125;,&apos;flex&apos;,&apos;flex-center&apos;,&apos;flex-col&apos;]&quot;&gt;</span><br><span class="line">                            &lt;s :class=&quot;[&apos;icon&apos;,item.icon_class]&quot;&gt;&lt;/s&gt;</span><br><span class="line">                            &lt;span&gt;&#123;&#123;item.name&#125;&#125;&lt;/span&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;list-box&quot; &gt;</span><br><span class="line">                        &lt;div class=&quot;list-box-item&quot;&gt; </span><br><span class="line">                            &lt;div class=&quot;empty-msg&quot; v-if=&quot;sysMsg.length == 0&quot;&gt;&#123;&#123;$t(&apos;l.s.msg.list.noMsg&apos;)&#125;&#125;&lt;/div&gt;</span><br><span class="line">                            &lt;ul class=&quot;wx-list&quot; v-if=&quot;sysMsg.length &gt; 0&quot;&gt;</span><br><span class="line">                                &lt;li class=&quot;items wx-link&quot; v-for=&quot;msg in sysMsg&quot;  @click=&quot;goDetail(msg)&quot; :key=&quot;msg.id&quot;&gt;</span><br><span class="line">                                    &lt;div :class=&quot;[&apos;pic&apos;,msg.status == 0?&apos;unread&apos;:&apos;&apos;]&quot;&gt;</span><br><span class="line">                                        &lt;span&gt;&#123;&#123;name(msg.type)&#125;&#125;&lt;/span&gt;</span><br><span class="line">                                    &lt;/div&gt;</span><br><span class="line">                                    &lt;div class=&quot;content&quot;&gt;</span><br><span class="line">                                        &lt;div class=&quot;title ellipsis&quot;&gt;&#123;&#123;msg.title&#125;&#125;&lt;/div&gt;</span><br><span class="line">                                        &lt;div class=&quot;desc ellipsis&quot;&gt;&#123;&#123;msg.content&#125;&#125;&lt;/div&gt;</span><br><span class="line">                                    &lt;/div&gt;</span><br><span class="line">                                    &lt;span class=&quot;msg-time&quot;&gt;&#123;&#123;msg.createTimeString&#125;&#125;&lt;/span&gt;</span><br><span class="line">                                &lt;/li&gt;</span><br><span class="line">                            &lt;/ul&gt;</span><br><span class="line">                            &lt;template v-if=&quot;sysMsg.length == 0&quot;&gt;&lt;/template&gt;</span><br><span class="line">                            &lt;div v-else-if=&quot;!haveNextPage&quot; class=&quot;noMore&quot;&gt;没有更多了&lt;/div&gt;</span><br><span class="line">                            &lt;div v-else class=&quot;loading&quot;&gt;&lt;i class=&quot;weui-loading&quot;/&gt; 正在加载&lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt; </span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            isScrolling: false,</span><br><span class="line">            busy: true,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">        	onScroll(e)&#123;</span><br><span class="line">                console.log(e.target.scrollTop);</span><br><span class="line">                if(this.get_GL_OS_NAME() == &quot;android&quot;)&#123;</span><br><span class="line">                    this.isScrolling = true;</span><br><span class="line">                    var t1 = e.target.scrollTop;</span><br><span class="line">                    clearTimeout(this.timer);</span><br><span class="line">                    this.timer = setTimeout(() =&gt; &#123;</span><br><span class="line">                        var t2 = e.target.scrollTop;</span><br><span class="line">                        console.log(t2 == t1);</span><br><span class="line">                        if(t2 == t1)&#123;</span><br><span class="line">                             this.isScrolling = false;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;, 1000);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            stopScroll(e)&#123;</span><br><span class="line">                console.log(e);</span><br><span class="line">                if(this.get_GL_OS_NAME() == &quot;android&quot;)&#123;</span><br><span class="line">                    this.isScrolling = false;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            loadMore:function()&#123;</span><br><span class="line">                if(this.busy || !this.haveNextPage)&#123;</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                this.loadData();</span><br><span class="line">        	&#125;,</span><br><span class="line">            loadData()&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                _this.busy = true;</span><br><span class="line">                let pageNo = _this.pageNo + 1;</span><br><span class="line">            	let pageSize = _this.pageSize;</span><br><span class="line">                _this.loading = weui.loading(_this.$t(&apos;l.s.msg.list.loading&apos;));</span><br><span class="line">            _this.$axios.post(_this.stuApiUrl + &quot;/sys/msg/search&quot;, </span><br><span class="line">            _this.$qs.stringify(&#123;</span><br><span class="line">            &#125;)).then(function(res)&#123;</span><br><span class="line">                _this.loading.hide();</span><br><span class="line">                _this.busy = false;</span><br><span class="line">                _this.pageNo = pageNo;</span><br><span class="line">                _this.haveNextPage = res.data.haveNextPage;</span><br><span class="line">            &#125;).catch(function()&#123;</span><br><span class="line">                _this.loading.hide();</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        goDetail : function(msg)&#123;</span><br><span class="line">            if(this.isScrolling)&#123;</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            if(msg.status == 0)&#123;</span><br><span class="line">                msg.status = 1;</span><br><span class="line">                if(this.unRead &gt; 0)&#123;</span><br><span class="line">                    this.unRead--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            this.$router.push(&apos;/student/msg/detail/&apos; + msg.id);</span><br><span class="line">        &#125;,</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>关键点   v-infinite-scroll</p>
+<p>安卓监听滚动停止</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">onScroll(e)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(e.target.scrollTop);</span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.get_GL_OS_NAME() == <span class="string">"android"</span>)&#123;</span><br><span class="line">          <span class="keyword">this</span>.isScrolling = <span class="literal">true</span>;</span><br><span class="line">          <span class="keyword">var</span> t1 = e.target.scrollTop;</span><br><span class="line">          clearTimeout(<span class="keyword">this</span>.timer);</span><br><span class="line">          <span class="keyword">this</span>.timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">              <span class="keyword">var</span> t2 = e.target.scrollTop;</span><br><span class="line">              <span class="built_in">console</span>.log(t2 == t1);</span><br><span class="line">              <span class="keyword">if</span>(t2 == t1)&#123;</span><br><span class="line">                   <span class="keyword">this</span>.isScrolling = <span class="literal">false</span>;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;, <span class="number">1000</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  goDetail : <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.isScrolling)&#123;</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">     dosomething();</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>判断移动端设备全局方法</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> GL_OS_NAME;    <span class="comment">//记录设备类型</span></span><br><span class="line"><span class="keyword">const</span> ua = <span class="built_in">window</span>.navigator.userAgent.toLocaleLowerCase();</span><br><span class="line">GL_OS_NAME = <span class="regexp">/iphone|ipad|ipod/</span>.test(ua) ? <span class="string">"ios"</span> : <span class="regexp">/android/</span>.test(ua) ? <span class="string">"android"</span> : <span class="string">"pc"</span>;</span><br><span class="line">Vue.prototype.get_GL_OS_NAME = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> GL_OS_NAME;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>new Date() 在ios上的坑</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">要创建一个指定时间的new Date对象时，通常的做法是：</span><br><span class="line"></span><br><span class="line">new Date("2018-04-27 11:11");然后就可以根据这个获取年月日等信息</span><br><span class="line"></span><br><span class="line">这种格式在chrome,firefox,Android中都没有问题。。。。。。但是，但是，但是在IOS中就出问题了，该对象返回的是valid Date??????为什么会返回这个值，这不是有效的意思吗。。。。</span><br><span class="line"></span><br><span class="line">结果发现。。。在IOS中，new Date中指定的字符串还有格式。。。</span><br><span class="line"></span><br><span class="line">new Date("2018/04/27 11:11")，这样才能正确返回结果。。。。。。。。。。。</span><br><span class="line"></span><br><span class="line">Safari和IE没有测试过，不知道是否也会出现这种问题，如果有类似情况出现，那么可以用下面的方法来解决</span><br><span class="line"></span><br><span class="line">var obj=new Date("2018-04-27 11:11").replace(/-/g, "/");</span><br><span class="line"></span><br><span class="line">毕竟 在new Date里面的2018/04/27 这种格式在其它浏览器中也支持。。。。。。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">还有，在安卓和IOS上的微信中的浏览器内核是不一样的，这也会导致上面的安卓和IOS中new Date的差别：</span><br><span class="line">　　安卓6.1版本以上都是使用QQ浏览器的X5内核，5.4-6.1之间的版本如果安装了QQ浏览器的话就是使用X5内核，如果没安装，就是使用的系统内核</span><br><span class="line"></span><br><span class="line">　　IOS有两种，一种是WKWebview，一种是UIWebview，从IOS8版本开始支持WKWebview</span><br></pre></td></tr></table></figure>
+<ol start="10">
+<li>vue中路由参数不一样时页面没有刷新</li>
+</ol>
+<p>解决： 使用 ：:key=”this.$route.path”  解决。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;main-box&quot; &gt;</span><br><span class="line">        &lt;keep-alive&gt;</span><br><span class="line">            &lt;router-view :key=&quot;this.$route.path&quot; v-if=&quot;$route.meta.keepAlive&quot;&gt;&lt;/router-view&gt;</span><br><span class="line">        &lt;/keep-alive&gt;</span><br><span class="line">        &lt;router-view :key=&quot;this.$route.path&quot; v-if=&quot;!$route.meta.keepAlive&quot;&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<ol start="11">
+<li>简单音频播放</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--audio.vue--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div :class=&quot;[&apos;btn-music&apos;,&apos;audio-box&apos;,rotate?&apos;rotate&apos;:&apos;&apos;]&quot; v-show=&quot;showPic&quot;  id=&quot;audio_ctrl&quot;&gt;</span><br><span class="line">		&lt;audio :id=&quot;key&quot; style=&quot;display:none&quot;&gt;&lt;/audio&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">	export default &#123;</span><br><span class="line">		data() &#123;</span><br><span class="line">			return &#123;</span><br><span class="line">                audio : null,</span><br><span class="line">                key : &apos;audio_tpl_&apos; + new Date().getTime(),</span><br><span class="line">                src : null, //当前播放的音频</span><br><span class="line">                status : 3, // 0:stop,1:play,2:pause 3：未加载</span><br><span class="line">                canPlay: false,</span><br><span class="line">                failed: false,    //曾经提示失败过</span><br><span class="line">                rotate: false,   //是否旋转图标</span><br><span class="line">                showPic: false,   //是否展示图标</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		methods: &#123;</span><br><span class="line">            pause : function()&#123;</span><br><span class="line">                this.status = 2;</span><br><span class="line">                this.rotate = false;</span><br><span class="line">                this.audio.pause();</span><br><span class="line">                // $(&quot;#audio_ctrl&quot;).removeClass(&apos;rotate&apos;);</span><br><span class="line">            &#125;,</span><br><span class="line">            play : function()&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                if(this.src != this.audio.src)&#123;</span><br><span class="line">                    this.audio.src = this.src;</span><br><span class="line">                &#125;</span><br><span class="line">                _this.audio.play();</span><br><span class="line">                if(_this.audio.readyState != 4 )&#123;</span><br><span class="line">                    _this.loading = weui.loading(this.$t(&apos;l.i.audio.loadingAudio&apos;));</span><br><span class="line">                    setTimeout(()=&gt;&#123;</span><br><span class="line">                        if(!_this.canPlay)&#123;</span><br><span class="line">                            _this.stop();</span><br><span class="line">                            _this.audio.pause(); </span><br><span class="line">                            console.log(&quot;10秒内还不可播放&quot;)</span><br><span class="line">                            _this.loading.hide();</span><br><span class="line">                            weui.toast(_this.$t(&apos;l.i.audio.tips&apos;),1000);</span><br><span class="line">                            _this.canPlay = false;</span><br><span class="line">                            _this.failed = true;   //曾经提示失败</span><br><span class="line">                        &#125;</span><br><span class="line">                        console.log(&quot;10秒内可播放&quot;)</span><br><span class="line">                    &#125;,10000);</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                console.log(&quot;我要播放&quot;)</span><br><span class="line">                _this.canPlay = true;</span><br><span class="line">                this.loading.hide();</span><br><span class="line">                // $(&quot;#audio_ctrl&quot;).addClass(&apos;rotate&apos;);</span><br><span class="line">                this.rotate = true;</span><br><span class="line">                this.status = 1;</span><br><span class="line">            &#125;,</span><br><span class="line">            stop : function()&#123;</span><br><span class="line">                this.status = 0;</span><br><span class="line">                // $(&quot;#audio_ctrl&quot;).removeClass(&apos;rotate&apos;);</span><br><span class="line">                this.rotate = false;</span><br><span class="line">                // $(&quot;#audio_ctrl&quot;).hide();</span><br><span class="line">                this.showPic = false;</span><br><span class="line">            &#125;,</span><br><span class="line">			playAudio: function(url)&#123;</span><br><span class="line">                var _this= this;</span><br><span class="line">                _this.failed = false;      //只要一点击就将 提示过失败重置</span><br><span class="line">                if(!url)&#123;</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                // $(&apos;#audio_ctrl&apos;).show();</span><br><span class="line">                 this.showPic = true;</span><br><span class="line">                var audio = this.audio;</span><br><span class="line">               </span><br><span class="line">                if(this.status == 0 || this.status == 3)&#123;//直接播放</span><br><span class="line">                    this.src = url;</span><br><span class="line">                    return this.play();</span><br><span class="line">                &#125;</span><br><span class="line">                if(this.src &amp;&amp; this.src == url)&#123;//同一音频</span><br><span class="line">                    if(this.status == 1)&#123;</span><br><span class="line">                        return this.pause();</span><br><span class="line">                    &#125;</span><br><span class="line">                    return this.play();</span><br><span class="line">                &#125;</span><br><span class="line">                //不同音频，直接播放</span><br><span class="line">                if(this.src)&#123;</span><br><span class="line">                    this.src = url;</span><br><span class="line">                    this.status = 3;       //不同音频，将音频状态改为 未加载</span><br><span class="line">                    // if($(&quot;#audio_ctrl&quot;).hasClass(&apos;rotate&apos;))&#123;</span><br><span class="line">                    //     $(&quot;#audio_ctrl&quot;).removeClass(&apos;rotate&apos;);</span><br><span class="line">                    // &#125;</span><br><span class="line">                    if(this.rotate)&#123;</span><br><span class="line">                        this.rotate = false;</span><br><span class="line">                    &#125;</span><br><span class="line">                    this.play();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            toggleStatus()&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                if(_this.rotate)&#123;//正在播放</span><br><span class="line">                    _this.pause();</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    _this.play();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">			initEvent: function()&#123;</span><br><span class="line">                var _this = this;             </span><br><span class="line">                _this.audio.addEventListener(&apos;ended&apos;, function () &#123;  </span><br><span class="line">                    _this.stop();</span><br><span class="line">                &#125;, false);</span><br><span class="line"></span><br><span class="line">                _this.audio.addEventListener(&quot;canplaythrough&quot;, function () &#123;   //当浏览器预计能够在不停下来进行缓冲的情况下持续播放指定的音频/视频时，会发生 canplaythrough 事件</span><br><span class="line">                    if(!_this.failed)&#123;   //提示过失败后即使可以播放了，也不播放</span><br><span class="line">                        _this.play();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">                // 拖动图标</span><br><span class="line">                var startX = 0;</span><br><span class="line">                var startY = 0;</span><br><span class="line">                var xPos = 0;</span><br><span class="line">                var yPos = 0;</span><br><span class="line">                var oldXPos = 12;</span><br><span class="line">                var oldYPos = 12;</span><br><span class="line">                var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;</span><br><span class="line">                var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;</span><br><span class="line">                var timeOutEvent;</span><br><span class="line">                var isClick = true;</span><br><span class="line">                $(&quot;#audio_ctrl&quot;).on(&quot;touchstart&quot;,(e)=&gt;&#123;</span><br><span class="line">                    var touchPos = e.touches[0];</span><br><span class="line">                    startX = touchPos.clientX;</span><br><span class="line">                    startY = touchPos.clientY;</span><br><span class="line">                    timeOutEvent = setTimeout(function()&#123;</span><br><span class="line">                        //此处为长按事件</span><br><span class="line">                         _this.stop();</span><br><span class="line">                         _this.audio.pause();</span><br><span class="line">                         isClick = false;</span><br><span class="line">                    &#125;,1000);</span><br><span class="line">                &#125;);</span><br><span class="line">                $(&quot;#audio_ctrl&quot;).on(&quot;touchmove&quot;,(e)=&gt;&#123;</span><br><span class="line">                    clearTimeout(timeOutEvent);</span><br><span class="line">                    isClick = false;</span><br><span class="line">                    e.preventDefault();</span><br><span class="line">                    var touchPos = e.touches[0];</span><br><span class="line">                    xPos = startX - touchPos.clientX + oldXPos;</span><br><span class="line">                    yPos = touchPos.clientY - startY + oldYPos;</span><br><span class="line">                    xPos = xPos &lt; 0 ? 12 : xPos &gt; (width - 52) ? (width - 52) : xPos;</span><br><span class="line">                    yPos = yPos &lt; 0 ? 12 : yPos &gt; (height - 52) ? (height - 52) : yPos;</span><br><span class="line">                    $(&quot;#audio_ctrl&quot;).css(&#123;top:yPos,right:xPos&#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">                $(&quot;#audio_ctrl&quot;).on(&quot;touchend&quot;,(e)=&gt;&#123;</span><br><span class="line">                    oldXPos = xPos;</span><br><span class="line">                    oldYPos = yPos;</span><br><span class="line">                    clearTimeout(timeOutEvent);</span><br><span class="line">                    if(isClick)&#123;//点击</span><br><span class="line">                        //此处为点击事件</span><br><span class="line">                        _this.toggleStatus();</span><br><span class="line">                    &#125;</span><br><span class="line">                    isClick = true;</span><br><span class="line">                &#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		mounted() &#123;</span><br><span class="line">            this.audio = $(&apos;#&apos; + this.key)[0];</span><br><span class="line">            this.initEvent();</span><br><span class="line">        &#125;,</span><br><span class="line">        beforeDestroy()&#123;</span><br><span class="line">            if(this.status == 1)&#123;</span><br><span class="line">                return this.pause();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        destroyed()&#123;</span><br><span class="line">            $(&quot;#audio_ctrl&quot;).css(&#123;top:12,right:12&#125;);</span><br><span class="line">            // $(&apos;#audio_ctrl&apos;).hide();</span><br><span class="line">            this.showPic = false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--app.vue--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot; :class=&quot;&#123;&apos;hide-bar&apos;:hidebar&#125;&quot;&gt;</span><br><span class="line">      &lt;v-audio ref=&quot;staudio&quot;&gt;&lt;/v-audio&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import audio from &apos;@/components/include/audio.vue&apos;;</span><br><span class="line">export default &#123;</span><br><span class="line">    components:&#123;</span><br><span class="line">     	&quot;v-audio&quot;: audio,</span><br><span class="line">  	&#125;,</span><br><span class="line">    mouted()&#123;</span><br><span class="line">        _this.$nextTick(function()&#123;</span><br><span class="line">             _this.$bus.$on(&apos;playMusic&apos;,value =&gt; &#123;</span><br><span class="line">                _this.play(value);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;   </span><br><span class="line">    </span><br><span class="line"> &lt;!--调用界面--&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	this.$bus.$emit(&apos;playMusic&apos;,url);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># -vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/15/h5-开发汇总/" rel="next" title="h5+开发汇总">
+                <i class="fa fa-chevron-left"></i> h5+开发汇总
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/11/监测汇总/" rel="prev" title="监测汇总">
+                监测汇总 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/xiaobu.png" alt="shenxiaobu">
+            
+              <p class="site-author-name" itemprop="name">shenxiaobu</p>
+              <div class="site-description motion-element" itemprop="description">如果有一腔热血，又足够努力，人生最坏的结果，也不过是大器晚成而已！</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="https://tech.meituan.com/" rel="noopener" target="_blank">美团技术团队</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="https://75team.com/" rel="noopener" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fex.baidu.com/" title="http://fex.baidu.com/" rel="noopener" target="_blank">百度FEX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taobaofed.org/" title="http://taobaofed.org/" rel="noopener" target="_blank">淘宝FED</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cdc.tencent.com/" title="https://cdc.tencent.com/" rel="noopener" target="_blank">腾讯CDC</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.npmjs.com/" title="https://www.npmjs.com/" rel="noopener" target="_blank">npm官网</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#有课开发经验汇总"><span class="nav-number">1.</span> <span class="nav-text">有课开发经验汇总</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-shenyanxiang"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenxiaobu.github.io</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">637k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">9:40</span>
+  
+</div>
+
+
+
+
+
+
+
+
+<div>友情链接：
+ <a class="theme-link" href="http://collect.w3ctrain.com/"> 前端收藏夹 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="http://www.alloyteam.com/nav/"> Web前端导航 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
+</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'zu1NA5ftKmWCJyVXjIaynYDO-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'zu1NA5ftKmWCJyVXjIaynYDO-gzGzoHsz',
+                'X-LC-Key': 'KyI0BMKwyVPDMUjBvTrLQL73',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>

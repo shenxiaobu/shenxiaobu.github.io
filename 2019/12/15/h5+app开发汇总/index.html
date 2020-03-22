@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="h5+开发汇总基于h5+ api的使用h5+API文档 打包后遇到的第一个问题 步骤 打开app，点击页面跳转正常，但是使用物理按键返回时，直接就退出app 期望 使用物理按键返回时，正常的返回，无法返回时提示 再返回一次退出app 解决 1234567891011121314151617181920212223242526var time = [null, null];    //记录返回的两次">
+<meta name="keywords" content="app">
+<meta property="og:type" content="article">
+<meta property="og:title" content="h5+开发汇总">
+<meta property="og:url" content="https://shenxiaobu.github.io/2019/12/15/h5+app开发汇总/index.html">
+<meta property="og:site_name" content="祥你的365夜">
+<meta property="og:description" content="h5+开发汇总基于h5+ api的使用h5+API文档 打包后遇到的第一个问题 步骤 打开app，点击页面跳转正常，但是使用物理按键返回时，直接就退出app 期望 使用物理按键返回时，正常的返回，无法返回时提示 再返回一次退出app 解决 1234567891011121314151617181920212223242526var time = [null, null];    //记录返回的两次">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-22T13:49:33.053Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="h5+开发汇总">
+<meta name="twitter:description" content="h5+开发汇总基于h5+ api的使用h5+API文档 打包后遇到的第一个问题 步骤 打开app，点击页面跳转正常，但是使用物理按键返回时，直接就退出app 期望 使用物理按键返回时，正常的返回，无法返回时提示 再返回一次退出app 解决 1234567891011121314151617181920212223242526var time = [null, null];    //记录返回的两次">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="祥你的365夜" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://shenxiaobu.github.io/2019/12/15/h5+app开发汇总/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>h5+开发汇总 | 祥你的365夜</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">祥你的365夜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/shenxiaobu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenxiaobu.github.io/2019/12/15/h5+app开发汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenxiaobu">
+      <meta itemprop="description" content="如果有一腔热血，又足够努力，人生最坏的结果，也不过是大器晚成而已！">
+      <meta itemprop="image" content="/images/xiaobu.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="祥你的365夜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">h5+开发汇总
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-15 16:10:08" itemprop="dateCreated datePublished" datetime="2019-12-15T16:10:08+08:00">2019-12-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-22 21:49:33" itemprop="dateModified" datetime="2020-03-22T21:49:33+08:00">2020-03-22</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/12/15/h5+app开发汇总/" class="leancloud_visitors" data-flag-title="h5+开发汇总">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">54k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">49 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="h5-开发汇总"><a href="#h5-开发汇总" class="headerlink" title="h5+开发汇总"></a>h5+开发汇总</h3><h4 id="基于h5-api的使用"><a href="#基于h5-api的使用" class="headerlink" title="基于h5+ api的使用"></a>基于h5+ api的使用</h4><p><a href="http://www.html5plus.org/doc/zh_cn/accelerometer.html" target="_blank" rel="noopener">h5+API文档</a></p>
+<p>打包后遇到的第一个问题</p>
+<p>步骤</p>
+<p>打开app，点击页面跳转正常，但是使用物理按键返回时，直接就退出app</p>
+<p>期望</p>
+<p>使用物理按键返回时，正常的返回，无法返回时提示 再返回一次退出app</p>
+<p>解决</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = [<span class="literal">null</span>, <span class="literal">null</span>];    <span class="comment">//记录返回的两次间隔时间</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.plus) &#123;</span><br><span class="line">    plusReady();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'plusready'</span>, plusReady, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">plusReady</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> webview = plus.webview.currentWebview();</span><br><span class="line">    plus.key.addEventListener(<span class="string">'backbutton'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        webview.canBack(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (e.canBack) &#123;</span><br><span class="line">               time = [<span class="literal">null</span>,<span class="literal">null</span>];   <span class="comment">//路由变化重置 time。</span></span><br><span class="line">               router.go(<span class="number">-1</span>); <span class="comment">//返回上一级</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                time.shift();</span><br><span class="line">                time.push(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime());</span><br><span class="line">                <span class="keyword">if</span> (time[<span class="number">1</span>] - time[<span class="number">0</span>] &gt; <span class="number">2000</span>) &#123;  <span class="comment">//事件间隔大于 2s 当作第一次 点击返回，做出提示</span></span><br><span class="line">           <span class="comment">//plus.nativeUI.toast  h5+API的提示窗口详细使用请看api，默认前面有应用名称：tips</span></span><br><span class="line">                    plus.nativeUI.toast(<span class="string">"再按一次返回退出应用！"</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    plus.runtime.quit();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二个问题</p>
+<p>对于类似txt。word等文档文件，使用 h5+pai的 下载并展示下载进度，下载完成后自动使用手机的第三方工具查看</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.downloadFile = <span class="function"><span class="keyword">function</span>(<span class="params">url, orgName</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!url) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> saveName = url.substring(url.lastIndexOf(<span class="string">'/'</span>) + <span class="number">1</span>, url.length);</span><br><span class="line">    <span class="keyword">if</span>(!orgName)&#123;</span><br><span class="line">        orgName = saveName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> fileType = util.getFileType(url);  <span class="comment">//获取文件类型，该项目下的自定义获取文件类型方法</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="string">'pic'</span> == fileType || <span class="string">'video'</span> == fileType || <span class="string">'audio'</span> == fileType || <span class="string">'link'</span> == fileType) &#123;</span><br><span class="line">        <span class="keyword">return</span> url;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> file = &#123;</span><br><span class="line">        orgName: <span class="string">"_downloads/"</span> + orgName,</span><br><span class="line">        fileName: <span class="string">"_downloads/"</span> + saveName</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.plus)&#123;</span><br><span class="line">        plus.runtime.openFile(file.orgName,&#123;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> dtask = plus.downloader.createDownload(url,&#123;<span class="attr">filename</span>: file.orgName&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">item, status</span>)</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(item.state &amp;&amp; status == <span class="number">200</span>)&#123;</span><br><span class="line">                    plus.runtime.openFile(item.getFileName());</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    $(<span class="string">'#dl_progress'</span>).hide();</span><br><span class="line">                    _this.GL_ALERT(<span class="string">"文件下载失败"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            dtask.addEventListener(<span class="string">"statechanged"</span>, dlProgress, <span class="literal">false</span>);</span><br><span class="line">            dtask.start();</span><br><span class="line">            $(<span class="string">'#dl_progress'</span>).show();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dlProgress = <span class="function"><span class="keyword">function</span>(<span class="params">download, status</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!download) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(status == <span class="number">404</span>)&#123;</span><br><span class="line">        $(<span class="string">'#dl_progress'</span>).hide();</span><br><span class="line">        _this.GL_ALERT(<span class="string">"资源下载失败"</span>);</span><br><span class="line">        <span class="comment">//遇到报错停止下载</span></span><br><span class="line">        download.abort();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> rate = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(download.downloadedSize &amp;&amp; download.totalSize)&#123;</span><br><span class="line">        rate = (download.downloadedSize * <span class="number">100</span> / download.totalSize).toFixed(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    $(<span class="string">'#dl_progress span'</span>).text(rate);</span><br><span class="line">	<span class="keyword">if</span>(download.state == <span class="number">4</span> &amp;&amp; status == <span class="number">200</span>)&#123;</span><br><span class="line">        $(<span class="string">'#dl_progress'</span>).hide()</span><br><span class="line">		weui.toast(<span class="string">"下载成功"</span>,<span class="number">1000</span>);</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//app.vue   下载进度展示</span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dl_progress"</span> <span class="attr">class</span>=<span class="string">"weui-loading_toast weui-animate-fade-in"</span>&gt;</span> </span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"weui-toast app"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"weui-loading weui-icon_toast"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"weui-toast__content"</span>&gt;</span>&#123;&#123;$t('l.main.downloadPro')&#125;&#125;<span class="tag">&lt;<span class="name">span</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span>%<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上述代码就是使用h5+API 下载文件并使用第三方工具打开的实现代码，直接从项目代码拿下来，如需使用可根据业务逻辑自行修改。有些全局代码，未展示，因此使用时需查看文档进行更改；</p>
+<p>第三个问题，也是下载问题，此次是下载app升级包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//也是采用了上面的进度条</span></span><br><span class="line"></span><br><span class="line">Vue.prototype.downloadWgt = <span class="function"><span class="keyword">function</span>(<span class="params">url,callback</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dtask = plus.downloader.createDownload(url,&#123;<span class="attr">filename</span>: <span class="string">'_doc/update/'</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">item, status</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(status == <span class="number">200</span>)&#123;</span><br><span class="line">            <span class="comment">// plus.runtime.openFile(item.getFileName());</span></span><br><span class="line">            <span class="comment">//回调函数</span></span><br><span class="line">            callback(item.filename);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            _this.GL_ALERT(<span class="string">"升级包下载失败"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    dtask.addEventListener(<span class="string">"statechanged"</span>, dlProgress, <span class="literal">false</span>);</span><br><span class="line">    dtask.start();</span><br><span class="line">    $(<span class="string">'#dl_progress'</span>).show();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//调用界面</span></span><br><span class="line">    download(appPackAliName)&#123;                </span><br><span class="line">        <span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">if</span>(!appPackAliName)&#123;</span><br><span class="line">            <span class="keyword">return</span> _this.GL_ALERT(<span class="string">'请检查是否已上传升级包？'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.isClick)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.plus)&#123;</span><br><span class="line">            _this.isClick = <span class="literal">true</span>;  </span><br><span class="line">            <span class="comment">//调用全局 下载文件方法，并使用回调函数 安装文件</span></span><br><span class="line">            _this.downloadWgt(appPackAliName,<span class="function"><span class="keyword">function</span>(<span class="params">filename</span>)</span>&#123;</span><br><span class="line">                _this.installWgt(filename); <span class="comment">// 安装wgt包</span></span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    installWgt (path) &#123;</span><br><span class="line">        <span class="comment">// plus.nativeUI.showWaiting('安装wgt文件...');</span></span><br><span class="line">        <span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">        _this.loading = weui.loading(_this.$t(<span class="string">'l.c.installing'</span>))</span><br><span class="line"></span><br><span class="line">        plus.runtime.install(path, &#123;&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// plus.nativeUI.closeWaiting();</span></span><br><span class="line">            _this.loading.hide();</span><br><span class="line">            weui.toast(<span class="string">"安装成功"</span>,<span class="number">1000</span>);</span><br><span class="line">            plus.runtime.restart();</span><br><span class="line">            <span class="comment">// plus.nativeUI.alert('应用资源更新完成！', function () &#123;</span></span><br><span class="line">            <span class="comment">//     plus.runtime.restart();</span></span><br><span class="line">            <span class="comment">// &#125;);</span></span><br><span class="line">        &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            _this.loading.hide();</span><br><span class="line">            _this.GL_ALERT(<span class="string">"安装失败["</span>+e.code+<span class="string">"]："</span>+e.message);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="制作wgt升级包注意事项"><a href="#制作wgt升级包注意事项" class="headerlink" title="制作wgt升级包注意事项"></a>制作wgt升级包注意事项</h4><ol>
+<li><p>在hbuilderX项目中右键  ——&gt; 发行 —&gt; 制作app资源升级包，</p>
+</li>
+<li><p>manifest.json文件里面的version字段的name和code一定要比现有的高，code且为整数</p>
+</li>
+<li><p>manifest.json模块配置，没有使用到的一定要去除掉，否则也会失败</p>
+</li>
+<li><p>代码中获取版本号信息的代码为如下代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前app的版本号（资源升级后照样获取的到升级后的版本号），其他方法获取版本号经测试不可用</span></span><br><span class="line"><span class="comment">//下面方法可行</span></span><br><span class="line">plus.runtime.getProperty( plus.runtime.appid, <span class="function"><span class="keyword">function</span> (<span class="params"> wgtinfo </span>) </span>&#123;</span><br><span class="line">        store.commit(<span class="string">"setCurrentVersion"</span>, wgtinfo.version);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果遇到明明升级包的版本号比当前版本号高，升级时却提示版本号错误等提示，可查看升级包的版本号是否升级成功</p>
+<p>生成的wgt文件复制一份，并将文件后面加个.zip后缀，此时文件变成一个压缩文件，点击查看，可以查看到里面的有www的文件夹，查看manifest文件的版本号是否修改成功，如果每次制作升级包，版本号明明改了，但是制作完成后添加 .zip后缀查看版本号并没有变时 可 关掉打包软件重新打开再制作升级包。</p>
+<p>这个是软件的bug，当你看到这篇文章时，这个bug应该已经被修复了。</p>
+</li>
+</ol>
+<p>遇到的第三个问题</p>
+<p>相机权限问题</p>
+<p>使用二维码，或者拍照时就需要用到手机摄像头，就需要获取权限。</p>
+<p>需求：当第一次访问时，请求相机权限，当拒绝时做出提示。</p>
+<p>plus.navigator.checkPermission(type)   方法  可查看手机权限的状态，但是文档上有声明，android全部不支持</p>
+<p>因此麻烦来了，安卓要如何判断是否有允许权限</p>
+<p>解决代码如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检查权限全局代码，第一个参数 相机权限还是相册权限，第二个参数 权限允许时回调函数 </span></span><br><span class="line"><span class="comment">//第三个参数 权限不允许时，点击弹框的确定回调函数</span></span><br><span class="line">Vue.prototype.checkPermission = <span class="function"><span class="keyword">function</span>(<span class="params">perType,callback,confirmCallback</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> check = <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">// var perType = 'CAMERA';</span></span><br><span class="line">    <span class="keyword">var</span> type = &#123;</span><br><span class="line">        <span class="string">'CAMERA'</span>:<span class="string">'android.permission.CAMERA'</span>,</span><br><span class="line">        <span class="string">'GALLERY'</span>: <span class="string">'android.permission.READ_EXTERNAL_STORAGE'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">window</span>.plus)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkResult</span>(<span class="params">rusult,confirmCallback</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!rusult)&#123;</span><br><span class="line">            weui.dialog(&#123;</span><br><span class="line">                title: <span class="string">"提示"</span>,</span><br><span class="line">                content: i18n.messages[i18n.locale][<span class="string">'l'</span>][<span class="string">'permission'</span>][perType],</span><br><span class="line">                className: <span class="string">'custom-classname'</span>,</span><br><span class="line">                buttons: [&#123;</span><br><span class="line">                    label: <span class="string">"确定"</span>,</span><br><span class="line">                    type: <span class="string">'primary'</span>,</span><br><span class="line">                    onClick: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">                        confirmCallback&amp;&amp;confirmCallback();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;]</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> ua = <span class="built_in">window</span>.navigator.userAgent.toLocaleLowerCase(); </span><br><span class="line">    <span class="keyword">var</span> isIOS = <span class="regexp">/iphone|ipad|ipod/</span>.test(ua);</span><br><span class="line">    <span class="keyword">if</span>(isIOS)&#123;</span><br><span class="line">        <span class="keyword">var</span> pp = plus.navigator.checkPermission(perType);</span><br><span class="line">        <span class="keyword">switch</span>(pp)&#123;</span><br><span class="line">          <span class="keyword">case</span> <span class="string">'authorized'</span>:</span><br><span class="line">            check = <span class="literal">true</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="string">'denied'</span>:</span><br><span class="line">            check = <span class="literal">false</span>;             </span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="string">'undetermined'</span>:</span><br><span class="line">            check = <span class="literal">true</span>;             </span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="string">'notdeny'</span>:</span><br><span class="line">              check = <span class="literal">true</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">case</span> <span class="string">'unknown'</span>:</span><br><span class="line">            check = <span class="literal">false</span>;             </span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">          <span class="keyword">default</span>:</span><br><span class="line">            check = <span class="literal">false</span>;             </span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//上述代码可缩减，这里懒得缩减了，详细查看api</span></span><br><span class="line">        checkResult(check,confirmCallback);</span><br><span class="line">        callback &amp;&amp; callback(check);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;  <span class="comment">//安卓的查看权限</span></span><br><span class="line">        <span class="comment">// 调试</span></span><br><span class="line">        <span class="comment">// check = true;</span></span><br><span class="line">        <span class="comment">// checkResult(check);</span></span><br><span class="line">        <span class="comment">// callback &amp;&amp; callback(check);</span></span><br><span class="line"></span><br><span class="line">        plus.android.requestPermissions([type[perType]], <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(e.deniedAlways.length&gt;<span class="number">0</span>)&#123;	<span class="comment">//权限被永久拒绝</span></span><br><span class="line">                <span class="comment">// 弹出提示框解释为何需要??权限，引导用户打开设置页面开启</span></span><br><span class="line">                check = <span class="literal">false</span>;     </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(e.deniedPresent.length&gt;<span class="number">0</span>)&#123;	<span class="comment">//权限被临时拒绝</span></span><br><span class="line">                <span class="comment">// 弹出提示框解释为何需要??权限，可再次调用plus.android.requestPermissions申请权限</span></span><br><span class="line">                check = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(e.granted.length&gt;<span class="number">0</span>)&#123;	<span class="comment">//权限被允许</span></span><br><span class="line">                <span class="comment">//调用依赖获取??权限的代码</span></span><br><span class="line">                check = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            checkResult(check,confirmCallback);</span><br><span class="line">            callback &amp;&amp; callback(check);</span><br><span class="line">        &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">            check = <span class="literal">false</span>;</span><br><span class="line">            checkResult(check,confirmCallback);</span><br><span class="line">            callback &amp;&amp; callback(check);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>二维码界面代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=<span class="string">"sacn-box"</span> :<span class="class"><span class="keyword">class</span></span>=<span class="string">"[!check?'error-box':'']"</span>&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"scan"</span> v-show=<span class="string">"isScan"</span>&gt;</span><br><span class="line">        &lt;div id=<span class="string">"bcid"</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"error-msg"</span> v-show=<span class="string">"!check"</span>&gt;&#123;&#123;$t(<span class="string">'l.s.scan.openCamera'</span>)&#125;&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">let scan = null;</span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">  name: 'scan',</span></span><br><span class="line"><span class="regexp">  data()&#123;</span></span><br><span class="line"><span class="regexp">    return &#123;</span></span><br><span class="line"><span class="regexp">      loading : null,</span></span><br><span class="line"><span class="regexp">      view : null,</span></span><br><span class="line"><span class="regexp">      Bartab : null,</span></span><br><span class="line"><span class="regexp">      timeout : null,</span></span><br><span class="line"><span class="regexp">      timeout2 : null,</span></span><br><span class="line"><span class="regexp">      check : true,</span></span><br><span class="line"><span class="regexp">      rem12 : '12px',</span></span><br><span class="line"><span class="regexp">      rem14 : '14px',</span></span><br><span class="line"><span class="regexp">      size: 16,   /</span><span class="regexp">/顶部标题 字体大小  “二维码”</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  methods:&#123;</span></span><br><span class="line"><span class="regexp">    scanCard() &#123;</span></span><br><span class="line"><span class="regexp">        let _this = this;</span></span><br><span class="line"><span class="regexp">        let barcodeStyle = &#123;</span></span><br><span class="line"><span class="regexp">            frameColor : '#000000',</span></span><br><span class="line"><span class="regexp">            scanbarColor : '#000000',</span></span><br><span class="line"><span class="regexp">            background : 'rgba(255,255,255,0)',</span></span><br><span class="line"><span class="regexp">            position :'static'</span></span><br><span class="line"><span class="regexp">        &#125;               </span></span><br><span class="line"><span class="regexp">        if(_this.isScan)&#123;</span></span><br><span class="line"><span class="regexp">            return _this.closeScan();</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        _this.isScan = true; </span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/创建扫码</span></span><br><span class="line"><span class="regexp">        scan = plus.barcode.create('bcid',[plus.barcode.QR],barcodeStyle);     </span></span><br><span class="line"><span class="regexp">        plus.webview.currentWebview().append(scan);</span></span><br><span class="line"><span class="regexp">        </span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 打开扫码</span></span><br><span class="line"><span class="regexp">        _this.startScan();</span></span><br><span class="line"><span class="regexp">        scan.onmarked = _this.onmarked;</span></span><br><span class="line"><span class="regexp">        scan.onerror  = _this.onerror;</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/开始扫描</span></span><br><span class="line"><span class="regexp">    startScan() &#123;</span></span><br><span class="line"><span class="regexp">      var _this = this;</span></span><br><span class="line"><span class="regexp">        if (!window.plus) return;</span></span><br><span class="line"><span class="regexp">        scan.start();</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/关闭条码识别控件</span></span><br><span class="line"><span class="regexp">    closeScan() &#123;</span></span><br><span class="line"><span class="regexp">        if (!window.plus) return;</span></span><br><span class="line"><span class="regexp">        scan.close();</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    goBack()&#123;</span></span><br><span class="line"><span class="regexp">      this.$router.go(-1);</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    onmarked(type, result, file) &#123;</span></span><br><span class="line"><span class="regexp">        var _this = this;</span></span><br><span class="line"><span class="regexp">        var scanType = false;</span></span><br><span class="line"><span class="regexp">        _this.loading = weui.loading(_this.$t('l.c.handling'));</span></span><br><span class="line"><span class="regexp">        switch (type) &#123;</span></span><br><span class="line"><span class="regexp">            case plus.barcode.QR:</span></span><br><span class="line"><span class="regexp">            type = 'QR';</span></span><br><span class="line"><span class="regexp">            break;</span></span><br><span class="line"><span class="regexp">            case plus.barcode.EAN13:</span></span><br><span class="line"><span class="regexp">            type = 'EAN13';</span></span><br><span class="line"><span class="regexp">            break;</span></span><br><span class="line"><span class="regexp">            case plus.barcode.EAN8:</span></span><br><span class="line"><span class="regexp">            type = 'EAN8';</span></span><br><span class="line"><span class="regexp">            break;</span></span><br><span class="line"><span class="regexp">            default:</span></span><br><span class="line"><span class="regexp">            type = '其它' + type;</span></span><br><span class="line"><span class="regexp">            break;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        result = result.replace(/</span>\n/g, <span class="string">''</span>);</span><br><span class="line">        <span class="keyword">if</span>(result.indexOf(<span class="string">"#"</span>)&gt;<span class="number">-1</span>)&#123;     <span class="comment">//解决当 链接不带  #  时， result.split("#")[1]  不存在而报错  导致 扫码功能异常的问题。</span></span><br><span class="line">          result = result.split(<span class="string">"#"</span>)[<span class="number">1</span>];</span><br><span class="line">          <span class="comment">//允许扫码的路径</span></span><br><span class="line">          <span class="keyword">var</span>  paths = [<span class="string">'/app/scan/'</span>,<span class="string">'/app/scan/login'</span>,<span class="string">'/teacher/user/scan/login/'</span>,<span class="string">'/join/group/'</span>,<span class="string">'/join/class/'</span>,<span class="string">'/student/discuss/wall/'</span>,<span class="string">'/student/discuss/free/'</span>];</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>,len = paths.length; i&lt;len ; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(result.indexOf(paths[i]) &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">                scanType = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">break</span> ;</span><br><span class="line">            &#125;     </span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        _this.loading.hide();</span><br><span class="line">        <span class="keyword">if</span>(scanType)&#123;</span><br><span class="line">            <span class="keyword">return</span> _this.$router.replace(result);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            _this.closeScan();</span><br><span class="line">            weui.dialog(&#123;</span><br><span class="line">                title: _this.$t(<span class="string">'l.s.scan.errTips'</span>),</span><br><span class="line">                content: _this.$t(<span class="string">'l.s.scan.cardErr'</span>),</span><br><span class="line">                className: <span class="string">'custom-classname'</span>,</span><br><span class="line">                buttons: [&#123;</span><br><span class="line">                    label: _this.$t(<span class="string">'l.s.scan.confirm'</span>),</span><br><span class="line">                    type: <span class="string">'primary'</span>,</span><br><span class="line">                    onClick: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                        _this.$router.go(<span class="number">-1</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;]</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;      </span><br><span class="line">        <span class="keyword">return</span> _this.$router.replace(result);</span><br><span class="line">    &#125;,  </span><br><span class="line">    onerror(error)&#123;</span><br><span class="line">      _this.GL_ALERT(error);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  created()&#123;</span><br><span class="line">      <span class="keyword">var</span> size = $(<span class="string">'html'</span>)[<span class="number">0</span>].style.fontSize.replace(<span class="string">'px'</span>,<span class="string">''</span>);</span><br><span class="line">      <span class="keyword">this</span>.size = size * <span class="number">0.32</span>;</span><br><span class="line">  &#125;,</span><br><span class="line"> </span><br><span class="line">  mounted : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.baseSize = $(<span class="string">'html'</span>).css(<span class="string">'font-size'</span>);</span><br><span class="line">    <span class="keyword">this</span>.baseNum = <span class="keyword">this</span>.baseSize.replace(<span class="string">'px'</span>, <span class="string">''</span>);</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">var</span> ua = navigator.userAgent.toLowerCase();</span><br><span class="line">    <span class="keyword">if</span>(<span class="regexp">/ipad/i</span>.test(ua))&#123;</span><br><span class="line">      <span class="keyword">this</span>.rem12 = <span class="string">'20px'</span>;</span><br><span class="line">      <span class="keyword">this</span>.rem14 = <span class="string">'24px'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.plus)&#123;</span><br><span class="line">      _this.checkPermission(<span class="string">'CAMERA'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">            _this.check = data;</span><br><span class="line">            <span class="keyword">if</span>(_this.check)&#123;</span><br><span class="line">                _this.scanCard();   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          _this.$router.go(<span class="number">-1</span>);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> _this.GL_ALERT(_this.$t(<span class="string">'l.s.scan.byPhone'</span>));</span><br><span class="line">    &#125;    </span><br><span class="line">  &#125;,</span><br><span class="line">  beforeDestroy()&#123;</span><br><span class="line">    <span class="keyword">this</span>.closeScan();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;style scoped&gt;</span></span><br><span class="line"><span class="regexp">#bcid &#123;</span></span><br><span class="line"><span class="regexp">      height : 100%;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">.error-box&#123;</span></span><br><span class="line"><span class="regexp">  width:100%;</span></span><br><span class="line"><span class="regexp">  height:100vh;</span></span><br><span class="line"><span class="regexp">  display:flex;</span></span><br><span class="line"><span class="regexp">  justify-content: center;</span></span><br><span class="line"><span class="regexp">  align-items: center;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">.error-msg&#123;</span></span><br><span class="line"><span class="regexp">  font-size:.4rem;</span></span><br><span class="line"><span class="regexp">  margin:auto;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
+<p>打开相机和相册界面代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br></pre></td><td class="code"><pre><span class="line">//crop.js</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;crop-box&quot; v-show=&quot;isCrop&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;crop-area-bg&quot; v-show=&quot;!imgLoaded&quot; &gt;&#123;&#123;bgMsg&#125;&#125;&lt;/div&gt;</span><br><span class="line">        &lt;div :id=&quot;&apos;crop_area&apos;+btnId&quot; class=&quot;crop-area&quot; :style=&quot;&#123;opacity:opacity&#125;&quot; &gt;&lt;/div&gt;</span><br><span class="line">        &lt;span class=&quot;btn-rotate-left&quot; @click=&quot;rotateLeft&quot;&gt;&lt;/span&gt;</span><br><span class="line">        &lt;div class=&quot;btn-box&quot;&gt;</span><br><span class="line">            &lt;span class=&quot;btn-cancel&quot; @click=&quot;cancelCrop&quot;&gt;&#123;&#123;$t(&apos;l.i.crop.cancel&apos;)&#125;&#125;&lt;/span&gt;</span><br><span class="line">            &lt;span class=&quot;btn-reset&quot; @click=&quot;rotateReset&quot;&gt;&#123;&#123;$t(&apos;l.i.crop.restore&apos;)&#125;&#125;&lt;/span&gt;</span><br><span class="line">            &lt;span class=&quot;btn-commit&quot; @click=&quot;confirmCrop&quot;&gt;&#123;&#123;$t(&apos;l.i.crop.finish&apos;)&#125;&#125;&lt;/span&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    import * as util from &apos;@static/js/util.js&apos;;</span><br><span class="line">	export default&#123;</span><br><span class="line">        props: [</span><br><span class="line">            &apos;btnId&apos;,</span><br><span class="line">            &apos;fileTypes&apos;</span><br><span class="line">		],</span><br><span class="line">		data()&#123;</span><br><span class="line">			return&#123;</span><br><span class="line">                seling: false,     //判断是否在拍照或者读取相册</span><br><span class="line">                client : null,</span><br><span class="line">                region: &apos;oss-cn-shenzhen&apos;,     //根据你买的那个区的做相应的更改</span><br><span class="line">                bucket: &apos;boyintest&apos;,</span><br><span class="line">                id: &apos;uploadImage&apos;,</span><br><span class="line">                percentage: 0,</span><br><span class="line">                opacity : 0,</span><br><span class="line">                url: &apos;&apos;,</span><br><span class="line">                bgMsg : &apos;&apos;,//$t(&apos;l.i.crop.pictureProcessing&apos;)</span><br><span class="line">                uploadFilesName: &apos;&apos;,</span><br><span class="line">                uploadfile: [],</span><br><span class="line">                imgLoaded : false,</span><br><span class="line">                maxLength: 1,</span><br><span class="line">                isCrop : false,</span><br><span class="line">                rotate : 0,</span><br><span class="line">                defaultFileTypes : &apos;jpg,png,jpeg,JPG,PNG,JPEG&apos;,</span><br><span class="line">                credentials : null,</span><br><span class="line">                fileUrlPre : null,</span><br><span class="line">                uploadUrl : null</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		methods:&#123;</span><br><span class="line">            rotateLeft : function()&#123;</span><br><span class="line">                this.crop.rotate(-90);</span><br><span class="line">            &#125;,</span><br><span class="line">            rotateRight : function()&#123;</span><br><span class="line">                this.crop.rotate(10);</span><br><span class="line">            &#125;,</span><br><span class="line">            rotateReset : function()&#123;</span><br><span class="line">                this.crop.reset();</span><br><span class="line">            &#125;,</span><br><span class="line">            getCredentials : function () &#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                _this.$axios.post(_this.apiUrl + &quot;/sts/get-credentials&quot;,_this.$qs.stringify(&#123;type : 20&#125;)).then(function (response) &#123;</span><br><span class="line">                    if (!response || !response.data.success) &#123;</span><br><span class="line">                        return _this.loading.hide();</span><br><span class="line">                    &#125;</span><br><span class="line">                    </span><br><span class="line">                    _this.credentials = &#123;</span><br><span class="line">                        bucketName : response.data.bucket,</span><br><span class="line">                        fileBucketName : response.data.filePath,</span><br><span class="line">                        credentials : JSON.stringify(response.data.sts),</span><br><span class="line">                    &#125;;</span><br><span class="line">                    _this.fileUrlPre = response.data.fileUrlPre;</span><br><span class="line">                    _this.uploadUrl = response.data.uploadUrl;</span><br><span class="line">                  </span><br><span class="line">                    // 设置参数</span><br><span class="line">                    _this.uploader.setOption(&#123;</span><br><span class="line">                        url : _this.uploadUrl,</span><br><span class="line">                        multipart_params : _this.credentials</span><br><span class="line">                    &#125;);</span><br><span class="line"></span><br><span class="line">                    _this.uploader.start();</span><br><span class="line">			    &#125;).catch(function (error) &#123;</span><br><span class="line">			        _this.loading.hide();</span><br><span class="line">                &#125;);	</span><br><span class="line">            &#125;,</span><br><span class="line">            cancelCrop : function()&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                _this.seling = false;</span><br><span class="line">                if(!_this.imgLoaded)&#123;</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                _this.isCrop = false;</span><br><span class="line">                _this.crop.destroy();</span><br><span class="line">                _this.crop = null;</span><br><span class="line">                _this.uploader.disableBrowse(false);</span><br><span class="line">                _this.imgLoaded = false;</span><br><span class="line">                _this.opacity = 0;</span><br><span class="line"></span><br><span class="line">                _this.$emit(&quot;cancelCrop&quot;);</span><br><span class="line">                // _this.$bus.$emit(&apos;cropStatus&apos;, false);</span><br><span class="line">            &#125;,</span><br><span class="line">            confirmCrop : function()&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                _this.seling = false;</span><br><span class="line">                if(!_this.imgLoaded)&#123;</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                if(_this.croping)&#123;</span><br><span class="line">                    return weui.toast(_this.$t(&apos;l.i.crop.uploading&apos;),1000);</span><br><span class="line">                &#125;</span><br><span class="line">                _this.croping = true;</span><br><span class="line">                _this.loading = weui.loading(_this.$t(&apos;l.i.crop.uploading&apos;), &#123;className: &apos;moka-loading&apos;&#125;);</span><br><span class="line">                try &#123;</span><br><span class="line">                    var data = _this.crop.getCanvasData();</span><br><span class="line">                    var width,height;</span><br><span class="line">                    if(data.naturalWidth &gt; 1000)&#123;</span><br><span class="line">                        width = 1000;</span><br><span class="line">                        height = data.naturalHeight * 1000 / data.naturalWidth;</span><br><span class="line">                    &#125;</span><br><span class="line">                    var cas = _this.crop.getCroppedCanvas(&#123;</span><br><span class="line">                        width : width,</span><br><span class="line">                        height : height,</span><br><span class="line">                        // Limit max sizes</span><br><span class="line">                        maxWidth: 4096,</span><br><span class="line">                        maxHeight: 4096,</span><br><span class="line">                    &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    var fileName = _this.file.name;</span><br><span class="line">                    var saveName = new Date().getTime() + &apos;.&apos; + util.getSuffix(fileName);</span><br><span class="line"></span><br><span class="line">                    for(var index in _this.files)&#123;//清除所有文件</span><br><span class="line">                        var upFile = _this.files[index];</span><br><span class="line">                        _this.uploader.removeFile(upFile);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                  </span><br><span class="line">                    cas.toBlob(function (bolb) &#123;</span><br><span class="line">                        var file = new File([bolb], saveName, &#123;type: &apos;image/jpeg&apos;&#125;);</span><br><span class="line">                        _this.croping = false;</span><br><span class="line">                        _this.currFile = file;</span><br><span class="line">                        _this.uploader.addFile(file);</span><br><span class="line">                        _this.loading.hide();</span><br><span class="line">                    &#125;, &quot;image/jpeg&quot;, 0.95)</span><br><span class="line">                &#125; catch (error) &#123;</span><br><span class="line">                    _this.loading.hide();</span><br><span class="line">                    weui.toast(&apos;error&apos;);</span><br><span class="line">                    _this.cancelCrop();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            uploaded : function(fileName, src)&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                weui.toast(_this.$t(&apos;l.i.crop.uploadSuccess&apos;),1000);</span><br><span class="line">                _this.$emit(&quot;fileUploadCallback&quot;, fileName, src);</span><br><span class="line">            &#125;,</span><br><span class="line">            initCrop : function(file)&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                // console.log(_this.isCrop);</span><br><span class="line">                if(_this.isCrop)&#123;//正在剪裁</span><br><span class="line">                    _this.isCrop = false;</span><br><span class="line">                    return _this.getCredentials();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                _this.file = file;</span><br><span class="line">                var fileName = _this.file.name;</span><br><span class="line">                </span><br><span class="line">                var fileTypes = _this.defaultFileTypes;</span><br><span class="line">                if(_this.fileTypes &amp;&amp; _this.fileTypes.length &gt; 0)&#123;</span><br><span class="line">                    fileTypes = _this.fileTypes;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                var typeTpl = &apos;,&apos; + fileTypes.toLocaleLowerCase()  + &apos;,&apos;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                var suffix = util.getSuffix(fileName).toLocaleLowerCase();</span><br><span class="line">                if(typeTpl.indexOf(suffix) &lt; 0)&#123;</span><br><span class="line">                    _this.uploader.removeFile(file);</span><br><span class="line">                    return _this.GL_ALERT(_this.$t(&apos;l.i.crop.notSupported&apos;));</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                if(suffix != &apos;jpg&apos; &amp;&amp; suffix != &apos;png&apos; &amp;&amp; suffix != &apos;jpeg&apos;)&#123;</span><br><span class="line">                    _this.loading = weui.loading(_this.$t(&apos;l.i.crop.uploading&apos;), &#123;className: &apos;moka-loading&apos;&#125;);</span><br><span class="line">                    _this.currFile = file;</span><br><span class="line">                    return _this.getCredentials();//_this.uploadFile(_this.file);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                _this.$emit(&quot;onCrop&quot;);</span><br><span class="line">                // _this.$bus.$emit(&apos;cropStatus&apos;, true);</span><br><span class="line">                </span><br><span class="line">                _this.isCrop = true;</span><br><span class="line">                _this.loading = weui.loading(_this.$t(&apos;l.i.crop.pictureProcessing&apos;));</span><br><span class="line">                var preloader = new moxie.image.Image();</span><br><span class="line">                preloader.onload = function () &#123;</span><br><span class="line">                    var imgsrc = preloader.type == &apos;image/jpeg&apos; ? preloader.getAsDataURL(&apos;image/jpeg&apos;, 80) : preloader.getAsDataURL(); //得到图片src,实质为一个base64编码的数据</span><br><span class="line">                    _this.file.imgsrc = imgsrc;</span><br><span class="line">                    preloader.destroy();</span><br><span class="line">                    preloader = null;</span><br><span class="line">                    $(&apos;#crop_area&apos;+_this.btnId).html(&apos;&lt;img src=&quot;&apos; + imgsrc + &apos;&quot;&gt;&apos;);</span><br><span class="line">                    if(!_this.crop)&#123;</span><br><span class="line">                        _this.crop  = new Cropper($(&apos;#crop_area&apos;+_this.btnId+&apos; &gt; img&apos;)[0], &#123;</span><br><span class="line">                            dragMode : &apos;move&apos;,</span><br><span class="line">                            background : false,</span><br><span class="line">                            autoCropArea : 1,</span><br><span class="line">                            crop(event) &#123;</span><br><span class="line">                            &#125;,</span><br><span class="line">                            ready()&#123;</span><br><span class="line">                                _this.imgLoaded = true;</span><br><span class="line">                                _this.opacity = 1;</span><br><span class="line">                                _this.loading.hide();</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                preloader.load(_this.file.getSource());</span><br><span class="line">                _this.$emit(&quot;finish&quot;);</span><br><span class="line">            &#125;,</span><br><span class="line">            initUploader : function(options)&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line"></span><br><span class="line">                var fileTypes = _this.defaultFileTypes;</span><br><span class="line">                if(_this.fileTypes &amp;&amp; _this.fileTypes.length &gt; 0)&#123;</span><br><span class="line">                    fileTypes = _this.fileTypes;</span><br><span class="line">                &#125;</span><br><span class="line">                var filters = [];</span><br><span class="line">                if(!$(&apos;#app&apos;).hasClass(&apos;pc&apos;))&#123;</span><br><span class="line">                    filters = [];</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    filters =  [</span><br><span class="line">                        &#123;title: &quot;document&quot;, extensions: fileTypes&#125;//&quot;jpg,png,jpeg,JPG,PNG,JPEG&quot;</span><br><span class="line">                    ];</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                var typeTpl = &apos;,&apos; + fileTypes.toLocaleLowerCase()  + &apos;,&apos;;</span><br><span class="line"></span><br><span class="line">                var btnId = _this.btnId;</span><br><span class="line">                if(options &amp;&amp; options.btnId)&#123;</span><br><span class="line">                    btnId = options.btnId</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if (window.plus) &#123;</span><br><span class="line">                    btnId = _this.btnId + &apos;_hide&apos;;</span><br><span class="line">                    $(&apos;body&apos;).append(&apos;&lt;span id=&quot;&apos; + btnId + &apos;&quot; style=&quot;position:absolute;z-index=-9;&quot;&gt;&lt;/span&gt;&apos;)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                var uploader = new plupload.Uploader(&#123;</span><br><span class="line">                    runtimes : &apos;html5,flash&apos;,</span><br><span class="line">                    browse_button : btnId, //选择文件按钮ID </span><br><span class="line">                    max_file_size : &apos;100mb&apos;,  //文件上传最大值</span><br><span class="line">                    multipart : true,</span><br><span class="line">                    chunks : true,//不分块上传</span><br><span class="line">                    chunk_size : &apos;10mb&apos;,//分块大小，小于这个大小的不分块</span><br><span class="line">                    unique_names : true,  // 上传的文件名是否唯一,只有在未进行分块上传时文件名唯一才有效</span><br><span class="line">                    url: _this.uploadUrl, //提交到后台的url地址</span><br><span class="line">                    flash_swf_url: &apos;/js/lib/plupload/plupload.flash.swf&apos;,//plupload.flash.swf文件所在路径</span><br><span class="line">                    multi_selection : false,</span><br><span class="line">                    filters: filters,</span><br><span class="line">                    init : &#123;</span><br><span class="line">                        FileUploaded : function(up, file, info) &#123;//上传服务器方法，暂时未用到</span><br><span class="line">                            up.disableBrowse(false);</span><br><span class="line">                            var result = JSON.parse(info.response);</span><br><span class="line">                            _this.loading.hide();</span><br><span class="line">                            if(!result.success)&#123;</span><br><span class="line">                                return _this.GL_ALERT(_this.$t(&apos;l.i.crop.uploadFailure&apos;));</span><br><span class="line">                            &#125;</span><br><span class="line">                            if(!result || !result.saveName)&#123;</span><br><span class="line">                                return _this.GL_ALERT(_this.$t(&apos;l.i.crop.uploadFailure&apos;));</span><br><span class="line">                            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                            weui.toast(_this.$t(&apos;l.i.crop.uploadSuccess&apos;), 1000);</span><br><span class="line">                            var attachFileName = _this.currFile.name;    //源文件的名字</span><br><span class="line">                            var saveName = _this.fileUrlPre.concat(&quot;/&quot;, result.saveName);</span><br><span class="line">                            var fileSize = _this.currFile.size;</span><br><span class="line">                            _this.$emit(&quot;imgUploadCallback&quot;, attachFileName, saveName, fileSize);</span><br><span class="line">                        &#125;,</span><br><span class="line">                        FilesAdded : function(up, files)&#123;</span><br><span class="line">                            _this.files = files;</span><br><span class="line">                            _this.file = files[0];</span><br><span class="line">                            _this.initCrop(_this.file);</span><br><span class="line">                        &#125;,</span><br><span class="line">                        BeforeUpload : function(up, file)&#123;</span><br><span class="line">                            _this.cancelCrop();//上传之前 销毁剪裁框</span><br><span class="line">                            up.disableBrowse(true);</span><br><span class="line">                        &#125;,</span><br><span class="line">                        UploadProgress : function(up, file) &#123; </span><br><span class="line">                        	// console.log(&quot;eeeeeeeeeeeee&quot;);</span><br><span class="line">                        &#125;,</span><br><span class="line">                        Error : function(up, err) &#123;</span><br><span class="line">                            // _this.loading.hide();</span><br><span class="line">                            up.disableBrowse(false);</span><br><span class="line">                            up.refresh(); // Reposition Flash/Silverlight</span><br><span class="line">                            _this.GL_ALERT(err.message);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">                console.log(&apos;init&apos;);</span><br><span class="line">                uploader.init();</span><br><span class="line">                _this.uploader = uploader;</span><br><span class="line">            &#125;,</span><br><span class="line">            reset : function(btnId)&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                var uploader = _this.uploader;</span><br><span class="line">                uploader.destroy();</span><br><span class="line">                // _this.uploader = null;</span><br><span class="line">                setTimeout(function()&#123;</span><br><span class="line">                    _this.initUploader(&#123;btnId:btnId&#125;);</span><br><span class="line">                &#125;, 500);</span><br><span class="line"></span><br><span class="line">                if (window.plus) &#123;</span><br><span class="line">                    $(&apos;#&apos; + this.btnId).off(&apos;click&apos;);</span><br><span class="line">                    $(&apos;#&apos; + btnId).on(&apos;click&apos;, this.onSel)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            initAppCrop : function(file)&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                if(_this.isCrop)&#123;//正在剪裁</span><br><span class="line">                    _this.isCrop = false;</span><br><span class="line">                    return _this.getCredentials();</span><br><span class="line">                &#125;</span><br><span class="line">                _this.file = file;</span><br><span class="line">                _this.$emit(&quot;onCrop&quot;);</span><br><span class="line">                // _this.$bus.$emit(&apos;cropStatus&apos;, true);</span><br><span class="line">                </span><br><span class="line">                _this.isCrop = true;</span><br><span class="line">                $(&apos;#crop_area&apos;+_this.btnId).html(&apos;&lt;img src=&quot;&apos; + file.src + &apos;&quot;&gt;&apos;);</span><br><span class="line">                if(!_this.crop)&#123;</span><br><span class="line">                    // _this.loading = weui.loading(_this.$t(&apos;l.i.crop.pictureProcessing&apos;));</span><br><span class="line">                    _this.crop  = new Cropper($(&apos;#crop_area&apos;+_this.btnId+&apos; &gt; img&apos;)[0], &#123;</span><br><span class="line">                        dragMode : &apos;move&apos;,</span><br><span class="line">                        background : false,</span><br><span class="line">                        autoCropArea : 1,</span><br><span class="line">                        crop(event) &#123;</span><br><span class="line">                        &#125;,</span><br><span class="line">                        ready()&#123;</span><br><span class="line">                            _this.imgLoaded = true;</span><br><span class="line">                            _this.opacity = 1;</span><br><span class="line">                            _this.loading.hide();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                _this.$emit(&quot;finish&quot;);</span><br><span class="line">            &#125;,</span><br><span class="line">            getImage : function () &#123;</span><br><span class="line">                const ua = window.navigator.userAgent.toLocaleLowerCase();</span><br><span class="line">                var isIOS = /iphone|ipad|ipod/.test(ua);</span><br><span class="line">                var _this = this;</span><br><span class="line">                _this.checkPermission(&apos;CAMERA&apos;,function(data)&#123;</span><br><span class="line">                   if(data)&#123;</span><br><span class="line">                        var c = plus.camera.getCamera();   </span><br><span class="line">                        var area = 0;  //记录最大像素  </span><br><span class="line">                        var j = 0;  //记录最大像素的索引</span><br><span class="line">                        for(let i = 0; i &lt; c.supportedImageResolutions.length; i++)&#123;</span><br><span class="line">                            var arr = c.supportedImageResolutions[i].split(&quot;*&quot;);</span><br><span class="line">                            if(arr.length &lt; 2)&#123;</span><br><span class="line">                                continue;</span><br><span class="line">                            &#125;</span><br><span class="line">                            var currentArea = arr[0] * arr[1];</span><br><span class="line">                            if(currentArea &gt; area)&#123;</span><br><span class="line">                                area = currentArea;</span><br><span class="line">                                j = i;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        var filename = new Date().getTime() + &apos;.jpg&apos;;</span><br><span class="line">                        c.captureImage(function(filePath) &#123;</span><br><span class="line">                            </span><br><span class="line">                            // filePath  为拍完照保存在本地的路径   _doc/shijain...</span><br><span class="line">                            plus.io.resolveLocalFileSystemURL(filePath, function(entry) &#123;</span><br><span class="line">                                 _this.loading = weui.loading(_this.$t(&apos;l.i.crop.pictureProcessing&apos;));</span><br><span class="line">                                // 可通过entry对象操作 file 文件 </span><br><span class="line">                                entry.file( function ( file ) &#123;</span><br><span class="line">                                    var fileReader = new plus.io.FileReader();</span><br><span class="line">                                    fileReader.onloadend = function ( e ) &#123;</span><br><span class="line">                                        // Get data</span><br><span class="line">                                        // alert( e.target.result );</span><br><span class="line">                                        var imgPath = e.target.result;</span><br><span class="line">                                        var image = new Image();</span><br><span class="line">                                        image.src = imgPath;</span><br><span class="line">                                        image.name = entry.name;</span><br><span class="line">                                        image.onload = function() &#123;</span><br><span class="line">                                            _this.initAppCrop(image); /*上传图片*/</span><br><span class="line">                                        &#125;</span><br><span class="line">                                    &#125;;</span><br><span class="line">                                    fileReader.readAsDataURL( file );</span><br><span class="line">                                &#125;, function ( file ) &#123;</span><br><span class="line">                                    alert( file.message );</span><br><span class="line">                                &#125; );</span><br><span class="line">                            &#125;, function(filePath) &#123;</span><br><span class="line">                                 _this.loading.hide();</span><br><span class="line">                                 _this.seling = false;</span><br><span class="line">                                console.log(&quot;读取拍照文件错误：&quot; + filePath.message);</span><br><span class="line">                            &#125;);</span><br><span class="line">                        &#125;, function(s) &#123;</span><br><span class="line">                            //防止选相机时 不拍照了</span><br><span class="line">                            _this.seling = false;</span><br><span class="line">                            console.log(&quot;拍照错误：&quot; + filePath.message);</span><br><span class="line">                        &#125;, &#123;</span><br><span class="line">                            filename: &quot;_doc/&quot; + filename,</span><br><span class="line">                            resolution: c.supportedImageResolutions[j],</span><br><span class="line">                        &#125;)</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;)</span><br><span class="line">                </span><br><span class="line">            &#125;,</span><br><span class="line">            galleryImg : function () &#123;</span><br><span class="line">                const ua = window.navigator.userAgent.toLocaleLowerCase();</span><br><span class="line">                var isIOS = /iphone|ipad|ipod/.test(ua);</span><br><span class="line">                var _this = this;</span><br><span class="line">                _this.checkPermission(&apos;GALLERY&apos;,function(data)&#123;</span><br><span class="line">                    if(!data)&#123;</span><br><span class="line">                        return;</span><br><span class="line">                    &#125;</span><br><span class="line">                    plus.gallery.pick(function(a) &#123;</span><br><span class="line">                        plus.io.resolveLocalFileSystemURL(a, function(entry) &#123;</span><br><span class="line">                             _this.loading = weui.loading(_this.$t(&apos;l.i.crop.pictureProcessing&apos;));</span><br><span class="line">                            // 可通过entry对象操作 file 文件 </span><br><span class="line">                            entry.file( function ( file ) &#123;</span><br><span class="line">                                var fileReader = new plus.io.FileReader();</span><br><span class="line">                                fileReader.onloadend = function ( e ) &#123;</span><br><span class="line">                                    // Get data</span><br><span class="line">                                    // alert( e.target.result );</span><br><span class="line">                                    var imgPath = e.target.result;</span><br><span class="line">                                    var image = new Image();</span><br><span class="line">                                    image.src = imgPath;</span><br><span class="line">                                    image.name = entry.name;</span><br><span class="line">                                    </span><br><span class="line">                                    image.onload = function() &#123;</span><br><span class="line">                                       </span><br><span class="line">                                        _this.initAppCrop(image); /*上传图片*/</span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;;</span><br><span class="line">                                fileReader.readAsDataURL( file );</span><br><span class="line">                            &#125;, function ( file ) &#123;</span><br><span class="line">                                alert( file.message );</span><br><span class="line">                            &#125; );</span><br><span class="line">                            // var imgPath = isIOS?entry.toRemoteURL():entry.toLocalURL();</span><br><span class="line">                            // var image = new Image();</span><br><span class="line">                            // image.src = imgPath;</span><br><span class="line">                            // image.name = entry.name;</span><br><span class="line">                            // image.onload = function() &#123;</span><br><span class="line">                            //     _this.initAppCrop(image); /*上传图片*/</span><br><span class="line">                            // &#125;</span><br><span class="line">                        &#125;, function(e) &#123;</span><br><span class="line">                            _this.seling = false;</span><br><span class="line">                            _this.loading.hide();</span><br><span class="line">                            console.log(&quot;读取拍照文件错误：&quot; + e.message);</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;, function(a) &#123;</span><br><span class="line">                        //防止安卓机跳到相册后不选了</span><br><span class="line">                        _this.seling = false;</span><br><span class="line">                    &#125;, &#123;</span><br><span class="line">                        filter: &quot;image&quot;</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;)</span><br><span class="line">                </span><br><span class="line">            &#125;,</span><br><span class="line">            onSel : function()&#123;</span><br><span class="line">                var _this = this;</span><br><span class="line">                if(_this.seling)&#123;</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                weui.actionSheet([</span><br><span class="line">                    &#123;</span><br><span class="line">                        label: _this.$t(&apos;l.i.crop.takePhoto&apos;),</span><br><span class="line">                        onClick: function () &#123;_this.seling = true;_this.getImage()&#125;</span><br><span class="line">                    &#125;, &#123;</span><br><span class="line">                        label: _this.$t(&apos;l.i.crop.takeByphotos&apos;),</span><br><span class="line">                        onClick: function () &#123;_this.seling = true;_this.galleryImg();&#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                ], [</span><br><span class="line">                    &#123;</span><br><span class="line">                        label: _this.$t(&apos;l.i.crop.cancel&apos;),</span><br><span class="line">                        onClick: function () &#123;_this.seling = false;&#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                ]);</span><br><span class="line">            &#125;,</span><br><span class="line">            initEvent: function()&#123;</span><br><span class="line">                console.log(&apos;initEvent&apos;);</span><br><span class="line">                $(&apos;#&apos; + this.btnId).off(&apos;click&apos;);</span><br><span class="line">                $(&apos;#&apos; + this.btnId).on(&apos;click&apos;, this.onSel)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">		mounted()&#123;</span><br><span class="line">            if (!HTMLCanvasElement.prototype.toBlob) &#123;</span><br><span class="line">                Object.defineProperty(HTMLCanvasElement.prototype, &apos;toBlob&apos;, &#123;</span><br><span class="line">                    value: function (callback, type, quality) &#123;</span><br><span class="line">                        var binStr = atob( this.toDataURL(type, quality).split(&apos;,&apos;)[1] ),</span><br><span class="line">                            len = binStr.length,</span><br><span class="line">                            arr = new Uint8Array(len);</span><br><span class="line">                        for (var i=0; i&lt;len; i++ ) &#123;</span><br><span class="line">                            arr[i] = binStr.charCodeAt(i);</span><br><span class="line">                        &#125;</span><br><span class="line">                        callback( new Blob( [arr], &#123;type: type || &apos;image/png&apos;&#125; ) );</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            // var topHeight = $(&apos;html&apos;).css(&apos;font-size&apos;);</span><br><span class="line">            // var boxHeight = $(&apos;html&apos;).height() - topHeight.replace(&apos;px&apos;, &apos;&apos;);</span><br><span class="line">            // $(&apos;.crop-box&apos;).css(&apos;top&apos;, topHeight).css(&apos;height&apos;, boxHeight);</span><br><span class="line"></span><br><span class="line">            if (window.plus) &#123;</span><br><span class="line">                console.log(window.plus)</span><br><span class="line">                this.initEvent();</span><br><span class="line">            &#125;</span><br><span class="line">            this.initUploader();</span><br><span class="line">        &#125;,</span><br><span class="line">        beforeDestroy : function()&#123;</span><br><span class="line">            this.seling = false;</span><br><span class="line">            if(this.loading)&#123;</span><br><span class="line">                this.loading.hide();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.crop-area img&#123;</span><br><span class="line">    max-width: 100%;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line">this.checkPermission(&apos;CAMERA&apos;,function(data)&#123;</span><br><span class="line">              if(data)&#123;</span><br><span class="line">                   var c = plus.camera.getCamera();   </span><br><span class="line">                   var area = 0;  //记录最大像素  </span><br><span class="line">                   var j = 0;  //记录最大像素的索引</span><br><span class="line">                   for(let i = 0; i &lt; c.supportedImageResolutions.length; i++)&#123;</span><br><span class="line">                       var arr = c.supportedImageResolutions[i].split(&quot;*&quot;);</span><br><span class="line">                       if(arr.length &lt; 2)&#123;</span><br><span class="line">                           continue;</span><br><span class="line">                       &#125;</span><br><span class="line">                       var currentArea = arr[0] * arr[1];</span><br><span class="line">                       if(currentArea &gt; area)&#123;</span><br><span class="line">                           area = currentArea;</span><br><span class="line">                           j = i;</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125;</span><br><span class="line">                   var filename = new Date().getTime() + &apos;.jpg&apos;;</span><br><span class="line">                   c.captureImage(function(filePath) &#123;</span><br><span class="line">                       </span><br><span class="line">                       // filePath  为拍完照保存在本地的路径   _doc/shijain...</span><br><span class="line">                       plus.io.resolveLocalFileSystemURL(filePath, function(entry) &#123;</span><br><span class="line">                            _this.loading = weui.loading(_this.$t(&apos;l.i.crop.pictureProcessing&apos;));</span><br><span class="line">                           // 可通过entry对象操作 file 文件 </span><br><span class="line">                           entry.file( function ( file ) &#123;</span><br><span class="line">                               var fileReader = new plus.io.FileReader();</span><br><span class="line">                               fileReader.onloadend = function ( e ) &#123;</span><br><span class="line">                                   // Get data</span><br><span class="line">                                   // alert( e.target.result );</span><br><span class="line">                                   var imgPath = e.target.result;</span><br><span class="line">                                   var image = new Image();</span><br><span class="line">                                   image.src = imgPath;</span><br><span class="line">                                   image.name = entry.name;</span><br><span class="line">                                   image.onload = function() &#123;</span><br><span class="line">                                       _this.initAppCrop(image); /*上传图片*/</span><br><span class="line">                                   &#125;</span><br><span class="line">                               &#125;;</span><br><span class="line">                               fileReader.readAsDataURL( file );</span><br><span class="line">                           &#125;, function ( file ) &#123;</span><br><span class="line">                               alert( file.message );</span><br><span class="line">                           &#125; );</span><br><span class="line">                       &#125;, function(filePath) &#123;</span><br><span class="line">                            _this.loading.hide();</span><br><span class="line">                            _this.seling = false;</span><br><span class="line">                           console.log(&quot;读取拍照文件错误：&quot; + filePath.message);</span><br><span class="line">                       &#125;);</span><br><span class="line">                   &#125;, function(s) &#123;</span><br><span class="line">                       //防止选相机时 不拍照了</span><br><span class="line">                       _this.seling = false;</span><br><span class="line">                       console.log(&quot;拍照错误：&quot; + filePath.message);</span><br><span class="line">                   &#125;, &#123;</span><br><span class="line">                       filename: &quot;_doc/&quot; + filename,</span><br><span class="line">                       resolution: c.supportedImageResolutions[j],</span><br><span class="line">                   &#125;)</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">          </span><br><span class="line">          </span><br><span class="line">           _this.checkPermission(&apos;GALLERY&apos;,function(data)&#123;</span><br><span class="line">               if(!data)&#123;</span><br><span class="line">                   return;</span><br><span class="line">               &#125;</span><br><span class="line">               plus.gallery.pick(function(a) &#123;</span><br><span class="line">                   plus.io.resolveLocalFileSystemURL(a, function(entry) &#123;</span><br><span class="line">                        _this.loading = weui.loading(_this.$t(&apos;l.i.crop.pictureProcessing&apos;));</span><br><span class="line">                       // 可通过entry对象操作 file 文件 </span><br><span class="line">                       entry.file( function ( file ) &#123;</span><br><span class="line">                           var fileReader = new plus.io.FileReader();</span><br><span class="line">                           fileReader.onloadend = function ( e ) &#123;</span><br><span class="line">                               // Get data</span><br><span class="line">                               // alert( e.target.result );</span><br><span class="line">                               var imgPath = e.target.result;</span><br><span class="line">                               var image = new Image();</span><br><span class="line">                               image.src = imgPath;</span><br><span class="line">                               image.name = entry.name;</span><br><span class="line">                               </span><br><span class="line">                               image.onload = function() &#123;</span><br><span class="line">                                  </span><br><span class="line">                                   _this.initAppCrop(image); /*上传图片*/</span><br><span class="line">                               &#125;</span><br><span class="line">                           &#125;;</span><br><span class="line">                           fileReader.readAsDataURL( file );</span><br><span class="line">                       &#125;, function ( file ) &#123;</span><br><span class="line">                           alert( file.message );</span><br><span class="line">                       &#125; );</span><br><span class="line">                       // var imgPath = isIOS?entry.toRemoteURL():entry.toLocalURL();</span><br><span class="line">                       // var image = new Image();</span><br><span class="line">                       // image.src = imgPath;</span><br><span class="line">                       // image.name = entry.name;</span><br><span class="line">                       // image.onload = function() &#123;</span><br><span class="line">                       //     _this.initAppCrop(image); /*上传图片*/</span><br><span class="line">                       // &#125;</span><br><span class="line">                   &#125;, function(e) &#123;</span><br><span class="line">                       _this.seling = false;</span><br><span class="line">                       _this.loading.hide();</span><br><span class="line">                       console.log(&quot;读取拍照文件错误：&quot; + e.message);</span><br><span class="line">                   &#125;);</span><br><span class="line">               &#125;, function(a) &#123;</span><br><span class="line">                   //防止安卓机跳到相册后不选了</span><br><span class="line">                   _this.seling = false;</span><br><span class="line">               &#125;, &#123;</span><br><span class="line">                   filter: &quot;image&quot;</span><br><span class="line">               &#125;)</span><br><span class="line">           &#125;)</span><br><span class="line">           </span><br><span class="line">           </span><br><span class="line">           </span><br><span class="line">         //seling   防止重复点击    </span><br><span class="line">      onSel : function()&#123;</span><br><span class="line">           var _this = this;</span><br><span class="line">           if(_this.seling)&#123;</span><br><span class="line">               return;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           weui.actionSheet([</span><br><span class="line">               &#123;</span><br><span class="line">                   label: _this.$t(&apos;l.i.crop.takePhoto&apos;),</span><br><span class="line">                   onClick: function () &#123;_this.seling = true;_this.getImage()&#125;</span><br><span class="line">               &#125;, &#123;</span><br><span class="line">                   label: _this.$t(&apos;l.i.crop.takeByphotos&apos;),</span><br><span class="line">                   onClick: function () &#123;_this.seling = true;_this.galleryImg();&#125;</span><br><span class="line">               &#125;</span><br><span class="line">           ], [</span><br><span class="line">               &#123;</span><br><span class="line">                   label: _this.$t(&apos;l.i.crop.cancel&apos;),</span><br><span class="line">                   onClick: function () &#123;_this.seling = false;&#125;</span><br><span class="line">               &#125;</span><br><span class="line">           ]);</span><br><span class="line">       &#125;,</span><br></pre></td></tr></table></figure>
+<p>代码都是节选，也没做修改，只是总结下 使用相机和相册还有二维码的调用方法，具体请查看api。</p>
+<h5 id="第四个问题"><a href="#第四个问题" class="headerlink" title="第四个问题"></a>第四个问题</h5><p>顶部导航栏（标题问题）</p>
+<p>问题： 安卓点击输入框时，整个页面是会减小的，因此顶部导航栏还是会固定再顶部，但是ios点击输入框</p>
+<p>弹起键盘时，页面是上移的，导致顶部标题也上移动。</p>
+<p>研究了许久</p>
+<p>修改 softinpputMode 为 adjustResize。 也可在配置文件manifest文件中修改模式。具体查看文档。</p>
+<p>plus.webview.currentWebview().setStyle({softinputMode: “adjustResize”});</p>
+<p>但是发行修改为这个模式后打包仍有各种问题</p>
+<p>最后解决方法，就是使用原生导航栏，原生导航栏会将顶部标题固定在顶部。</p>
+<p>使用方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">setTitle()&#123;</span><br><span class="line">        <span class="keyword">var</span> _self = plus.webview.currentWebview();</span><br><span class="line">        <span class="keyword">var</span> buttons = !<span class="keyword">this</span>.meta.scan?[]:[</span><br><span class="line">              <span class="comment">//使用阿里图标库示例,打包后才会生效</span></span><br><span class="line">            &#123;</span><br><span class="line">              fontSrc : <span class="string">"_www/static/font/iconfont.ttf"</span>,   </span><br><span class="line">              text:<span class="string">'\ue663'</span>,</span><br><span class="line">              float:<span class="string">'right'</span>,</span><br><span class="line">              onclick: <span class="keyword">this</span>.onScan</span><br><span class="line">            &#125;</span><br><span class="line">        ];</span><br><span class="line">        _self.setStyle(&#123;</span><br><span class="line">            titleNView:&#123;</span><br><span class="line">              titleOverflow: <span class="string">'titleOverflow'</span>, </span><br><span class="line">              height: <span class="string">'50px'</span>,</span><br><span class="line">              buttons,</span><br><span class="line">              autoBackButton : <span class="keyword">this</span>.meta.back,</span><br><span class="line">              titleText : <span class="keyword">this</span>.$store.getters.getTitle ,</span><br><span class="line">              backgroundColor: <span class="keyword">this</span>.meta.bg , </span><br><span class="line">              titleColor : <span class="keyword">this</span>.meta.color </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.WebviewObject.setStyle" target="_blank" rel="noopener">原生导航栏文档</a></p>
+<p>没记错的化文档说明中写 首页的 导航栏需要在配置文件中配置，没错的话 应该就是因为在代码中设置原生导航栏</p>
+<p>用到了plus中的webview方法，可能plus的方法还没加载完，启动页已经关闭，导致页面没有顶部导航栏，所以首</p>
+<p>页需要在manifest配置文件中配置</p>
+<p>那么问题来了，我的项目是启动页完后未登录时进入的是登录页，已登录时是登录后的首页。我该如何配置？</p>
+<p>而且我的项目是多语言的，配置中也只能是一种语言。因此我决定不配置首页，而是监听 plus的方法是否加载完成，加载完成时 再设置下，顶部标题。</p>
+<p>这样做问题好像是解决了，但是要是性能很差的手机很慢才加载完成就会导致顶部导航栏的显示的很突然。所以</p>
+<p>结合上面的关闭启动页的配置那里，把自动关闭启动页关闭，然后当plus的方法全部加载完成后 手动关闭启动页。因为是多语言，语言改变了的时候也要进行setTitle方法</p>
+<p>注意： 有些页面是单独设置顶部标题内容的，一旦设置就得 返回键，扫码等  需要显示得图标全部设置，不会进行叠加，比如 本来有返回按钮，没有标题， 你再设置标题，  此时是不会有返回键的，因此需要全部一起再设置。</p>
+<h4 id="第五个问题"><a href="#第五个问题" class="headerlink" title="第五个问题"></a>第五个问题</h4><p>web浏览器，当文件为网络连接时，创建一个窗口，打开链接，所以创建一个组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;link_box&quot; class=&quot;link-box&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      wbview : null,</span><br><span class="line">      id : &apos;link_view&apos;,</span><br><span class="line">      url : &apos;&apos;,</span><br><span class="line">      styles : &#123;&#125;,</span><br><span class="line">      extras : &#123;&#125;,</span><br><span class="line">      loading : null</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    show : function(url)&#123;</span><br><span class="line">      this.wbview = plus.webview.getWebviewById(this.id);</span><br><span class="line">      console.log(this.wbview);</span><br><span class="line">      if(this.wbview)&#123;</span><br><span class="line">        if(url.indexOf(&apos;http&apos;) == -1)&#123;</span><br><span class="line">          url = &quot;http://&quot;+url;</span><br><span class="line">        &#125;</span><br><span class="line">        this.wbview.loadURL(url);</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        this.wbview = plus.webview.create(url, this.id, this.styles, this.extras);</span><br><span class="line">      &#125;</span><br><span class="line">      plus.webview.show(this.id, &apos;slide-out-right&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted : function()&#123;</span><br><span class="line">    var _this = this;</span><br><span class="line">    this.styles = &#123;</span><br><span class="line">      titleNView:&#123;</span><br><span class="line">            titleOverflow: &apos;titleOverflow&apos;, </span><br><span class="line">            height: &apos;50px&apos;,</span><br><span class="line">            autoBackButton : true,</span><br><span class="line">            backgroundColor: &quot;#FFFFFF&quot;, </span><br><span class="line">            titleColor : &quot;#000000&quot; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>界面引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		...</span><br><span class="line">		&lt;v-webview ref=&quot;webview&quot;&gt;&lt;/v-webview&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import webview from &apos;@/components/include/webview.vue&apos;;</span><br><span class="line">    export default&#123;</span><br><span class="line">        data()&#123;</span><br><span class="line">            return &#123;</span><br><span class="line">			</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">         components:&#123;</span><br><span class="line">            &quot;v-webview&quot; : webview</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            goWebview(url)&#123;</span><br><span class="line">                this.$refs.webview.show(url);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>这样就可以实现链接跳转，但是这样的话会导致返回出问题，所以需要对返回重新设计</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = [<span class="literal">null</span>, <span class="literal">null</span>];    <span class="comment">//记录返回的两次间隔时间</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.plus) &#123;</span><br><span class="line">    plusReady();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'plusready'</span>, plusReady, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">plusReady</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> webview = plus.webview.currentWebview();</span><br><span class="line">    plus.key.addEventListener(<span class="string">'backbutton'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        webview.canBack(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (e.canBack) &#123;</span><br><span class="line">                <span class="comment">//link_view  为自定义的id，可更换，保持与组建上的一致</span></span><br><span class="line">                <span class="keyword">var</span> wbview = plus.webview.getWebviewById(<span class="string">'link_view'</span>);</span><br><span class="line">                <span class="keyword">if</span>(wbview)&#123;</span><br><span class="line">                    <span class="comment">//判断新窗口是否可以返回，不可以返回的时候才清除窗口</span></span><br><span class="line">                   wbview.canBack(<span class="function"><span class="keyword">function</span>(<span class="params">wb</span>)</span>&#123;</span><br><span class="line">                        <span class="keyword">if</span>(wb.canBack)&#123;</span><br><span class="line">                            wbview.back();</span><br><span class="line">                        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                            plus.webview.close(<span class="string">'link_view'</span>, <span class="string">'slide-iny-right'</span>);</span><br><span class="line">                            wbview.clear();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    time = [<span class="literal">null</span>,<span class="literal">null</span>];   <span class="comment">//路由变化重置 time。</span></span><br><span class="line">                    router.go(<span class="number">-1</span>); <span class="comment">//返回上一级</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                time.shift();</span><br><span class="line">                time.push(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime());</span><br><span class="line">                <span class="keyword">if</span> (time[<span class="number">1</span>] - time[<span class="number">0</span>] &gt; <span class="number">2000</span>) &#123;  <span class="comment">//事件间隔大于 2s 当作第一次 点击返回，做出提示</span></span><br><span class="line">           <span class="comment">//plus.nativeUI.toast  h5+API的提示窗口详细使用请看api，默认前面有应用名称：tips</span></span><br><span class="line">                    plus.nativeUI.toast(<span class="string">"再按一次返回退出应用！"</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    plus.runtime.quit();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第六个问题</p>
+<p>第一次登录时语言跟随系统，后面再次进来就不干了。</p>
+<p>解析：第一次进来没有缓存语言，所以设置系统语言，以后进来有缓存语言，直接跟随缓存语言</p>
+<p>plus.os.language  获取系统设置的语言，但是安卓和苹果获取到的字段是不一样的。所以得区分</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//安卓：en_US   zh_TW   zh_CN</span></span><br><span class="line">     <span class="comment">//ios：en-CN  zh-Hans-CN  zh-Hant-CN   zh-Hant-HK  zh-Hant-TW  zh-Hant-MO</span></span><br><span class="line">     <span class="keyword">var</span> systemLang = plus.os.language;</span><br><span class="line">     <span class="keyword">var</span> lang;</span><br><span class="line">     <span class="keyword">if</span>(systemLang.indexOf(<span class="string">'en'</span>) &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">         lang = <span class="string">'en_us'</span>;</span><br><span class="line">     &#125;<span class="keyword">else</span> <span class="keyword">if</span>(systemLang.indexOf(<span class="string">'zh-Hans-CN'</span>) &gt; <span class="number">-1</span> || systemLang.indexOf(<span class="string">'zh_CN'</span>) &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">         lang = <span class="string">'zh_cn'</span>;</span><br><span class="line">     &#125;<span class="keyword">else</span> <span class="keyword">if</span>(systemLang.indexOf(<span class="string">'zh-Hant'</span>) &gt; <span class="number">-1</span> || systemLang.indexOf(<span class="string">'zh_TW'</span>) &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">         lang = <span class="string">'zh_tw'</span>;</span><br><span class="line">     &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">         lang = <span class="string">'other'</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(!localStorage.getItem(<span class="string">'lang'</span>))&#123;</span><br><span class="line">         <span class="keyword">if</span>(lang != <span class="string">'other'</span>)&#123;</span><br><span class="line">             i18n.locale = lang;</span><br><span class="line">             store.commit(<span class="string">"setLang"</span>,lang);</span><br><span class="line">             localStorage.setItem(<span class="string">'lang'</span>,lang);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="第七个问题"><a href="#第七个问题" class="headerlink" title="第七个问题"></a>第七个问题</h4><p>监听网络状态</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> GL_HAVE_NET = navigator.onLine;   <span class="comment">//设置是否有网络</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//全局获取网络状态方法</span></span><br><span class="line">Vue.prototype.getNet = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> GL_HAVE_NET;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//网络变化时调用的方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onNetChange</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> nt = plus.networkinfo.getCurrentType();</span><br><span class="line">	<span class="keyword">switch</span> (nt)&#123;</span><br><span class="line">		<span class="keyword">case</span> plus.networkinfo.CONNECTION_ETHERNET:</span><br><span class="line">		<span class="keyword">case</span> plus.networkinfo.CONNECTION_WIFI:</span><br><span class="line">        GL_HAVE_NET = <span class="literal">true</span>;</span><br><span class="line">		<span class="comment">// _this.GL_ALERT("当前为wifi网络"); </span></span><br><span class="line">		<span class="keyword">break</span>; </span><br><span class="line">		<span class="keyword">case</span> plus.networkinfo.CONNECTION_CELL2G:</span><br><span class="line">		<span class="keyword">case</span> plus.networkinfo.CONNECTION_CELL3G:</span><br><span class="line">		<span class="keyword">case</span> plus.networkinfo.CONNECTION_CELL4G:</span><br><span class="line">        GL_HAVE_NET = <span class="literal">true</span>;</span><br><span class="line">		<span class="comment">// _this.GL_ALERT("当前为移动数据网络");</span></span><br><span class="line">		<span class="keyword">break</span>; </span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">        GL_HAVE_NET = <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// _this.GL_ALERT("当前没有网络");</span></span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!GL_HAVE_NET)&#123;</span><br><span class="line">        <span class="comment">//如果有网路变到没有网路提示网路异常</span></span><br><span class="line">        weui.toast(<span class="string">"网络异常"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">         <span class="comment">//如果没有网路变到有网路页面刷新</span></span><br><span class="line">        <span class="built_in">window</span>.location.reload();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//H5+plus的监听网络变化，并调用onNetChange方法</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"netchange"</span>, onNetChange, <span class="literal">false</span>); </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//下面为h5的监听网络变化的方法</span></span><br><span class="line"><span class="comment">//部分手机不兼容（安卓低端机有些不行）</span></span><br><span class="line"><span class="comment">// var el = document.body;  </span></span><br><span class="line"><span class="comment">// if (el.addEventListener) &#123;  </span></span><br><span class="line"><span class="comment">//    window.addEventListener("online", function () &#123;  </span></span><br><span class="line"><span class="comment">//      GL_HAVE_NET = true;</span></span><br><span class="line"><span class="comment">//     //  alert(GL_HAVE_NET);</span></span><br><span class="line"><span class="comment">//     &#125;, true);  </span></span><br><span class="line"><span class="comment">//    window.addEventListener("offline", function () &#123;  </span></span><br><span class="line"><span class="comment">//      GL_HAVE_NET = false;</span></span><br><span class="line"><span class="comment">//     //  alert(GL_HAVE_NET);</span></span><br><span class="line"><span class="comment">//     &#125;, true);  </span></span><br><span class="line"><span class="comment">// &#125;  else if (el.attachEvent) &#123;  </span></span><br><span class="line"><span class="comment">//    window.attachEvent("ononline", function () &#123;  </span></span><br><span class="line"><span class="comment">//         GL_HAVE_NET = true;</span></span><br><span class="line"><span class="comment">//         // alert(GL_HAVE_NET);</span></span><br><span class="line"><span class="comment">//     &#125;);  </span></span><br><span class="line"><span class="comment">//    window.attachEvent("onoffline", function () &#123;  </span></span><br><span class="line"><span class="comment">//         GL_HAVE_NET = false;</span></span><br><span class="line"><span class="comment">//         // alert(GL_HAVE_NET);</span></span><br><span class="line"><span class="comment">//     &#125;);  </span></span><br><span class="line"><span class="comment">// &#125;  else &#123;  </span></span><br><span class="line"><span class="comment">//    window.ononline = function () &#123;  </span></span><br><span class="line"><span class="comment">//         GL_HAVE_NET = true;</span></span><br><span class="line"><span class="comment">//         // alert(GL_HAVE_NET);</span></span><br><span class="line"><span class="comment">//     &#125;;  </span></span><br><span class="line"><span class="comment">//    window.onoffline = function () &#123;  </span></span><br><span class="line"><span class="comment">//         GL_HAVE_NET = false;</span></span><br><span class="line"><span class="comment">//         // alert(GL_HAVE_NET);</span></span><br><span class="line"><span class="comment">//     &#125;;  </span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/app/" rel="tag"># app</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/14/前端开发app总结/" rel="next" title="前端开发app总结">
+                <i class="fa fa-chevron-left"></i> 前端开发app总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/15/h5-开发汇总/" rel="prev" title="h5+开发汇总">
+                h5+开发汇总 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/xiaobu.png" alt="shenxiaobu">
+            
+              <p class="site-author-name" itemprop="name">shenxiaobu</p>
+              <div class="site-description motion-element" itemprop="description">如果有一腔热血，又足够努力，人生最坏的结果，也不过是大器晚成而已！</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="https://tech.meituan.com/" rel="noopener" target="_blank">美团技术团队</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="https://75team.com/" rel="noopener" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fex.baidu.com/" title="http://fex.baidu.com/" rel="noopener" target="_blank">百度FEX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taobaofed.org/" title="http://taobaofed.org/" rel="noopener" target="_blank">淘宝FED</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cdc.tencent.com/" title="https://cdc.tencent.com/" rel="noopener" target="_blank">腾讯CDC</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.npmjs.com/" title="https://www.npmjs.com/" rel="noopener" target="_blank">npm官网</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#h5-开发汇总"><span class="nav-number">1.</span> <span class="nav-text">h5+开发汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于h5-api的使用"><span class="nav-number">1.1.</span> <span class="nav-text">基于h5+ api的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#制作wgt升级包注意事项"><span class="nav-number">1.2.</span> <span class="nav-text">制作wgt升级包注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第四个问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">第四个问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五个问题"><span class="nav-number">1.3.</span> <span class="nav-text">第五个问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第七个问题"><span class="nav-number">1.4.</span> <span class="nav-text">第七个问题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-shenyanxiang"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenxiaobu.github.io</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">637k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">9:40</span>
+  
+</div>
+
+
+
+
+
+
+
+
+<div>友情链接：
+ <a class="theme-link" href="http://collect.w3ctrain.com/"> 前端收藏夹 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="http://www.alloyteam.com/nav/"> Web前端导航 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
+</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'zu1NA5ftKmWCJyVXjIaynYDO-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'zu1NA5ftKmWCJyVXjIaynYDO-gzGzoHsz',
+                'X-LC-Key': 'KyI0BMKwyVPDMUjBvTrLQL73',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
