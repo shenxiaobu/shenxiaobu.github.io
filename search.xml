@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>使用ssh密钥登录服务器</title>
+    <url>/2020/03/28/%E4%BD%BF%E7%94%A8ssh%E5%AF%86%E9%92%A5%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<h4 id="使用ssh密钥登录服务器"><a href="#使用ssh密钥登录服务器" class="headerlink" title="使用ssh密钥登录服务器"></a>使用ssh密钥登录服务器</h4><p>为什么突然想用ssh密钥登录服务器？</p>
+<p>因为在vscode的sftp插件配置上需要配服务器地址及密码，所以就感觉密码暴露出来不是非常友好。</p>
+<p>因此想用ssh密钥文件登录服务器</p>
+<p>于是百度各种文章，最终终于ok</p>
+<ol>
+<li><p>使用xshell客户端软件登录服务器</p>
+</li>
+<li><p>进去系统默认就是在 root目录  在该目录下查看是否有 .ssh 目录</p>
+<p> 不能就用ls查看，因为” .ssh “目录都会被隐藏，只是用 ls 指令查看不了必须使用:</p>
+<p>​     ls –all    #查看之后发现不存在.ssh 目录</p>
+</li>
+<li><p>创建 ssh 目录    ssh-keygen –t rsa –b 4096</p>
+<p> #-t 指的是创建的密钥类型有：rsa1（SSH-1） 、rsa（SSH-2） 、 dsa （SSH-2）</p>
+</li>
+</ol>
+<p>​          #-b 指定密钥的长度，对于RSA密钥，最小768，默认2048位，DSA密钥位1024位。</p>
+<p>这里笔者加了-b 参数，指定了长度，也可以不加-b参数，直接使用ssh-keygen -t rsa，ssh-keygen命令的参数后文再介绍。</p>
+<p>执行密钥生成命令，基本上是一路回车既可以了，但是需要注意的是：执行命令的过程中是会提示呢输入密钥的密码的（如下图中红色箭头处，输入两次相同的，即是又一次确认密码），不需要密码直接回车就行。</p>
+<p><img src="/2020/03/28/使用ssh密钥登录服务器/image-20200328214633681.png" alt="image-20200328214633681"></p>
+<p>密钥生成后会在当前目录下多出两个文件，id_rsa和id_rsa.pub，其中id_rsa是私钥（敲黑板：这个很重要，不能外泄），id_rsa.pub这个是公钥，</p>
+<p><img src="/2020/03/28/使用ssh密钥登录服务器/image-20200328214933323.png" alt="image-20200328214933323"></p>
+<ol start="4">
+<li>cd /root/.ssh，执行ls看看目录下是否有authorized_keys文件没有的话则执行以下命令创建：</li>
+</ol>
+<p><img src="/2020/03/28/使用ssh密钥登录服务器/image-20200328215157716.png" alt="image-20200328215157716"></p>
+<p>执行成功会创建空authorized_keys文件，授予600权限（注意：此处权限必须是600）：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 600 /root/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/03/28/使用ssh密钥登录服务器/image-20200328215326478.png" alt="image-20200328215326478"></p>
+<p>如果已经有了authorized_keys文件，这直接执行以下的密钥追加工作。</p>
+<p>将上面生成的公钥id_rsa.pub追加到authorized_keys文件中</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
+<p>如下图所示，注意图中红色箭头处，是&gt;&gt;而不是&gt;，双尖括号&gt;&gt;表示像向文件中追加：</p>
+<p><img src="/2020/03/28/使用ssh密钥登录服务器/image-20200328215650155.png" alt="image-20200328215650155"></p>
+<ol start="5">
+<li>将密钥下载到本地  sz id_rsa  </li>
+</ol>
+<p><img src="/2020/03/28/使用ssh密钥登录服务器/image-20200328215932789.png" alt="image-20200328215932789"></p>
+<p>测试是否可用</p>
+<p>测试</p>
+<ol>
+<li><p>打开xshell 链接服务器</p>
+<p><img src="/2020/03/28/使用ssh密钥登录服务器/image-20200328220039434.png" alt="image-20200328220039434"></p>
+</li>
+</ol>
+<p><img src="/2020/03/28/使用ssh密钥登录服务器/image-20200328220230870.png" alt="image-20200328220230870"><br><img src="/2020/03/28/使用ssh密钥登录服务器/image-20200328220418463.png" alt="image-20200328220418463"></p>
+<p>然后就可以了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen可用的参数选项有：</span><br><span class="line"> </span><br><span class="line">     -a trials</span><br><span class="line">             在使用 -T 对 DH-GEX 候选素数进行安全筛选时需要执行的基本测试数量。</span><br><span class="line"> </span><br><span class="line">     -B      显示指定的公钥/私钥文件的 bubblebabble 摘要。</span><br><span class="line"> </span><br><span class="line">     -b bits</span><br><span class="line">             指定密钥长度。对于RSA密钥，最小要求768位，默认是2048位。DSA密钥必须恰好是1024位(FIPS 186-2 标准的要求)。</span><br><span class="line"> </span><br><span class="line">     -C comment</span><br><span class="line">             提供一个新注释</span><br><span class="line"> </span><br><span class="line">     -c      要求修改私钥和公钥文件中的注释。本选项只支持 RSA1 密钥。</span><br><span class="line">             程序将提示输入私钥文件名、密语(如果存在)、新注释。</span><br><span class="line"> </span><br><span class="line">     -D reader</span><br><span class="line">             下载存储在智能卡 reader 里的 RSA 公钥。</span><br><span class="line"> </span><br><span class="line">     -e      读取OpenSSH的私钥或公钥文件，并以 RFC 4716 SSH 公钥文件格式在 stdout 上显示出来。</span><br><span class="line">             该选项能够为多种商业版本的 SSH 输出密钥。</span><br><span class="line"> </span><br><span class="line">     -F hostname</span><br><span class="line">             在 known_hosts 文件中搜索指定的 hostname ，并列出所有的匹配项。</span><br><span class="line">             这个选项主要用于查找散列过的主机名/ip地址，还可以和 -H 选项联用打印找到的公钥的散列值。</span><br><span class="line"> </span><br><span class="line">     -f filename</span><br><span class="line">             指定密钥文件名。</span><br><span class="line"> </span><br><span class="line">     -G output_file</span><br><span class="line">             为 DH-GEX 产生候选素数。这些素数必须在使用之前使用 -T 选项进行安全筛选。</span><br><span class="line"> </span><br><span class="line">     -g      在使用 -r 打印指纹资源记录的时候使用通用的 DNS 格式。</span><br><span class="line"> </span><br><span class="line">     -H      对 known_hosts 文件进行散列计算。这将把文件中的所有主机名/ip地址替换为相应的散列值。</span><br><span class="line">             原来文件的内容将会添加一个&quot;.old&quot;后缀后保存。这些散列值只能被 ssh 和 sshd 使用。</span><br><span class="line">             这个选项不会修改已经经过散列的主机名/ip地址，因此可以在部分公钥已经散列过的文件上安全使用。</span><br><span class="line"> </span><br><span class="line">     -i      读取未加密的SSH-2兼容的私钥/公钥文件，然后在 stdout 显示OpenSSH兼容的私钥/公钥。</span><br><span class="line">             该选项主要用于从多种商业版本的SSH中导入密钥。</span><br><span class="line"> </span><br><span class="line">     -l      显示公钥文件的指纹数据。它也支持 RSA1 的私钥。</span><br><span class="line">             对于RSA和DSA密钥，将会寻找对应的公钥文件，然后显示其指纹数据。</span><br><span class="line"> </span><br><span class="line">     -M memory</span><br><span class="line">             指定在生成 DH-GEXS 候选素数的时候最大内存用量(MB)。</span><br><span class="line"> </span><br><span class="line">     -N new_passphrase</span><br><span class="line">             提供一个新的密语。</span><br><span class="line"> </span><br><span class="line">     -P passphrase</span><br><span class="line">             提供(旧)密语。</span><br><span class="line"> </span><br><span class="line">     -p      要求改变某私钥文件的密语而不重建私钥。程序将提示输入私钥文件名、原来的密语、以及两次输入新密语。</span><br><span class="line"> </span><br><span class="line">     -q      安静模式。用于在 /etc/rc 中创建新密钥的时候。</span><br><span class="line"> </span><br><span class="line">     -R hostname</span><br><span class="line">             从 known_hosts 文件中删除所有属于 hostname 的密钥。</span><br><span class="line">             这个选项主要用于删除经过散列的主机(参见 -H 选项)的密钥。</span><br><span class="line"> </span><br><span class="line">     -r hostname</span><br><span class="line">             打印名为 hostname 的公钥文件的 SSHFP 指纹资源记录。</span><br><span class="line"> </span><br><span class="line">     -S start</span><br><span class="line">             指定在生成 DH-GEX 候选模数时的起始点(16进制)。</span><br><span class="line"> </span><br><span class="line">     -T output_file</span><br><span class="line">             测试 Diffie-Hellman group exchange 候选素数(由 -G 选项生成)的安全性。</span><br><span class="line"> </span><br><span class="line">     -t type</span><br><span class="line">             指定要创建的密钥类型。可以使用：&quot;rsa1&quot;(SSH-1) &quot;rsa&quot;(SSH-2) &quot;dsa&quot;(SSH-2)</span><br><span class="line"> </span><br><span class="line">     -U reader</span><br><span class="line">             把现存的RSA私钥上传到智能卡 reader</span><br><span class="line"> </span><br><span class="line">     -v      详细模式。ssh-keygen 将会输出处理过程的详细调试信息。常用于调试模数的产生过程。</span><br><span class="line">             重复使用多个 -v 选项将会增加信息的详细程度(最大3次)。</span><br><span class="line"> </span><br><span class="line">     -W generator</span><br><span class="line">             指定在为 DH-GEX 测试候选模数时想要使用的 generator</span><br><span class="line"> </span><br><span class="line">     -y      读取OpenSSH专有格式的公钥文件，并将OpenSSH公钥显示在 stdout 上。</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/nahancy/java/article/details/79059135" target="_blank" rel="noopener">参考链接</a></p>
+]]></content>
+      <tags>
+        <tag>-ssh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图解ssh原理</title>
     <url>/2020/03/28/%E5%9B%BE%E8%A7%A3ssh%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h3 id="图解ssh原理"><a href="#图解ssh原理" class="headerlink" title="图解ssh原理"></a>图解ssh原理</h3><p><img src="/2020/03/28/图解ssh原理/image-20200328194548684.png" alt="image-20200328194548684"></p>
