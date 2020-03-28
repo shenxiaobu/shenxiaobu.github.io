@@ -108,10 +108,9 @@
 <meta property="og:image" content="https://shenxiaobu.github.io/2020/03/24/一步一步完成个vue项目/image-20200324112056441.png">
 <meta property="og:image" content="https://shenxiaobu.github.io/2020/03/24/一步一步完成个vue项目/image-20200324112220752.png">
 <meta property="og:image" content="https://shenxiaobu.github.io/2020/03/24/一步一步完成个vue项目/image-20200324112411006.png">
-<meta property="og:image" content="https://shenxiaobu.github.io/2020/03/24/一步一步完成个vue项目/image-20200324130540195.png">
 <meta property="og:image" content="https://shenxiaobu.github.io/2020/03/24/一步一步完成个vue项目/image-20200328133738665.png">
 <meta property="og:image" content="https://shenxiaobu.github.io/2020/03/24/一步一步完成个vue项目/image-20200328153142287.png">
-<meta property="og:updated_time" content="2020-03-28T07:52:15.564Z">
+<meta property="og:updated_time" content="2020-03-28T11:58:05.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一步一步完成个vue项目">
 <meta name="twitter:description" content="一步一步完成个vue项目环境： git  node  安装vue脚手架    1npm install -g @vue/cli-service-global 12vue -V   @vue/cli 4.2.3 跳出版本号 即表示安装成功  创建一个项目  vue-study  1vue create -d vue-study -d 表示按默认配置创建一个项目  执行vue ui 使用可视化界面控制">
@@ -448,7 +447,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-28 15:52:15" itemprop="dateModified" datetime="2020-03-28T15:52:15+08:00">2020-03-28</time>
+                <time title="修改时间：2020-03-28 19:58:05" itemprop="dateModified" datetime="2020-03-28T19:58:05+08:00">2020-03-28</time>
               
             
           </span>
@@ -487,7 +486,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.9k</span>
+                <span title="本文字数">3.8k</span>
               
 
               
@@ -501,7 +500,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -592,8 +591,6 @@
 <p>vue.config.js      //配置文件</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认vue.config.js 文件内容</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>因为使用了webpack，但是没安装，所以会报错，解决办法就是安装开发依赖compression-webpack-plugin</p>
-<p><img src="/2020/03/24/一步一步完成个vue项目/image-20200324130540195.png" alt="image-20200324130540195"></p>
 <p>修改main.js</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router/index'</span> <span class="comment">// 全局 路由 配置</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store/index'</span> <span class="comment">//   全局 状态 配置</span></span><br><span class="line"></span><br><span class="line">Vue.prototype.$bus = <span class="keyword">new</span> Vue()          <span class="comment">//$bug</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  router,</span><br><span class="line">  store,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>)</span><br></pre></td></tr></table></figure>
 <p>在router和store文件夹下创建index.js文件，在view文件夹下创建index.vue文件</p>
@@ -658,6 +655,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/28/图解ssh原理/" rel="prev" title="图解ssh原理">
+                图解ssh原理 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -728,7 +729,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-count">73</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -878,7 +879,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">51</span>
+                      
+                    
+                    <span class="site-state-item-count">52</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -992,7 +995,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">663k</span>
+    <span title="站点总字数">667k</span>
   
 
   
@@ -1001,7 +1004,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">10:03</span>
+    <span title="站点阅读时长">10:06</span>
   
 <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
 <a href="http://www.beian.miit.gov.cn/" style="color:#f72b07" target="_blank">闽ICP备19017889号-1</a>
