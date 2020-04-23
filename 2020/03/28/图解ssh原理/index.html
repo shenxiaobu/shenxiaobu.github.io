@@ -569,7 +569,7 @@
 <p><img src="/2020/03/28/图解ssh原理/image-20200328195211872.png" alt="image-20200328195211872">3. SSH实践</p>
 <p><strong>生成密钥操作</strong></p>
 <p>经过上面的原理分析，下面三行命令的含义应该很容易理解了：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa</span><br><span class="line"><span class="meta">$</span> cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"><span class="meta">$</span> chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t rsa -P <span class="string">''</span> -f ~/.ssh/id_rsa</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> chmod 0600 ~/.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
 <p>ssh-keygen是用于生产密钥的工具。</p>
 <ul>
 <li>-t：指定生成密钥类型（rsa、dsa、ecdsa等）</li>
@@ -588,13 +588,13 @@
 <p><img src="/2020/03/28/图解ssh原理/image-20200328195407029.png" alt="image-20200328195407029"></p>
 <p>需要注意的是：一台主机可能既是Client，也是Server。所以会同时拥有authorized_keys和known_hosts。</p>
 <p><strong>登录操作</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 以用户名user，登录远程主机host</span><br><span class="line"><span class="meta">$</span> ssh user@host</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 本地用户和远程用户相同，则用户名可省去</span><br><span class="line"><span class="meta">$</span> ssh host</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> SSH默认端口22，可以用参数p修改端口</span><br><span class="line"><span class="meta">$</span> ssh -p 2017 user@host</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 以用户名user，登录远程主机host</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh user@host</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 本地用户和远程用户相同，则用户名可省去</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh host</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> SSH默认端口22，可以用参数p修改端口</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh -p 2017 user@host</span></span><br></pre></td></tr></table></figure>
 <h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h2><p>本文以图文方式对SSH原理进行解析（主要指远程登录，没有涉及端口转发等功能）。同时分析了非对称加密的特性，以及在实践过程中如何对加密操作进行改进。</p>
 <h3 id="1-known-hosts中存储的内容是什么？"><a href="#1-known-hosts中存储的内容是什么？" class="headerlink" title="1. known_hosts中存储的内容是什么？"></a>1. known_hosts中存储的内容是什么？</h3><p>known_hosts中存储是已认证的远程主机host key，每个SSH Server都有一个secret, unique ID, called a host key。</p>
 <h3 id="2-host-key何时加入known-hosts的？"><a href="#2-host-key何时加入known-hosts的？" class="headerlink" title="2. host key何时加入known_hosts的？"></a>2. host key何时加入known_hosts的？</h3><p>当我们第一次通过SSH登录远程主机的时候，Client端会有如下提示：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host key not found from the list of known hosts.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
 <p>此时，如果我们选择yes，那么该host key就会被加入到Client的known_hosts中，格式如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> domain name+encryption algorithm+host key</span><br><span class="line">example.hostname.com ssh-rsa AAAAB4NzaC1yc2EAAAABIwAAAQEA。。。</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> domain name+encryption algorithm+host key</span></span><br><span class="line">example.hostname.com ssh-rsa AAAAB4NzaC1yc2EAAAABIwAAAQEA。。。</span><br></pre></td></tr></table></figure>
 <h3 id="3-为什么需要known-hosts？"><a href="#3-为什么需要known-hosts？" class="headerlink" title="3. 为什么需要known_hosts？"></a>3. 为什么需要known_hosts？</h3><p>最后探讨下为什么需要known_hosts，这个文件主要是通过Client和Server的双向认证，从而避免中间人（man-in-the-middle attack）攻击，每次Client向Server发起连接的时候，不仅仅Server要验证Client的合法性，Client同样也需要验证Server的身份，SSH client就是通过known_hosts中的host key来验证Server的身份的。</p>
 <blockquote>
 <p>这中方案足够安全吗？当然不，比如第一次连接一个未知Server的时候，known_hosts还没有该Server的host key，这不也可能遭到中间人攻击吗？这可能只是安全性和可操作性之间的折中吧。</p>
@@ -719,7 +719,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">74</span>
+                    <span class="site-state-item-count">82</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -871,7 +871,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">52</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -985,7 +991,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">670k</span>
+    <span title="站点总字数">728k</span>
   
 
   
@@ -994,7 +1000,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">10:09</span>
+    <span title="站点阅读时长">11:01</span>
   
 <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
 <a href="http://www.beian.miit.gov.cn/" style="color:#f72b07" target="_blank">闽ICP备19017889号-1</a>
