@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前端常用60种工具方法前端开发者必备的60项底层代码，包括iOS、PC端验证等基础操作。 以下内容超级实用，赶紧收藏吧！ 验证邮箱123export const isEmail = (s) =&amp;gt; &amp;#123;    return /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]&amp;#123;2,3&amp;#125;)&amp;#123;1,2&amp;#125;">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端常用60种工具方法">
+<meta property="og:url" content="https://shenxiaobu.github.io/2020/06/09/前端常用60种工具方法/index.html">
+<meta property="og:site_name" content="祥你的365夜">
+<meta property="og:description" content="前端常用60种工具方法前端开发者必备的60项底层代码，包括iOS、PC端验证等基础操作。 以下内容超级实用，赶紧收藏吧！ 验证邮箱123export const isEmail = (s) =&amp;gt; &amp;#123;    return /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]&amp;#123;2,3&amp;#125;)&amp;#123;1,2&amp;#125;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-06-09T01:48:28.225Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端常用60种工具方法">
+<meta name="twitter:description" content="前端常用60种工具方法前端开发者必备的60项底层代码，包括iOS、PC端验证等基础操作。 以下内容超级实用，赶紧收藏吧！ 验证邮箱123export const isEmail = (s) =&amp;gt; &amp;#123;    return /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]&amp;#123;2,3&amp;#125;)&amp;#123;1,2&amp;#125;">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="祥你的365夜" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://shenxiaobu.github.io/2020/06/09/前端常用60种工具方法/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>前端常用60种工具方法 | 祥你的365夜</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">祥你的365夜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/shenxiaobu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenxiaobu.github.io/2020/06/09/前端常用60种工具方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenxiaobu">
+      <meta itemprop="description" content="如果有一腔热血，又足够努力，人生最坏的结果，也不过是大器晚成而已！">
+      <meta itemprop="image" content="/images/xiaobu.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="祥你的365夜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端常用60种工具方法
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-06-09 09:19:43 / 修改时间：09:48:28" itemprop="dateCreated datePublished" datetime="2020-06-09T09:19:43+08:00">2020-06-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2020/06/09/前端常用60种工具方法/" class="leancloud_visitors" data-flag-title="前端常用60种工具方法">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">24k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">22 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="前端常用60种工具方法"><a href="#前端常用60种工具方法" class="headerlink" title="前端常用60种工具方法"></a>前端常用60种工具方法</h4><p>前端开发者必备的60项底层代码，包括iOS、PC端验证等基础操作。</p>
+<p>以下内容超级实用，赶紧收藏吧！</p>
+<h5 id="验证邮箱"><a href="#验证邮箱" class="headerlink" title="验证邮箱"></a>验证邮箱</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isEmail = <span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]&#123;2,3&#125;)&#123;1,2&#125;)$/</span>.test(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="手机号"><a href="#手机号" class="headerlink" title="手机号"></a>手机号</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isMobile = <span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/^1[0-9]&#123;10&#125;$/</span>.test(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="电话号码"><a href="#电话号码" class="headerlink" title="电话号码"></a>电话号码</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isPhone = <span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/^([0-9]&#123;3,4&#125;-)?[0-9]&#123;7,8&#125;$/</span>.test(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="是否url地址"><a href="#是否url地址" class="headerlink" title="是否url地址"></a><strong>是否url地址</strong></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isURL = <span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/^http[s]?:\/\/.*/</span>.test(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="是否字符串"><a href="#是否字符串" class="headerlink" title="是否字符串"></a><strong>是否字符串</strong></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isString = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'String'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="是否数字"><a href="#是否数字" class="headerlink" title="是否数字"></a><strong>是否数字</strong></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isNumber = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Number'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="是否函数"><a href="#是否函数" class="headerlink" title="是否函数"></a><strong>是否函数</strong></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isFunction = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Function'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否boolean</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isBoolean = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Boolean'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否为null</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isNull = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Null'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否undefined</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isUndefined = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Undefined'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isObj = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Object'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否数组</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isArray = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Array'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否时间</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isDate = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Date'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否正则</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isRegExp = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'RegExp'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否错误对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isError = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Error'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否Symbol函数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isSymbol = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Symbol'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否Promise对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isPromise = <span class="function">(<span class="params">o</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Promise'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否Set对象</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">export const isSet = (o) =&gt; &#123;</span><br><span class="line">    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Set&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export const ua = navigator.userAgent.toLowerCase();</span><br></pre></td></tr></table></figure>
+<p><strong>是否是微信浏览器</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isWeiXin = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> ua.match(<span class="regexp">/microMessenger/i</span>) == <span class="string">'micromessenger'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否是移动端</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isDeviceMobile = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/android|webos|iphone|ipod|balckberry/i</span>.test(ua)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否是QQ浏览器</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isQQBrowser = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> !!ua.match(<span class="regexp">/mqqbrowser|qzone|qqbrowser|qbwebviewtype/i</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否是爬虫</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isSpider = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/adsbot|googlebot|bingbot|msnbot|yandexbot|baidubot|robot|careerbot|seznambot|bot|baiduspider|jikespider|symantecspider|scannerlwebcrawler|crawler|360spider|sosospider|sogou web sprider|sogou orion spider/</span>.test(ua)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否ios</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isIos = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> u = navigator.userAgent;</span><br><span class="line">    <span class="keyword">if</span> (u.indexOf(<span class="string">'Android'</span>) &gt; <span class="number">-1</span> || u.indexOf(<span class="string">'Linux'</span>) &gt; <span class="number">-1</span>) &#123;  <span class="comment">//安卓手机</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (u.indexOf(<span class="string">'iPhone'</span>) &gt; <span class="number">-1</span>) &#123;<span class="comment">//苹果手机</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (u.indexOf(<span class="string">'iPad'</span>) &gt; <span class="number">-1</span>) &#123;<span class="comment">//iPad</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (u.indexOf(<span class="string">'Windows Phone'</span>) &gt; <span class="number">-1</span>) &#123;<span class="comment">//winphone手机</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是否为PC端</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isPC = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> userAgentInfo = navigator.userAgent;</span><br><span class="line">    <span class="keyword">var</span> Agents = [<span class="string">"Android"</span>, <span class="string">"iPhone"</span>,</span><br><span class="line">        <span class="string">"SymbianOS"</span>, <span class="string">"Windows Phone"</span>,</span><br><span class="line">        <span class="string">"iPad"</span>, <span class="string">"iPod"</span>];</span><br><span class="line">    <span class="keyword">var</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> v = <span class="number">0</span>; v &lt; Agents.length; v++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (userAgentInfo.indexOf(Agents[v]) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>去除html标签</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> removeHtmltag = <span class="function">(<span class="params">str</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> str.replace(<span class="regexp">/&lt;[^&gt;]+&gt;/g</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>获取url参数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getQueryString = <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|&amp;)'</span> + name + <span class="string">'=([^&amp;]*)(&amp;|$)'</span>, <span class="string">'i'</span>);</span><br><span class="line">    <span class="keyword">const</span> search = <span class="built_in">window</span>.location.search.split(<span class="string">'?'</span>)[<span class="number">1</span>] || <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">const</span> r = search.match(reg) || [];</span><br><span class="line">    <span class="keyword">return</span> r[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>动态引入js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> injectScript = <span class="function">(<span class="params">src</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> s = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    s.type = <span class="string">'text/javascript'</span>;</span><br><span class="line">    s.async = <span class="literal">true</span>;</span><br><span class="line">    s.src = src;</span><br><span class="line">    <span class="keyword">const</span> t = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'script'</span>)[<span class="number">0</span>];</span><br><span class="line">    t.parentNode.insertBefore(s, t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>根据url地址下载</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> download = <span class="function">(<span class="params">url</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isChrome = navigator.userAgent.toLowerCase().indexOf(<span class="string">'chrome'</span>) &gt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">var</span> isSafari = navigator.userAgent.toLowerCase().indexOf(<span class="string">'safari'</span>) &gt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (isChrome || isSafari) &#123;</span><br><span class="line">        <span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">        link.href = url;</span><br><span class="line">        <span class="keyword">if</span> (link.download !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> fileName = url.substring(url.lastIndexOf(<span class="string">'/'</span>) + <span class="number">1</span>, url.length);</span><br><span class="line">            link.download = fileName;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.createEvent) &#123;</span><br><span class="line">            <span class="keyword">var</span> e = <span class="built_in">document</span>.createEvent(<span class="string">'MouseEvents'</span>);</span><br><span class="line">            e.initEvent(<span class="string">'click'</span>, <span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line">            link.dispatchEvent(e);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (url.indexOf(<span class="string">'?'</span>) === <span class="number">-1</span>) &#123;</span><br><span class="line">        url += <span class="string">'?download'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.open(url, <span class="string">'_self'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>el是否包含某个class</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> hasClass = <span class="function">(<span class="params">el, className</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|\\s)'</span> + className + <span class="string">'(\\s|$)'</span>)</span><br><span class="line">    <span class="keyword">return</span> reg.test(el.className)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>el添加某个class</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> addClass = <span class="function">(<span class="params">el, className</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (hasClass(el, className)) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> newClass = el.className.split(<span class="string">' '</span>)</span><br><span class="line">    newClass.push(className)</span><br><span class="line">    el.className = newClass.join(<span class="string">' '</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>el去除某个class</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> removeClass = <span class="function">(<span class="params">el, className</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!hasClass(el, className)) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|\\s)'</span> + className + <span class="string">'(\\s|$)'</span>, <span class="string">'g'</span>)</span><br><span class="line">    el.className = el.className.replace(reg, <span class="string">' '</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>获取滚动的坐标</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getScrollPosition = <span class="function">(<span class="params">el = <span class="built_in">window</span></span>) =&gt;</span> (&#123;</span><br><span class="line">    x: el.pageXOffset !== <span class="literal">undefined</span> ? el.pageXOffset : el.scrollLeft,</span><br><span class="line">    y: el.pageYOffset !== <span class="literal">undefined</span> ? el.pageYOffset : el.scrollTop</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>滚动到顶部</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> scrollToTop = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> c = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">    <span class="keyword">if</span> (c &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame(scrollToTop);</span><br><span class="line">        <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, c - c / <span class="number">8</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>el是否在视口范围内</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> elementIsVisibleInViewport = <span class="function">(<span class="params">el, partiallyVisible = <span class="literal">false</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; top, left, bottom, right &#125; = el.getBoundingClientRect();</span><br><span class="line">    <span class="keyword">const</span> &#123; innerHeight, innerWidth &#125; = <span class="built_in">window</span>;</span><br><span class="line">    <span class="keyword">return</span> partiallyVisible</span><br><span class="line">        ? ((top &gt; <span class="number">0</span> &amp;&amp; top &lt; innerHeight) || (bottom &gt; <span class="number">0</span> &amp;&amp; bottom &lt; innerHeight)) &amp;&amp;</span><br><span class="line">        ((left &gt; <span class="number">0</span> &amp;&amp; left &lt; innerWidth) || (right &gt; <span class="number">0</span> &amp;&amp; right &lt; innerWidth))</span><br><span class="line">        : top &gt;= <span class="number">0</span> &amp;&amp; left &gt;= <span class="number">0</span> &amp;&amp; bottom &lt;= innerHeight &amp;&amp; right &lt;= innerWidth;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>洗牌算法随机</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> shuffle = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> result = [],</span><br><span class="line">        random;</span><br><span class="line">    <span class="keyword">while</span> (arr.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        random = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * arr.length);</span><br><span class="line">        result.push(arr[random])</span><br><span class="line">        arr.splice(random, <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>劫持粘贴板</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> copyTextToClipboard = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> textArea = <span class="built_in">document</span>.createElement(<span class="string">"textarea"</span>);</span><br><span class="line">    textArea.style.background = <span class="string">'transparent'</span>;</span><br><span class="line">    textArea.value = value;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(textArea);</span><br><span class="line">    textArea.select();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> successful = <span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Oops, unable to copy'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(textArea);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>判断类型集合</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> checkStr = <span class="function">(<span class="params">str, type</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'phone'</span>:   <span class="comment">//手机号码</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^1[3|4|5|6|7|8|9][0-9]&#123;9&#125;$/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'tel'</span>:     <span class="comment">//座机</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^(0\d&#123;2,3&#125;-\d&#123;7,8&#125;)(-\d&#123;1,4&#125;)?$/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'card'</span>:    <span class="comment">//身份证</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/(^\d&#123;15&#125;$)|(^\d&#123;18&#125;$)|(^\d&#123;17&#125;(\d|X|x)$)/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'pwd'</span>:     <span class="comment">//密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^[a-zA-Z]\w&#123;5,17&#125;$/</span>.test(str)</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'postal'</span>:  <span class="comment">//邮政编码</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/[1-9]\d&#123;5&#125;(?!\d)/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'QQ'</span>:      <span class="comment">//QQ号</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^[1-9][0-9]&#123;4,9&#125;$/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'email'</span>:   <span class="comment">//邮箱</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'money'</span>:   <span class="comment">//金额(小数点2位)</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^\d*(?:\.\d&#123;0,2&#125;)?$/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'URL'</span>:     <span class="comment">//网址</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?/</span>.test(str)</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'IP'</span>:      <span class="comment">//IP</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'date'</span>:    <span class="comment">//日期时间</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^(\d&#123;4&#125;)\-(\d&#123;2&#125;)\-(\d&#123;2&#125;) (\d&#123;2&#125;)(?:\:\d&#123;2&#125;|:(\d&#123;2&#125;):(\d&#123;2&#125;))$/</span>.test(str) || <span class="regexp">/^(\d&#123;4&#125;)\-(\d&#123;2&#125;)\-(\d&#123;2&#125;)$/</span>.test(str)</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'number'</span>:  <span class="comment">//数字</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^[0-9]$/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'english'</span>: <span class="comment">//英文</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^[a-zA-Z]+$/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'chinese'</span>: <span class="comment">//中文</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^[\\u4E00-\\u9FA5]+$/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'lower'</span>:   <span class="comment">//小写</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^[a-z]+$/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'upper'</span>:   <span class="comment">//大写</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/^[A-Z]+$/</span>.test(str);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'HTML'</span>:    <span class="comment">//HTML标记</span></span><br><span class="line">            <span class="keyword">return</span> <span class="regexp">/&lt;("[^"]*"|'[^']*'|[^'"&gt;])*&gt;/</span>.test(str);</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>严格的身份证校验</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isCardID = <span class="function">(<span class="params">sId</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="regexp">/(^\d&#123;15&#125;$)|(^\d&#123;17&#125;(\d|X|x)$)/</span>.test(sId)) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'你输入的身份证长度或格式错误'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//身份证城市</span></span><br><span class="line">    <span class="keyword">var</span> aCity = &#123; <span class="number">11</span>: <span class="string">"北京"</span>, <span class="number">12</span>: <span class="string">"天津"</span>, <span class="number">13</span>: <span class="string">"河北"</span>, <span class="number">14</span>: <span class="string">"山西"</span>, <span class="number">15</span>: <span class="string">"内蒙古"</span>, <span class="number">21</span>: <span class="string">"辽宁"</span>, <span class="number">22</span>: <span class="string">"吉林"</span>, <span class="number">23</span>: <span class="string">"黑龙江"</span>, <span class="number">31</span>: <span class="string">"上海"</span>, <span class="number">32</span>: <span class="string">"江苏"</span>, <span class="number">33</span>: <span class="string">"浙江"</span>, <span class="number">34</span>: <span class="string">"安徽"</span>, <span class="number">35</span>: <span class="string">"福建"</span>, <span class="number">36</span>: <span class="string">"江西"</span>, <span class="number">37</span>: <span class="string">"山东"</span>, <span class="number">41</span>: <span class="string">"河南"</span>, <span class="number">42</span>: <span class="string">"湖北"</span>, <span class="number">43</span>: <span class="string">"湖南"</span>, <span class="number">44</span>: <span class="string">"广东"</span>, <span class="number">45</span>: <span class="string">"广西"</span>, <span class="number">46</span>: <span class="string">"海南"</span>, <span class="number">50</span>: <span class="string">"重庆"</span>, <span class="number">51</span>: <span class="string">"四川"</span>, <span class="number">52</span>: <span class="string">"贵州"</span>, <span class="number">53</span>: <span class="string">"云南"</span>, <span class="number">54</span>: <span class="string">"西藏"</span>, <span class="number">61</span>: <span class="string">"陕西"</span>, <span class="number">62</span>: <span class="string">"甘肃"</span>, <span class="number">63</span>: <span class="string">"青海"</span>, <span class="number">64</span>: <span class="string">"宁夏"</span>, <span class="number">65</span>: <span class="string">"新疆"</span>, <span class="number">71</span>: <span class="string">"台湾"</span>, <span class="number">81</span>: <span class="string">"香港"</span>, <span class="number">82</span>: <span class="string">"澳门"</span>, <span class="number">91</span>: <span class="string">"国外"</span> &#125;;</span><br><span class="line">    <span class="keyword">if</span> (!aCity[<span class="built_in">parseInt</span>(sId.substr(<span class="number">0</span>, <span class="number">2</span>))]) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'你的身份证地区非法'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 出生日期验证</span></span><br><span class="line">    <span class="keyword">var</span> sBirthday = (sId.substr(<span class="number">6</span>, <span class="number">4</span>) + <span class="string">"-"</span> + <span class="built_in">Number</span>(sId.substr(<span class="number">10</span>, <span class="number">2</span>)) + <span class="string">"-"</span> + <span class="built_in">Number</span>(sId.substr(<span class="number">12</span>, <span class="number">2</span>))).replace(<span class="regexp">/-/g</span>, <span class="string">"/"</span>),</span><br><span class="line">        d = <span class="keyword">new</span> <span class="built_in">Date</span>(sBirthday)</span><br><span class="line">    <span class="keyword">if</span> (sBirthday != (d.getFullYear() + <span class="string">"/"</span> + (d.getMonth() + <span class="number">1</span>) + <span class="string">"/"</span> + d.getDate())) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'身份证上的出生日期非法'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 身份证号码校验</span></span><br><span class="line">    <span class="keyword">var</span> sum = <span class="number">0</span>,</span><br><span class="line">        weights = [<span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>],</span><br><span class="line">        codes = <span class="string">"10X98765432"</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; sId.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        sum += sId[i] * weights[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> last = codes[sum % <span class="number">11</span>]; <span class="comment">//计算出来的最后一位身份证号码</span></span><br><span class="line">    <span class="keyword">if</span> (sId[sId.length - <span class="number">1</span>] != last) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'你输入的身份证号非法'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>随机数范围</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> random = <span class="function">(<span class="params">min, max</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.floor(min + <span class="built_in">Math</span>.random() * ((max + <span class="number">1</span>) - min))</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>将阿拉伯数字翻译成中文的大写数字</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> numberToChinese = <span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> AA = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"零"</span>, <span class="string">"一"</span>, <span class="string">"二"</span>, <span class="string">"三"</span>, <span class="string">"四"</span>, <span class="string">"五"</span>, <span class="string">"六"</span>, <span class="string">"七"</span>, <span class="string">"八"</span>, <span class="string">"九"</span>, <span class="string">"十"</span>);</span><br><span class="line">    <span class="keyword">var</span> BB = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">""</span>, <span class="string">"十"</span>, <span class="string">"百"</span>, <span class="string">"仟"</span>, <span class="string">"萬"</span>, <span class="string">"億"</span>, <span class="string">"点"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> a = (<span class="string">""</span> + num).replace(<span class="regexp">/(^0*)/g</span>, <span class="string">""</span>).split(<span class="string">"."</span>),</span><br><span class="line">        k = <span class="number">0</span>,</span><br><span class="line">        re = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = a[<span class="number">0</span>].length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">switch</span> (k) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                re = BB[<span class="number">7</span>] + re;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                <span class="keyword">if</span> (!<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"0&#123;4&#125;//d&#123;"</span> + (a[<span class="number">0</span>].length - i - <span class="number">1</span>) + <span class="string">"&#125;$"</span>)</span><br><span class="line">                    .test(a[<span class="number">0</span>]))</span><br><span class="line">                    re = BB[<span class="number">4</span>] + re;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">                re = BB[<span class="number">5</span>] + re;</span><br><span class="line">                BB[<span class="number">7</span>] = BB[<span class="number">5</span>];</span><br><span class="line">                k = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k % <span class="number">4</span> == <span class="number">2</span> &amp;&amp; a[<span class="number">0</span>].charAt(i + <span class="number">2</span>) != <span class="number">0</span> &amp;&amp; a[<span class="number">0</span>].charAt(i + <span class="number">1</span>) == <span class="number">0</span>)</span><br><span class="line">            re = AA[<span class="number">0</span>] + re;</span><br><span class="line">        <span class="keyword">if</span> (a[<span class="number">0</span>].charAt(i) != <span class="number">0</span>)</span><br><span class="line">            re = AA[a[<span class="number">0</span>].charAt(i)] + BB[k % <span class="number">4</span>] + re;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (a.length &gt; <span class="number">1</span>) <span class="comment">// 加上小数部分(如果有小数部分)</span></span><br><span class="line">    &#123;</span><br><span class="line">        re += BB[<span class="number">6</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; a[<span class="number">1</span>].length; i++)</span><br><span class="line">            re += AA[a[<span class="number">1</span>].charAt(i)];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (re == <span class="string">'一十'</span>)</span><br><span class="line">        re = <span class="string">"十"</span>;</span><br><span class="line">    <span class="keyword">if</span> (re.match(<span class="regexp">/^一/</span>) &amp;&amp; re.length == <span class="number">3</span>)</span><br><span class="line">        re = re.replace(<span class="string">"一"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">return</span> re;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>将数字转换为大写金额</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> changeToChinese = <span class="function">(<span class="params">Num</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//判断如果传递进来的不是字符的话转换为字符</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> Num == <span class="string">"number"</span>) &#123;</span><br><span class="line">        Num = <span class="keyword">new</span> <span class="built_in">String</span>(Num);</span><br><span class="line">    &#125;;</span><br><span class="line">    Num = Num.replace(<span class="regexp">/,/g</span>, <span class="string">""</span>) <span class="comment">//替换tomoney()中的“,”</span></span><br><span class="line">    Num = Num.replace(<span class="regexp">/ /g</span>, <span class="string">""</span>) <span class="comment">//替换tomoney()中的空格</span></span><br><span class="line">    Num = Num.replace(<span class="regexp">/￥/g</span>, <span class="string">""</span>) <span class="comment">//替换掉可能出现的￥字符</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">isNaN</span>(Num)) &#123; <span class="comment">//验证输入的字符是否为数字</span></span><br><span class="line">        <span class="comment">//alert("请检查小写金额是否正确");</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//字符处理完毕后开始转换，采用前后两部分分别转换</span></span><br><span class="line">    <span class="keyword">var</span> part = <span class="built_in">String</span>(Num).split(<span class="string">"."</span>);</span><br><span class="line">    <span class="keyword">var</span> newchar = <span class="string">""</span>;</span><br><span class="line">    <span class="comment">//小数点前进行转化</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = part[<span class="number">0</span>].length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (part[<span class="number">0</span>].length &gt; <span class="number">10</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">            <span class="comment">//若数量超过拾亿单位，提示</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> tmpnewchar = <span class="string">""</span></span><br><span class="line">        <span class="keyword">var</span> perchar = part[<span class="number">0</span>].charAt(i);</span><br><span class="line">        <span class="keyword">switch</span> (perchar) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"0"</span>:</span><br><span class="line">                tmpnewchar = <span class="string">"零"</span> + tmpnewchar;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"1"</span>:</span><br><span class="line">                tmpnewchar = <span class="string">"壹"</span> + tmpnewchar;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"2"</span>:</span><br><span class="line">                tmpnewchar = <span class="string">"贰"</span> + tmpnewchar;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"3"</span>:</span><br><span class="line">                tmpnewchar = <span class="string">"叁"</span> + tmpnewchar;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"4"</span>:</span><br><span class="line">                tmpnewchar = <span class="string">"肆"</span> + tmpnewchar;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"5"</span>:</span><br><span class="line">                tmpnewchar = <span class="string">"伍"</span> + tmpnewchar;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"6"</span>:</span><br><span class="line">                tmpnewchar = <span class="string">"陆"</span> + tmpnewchar;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"7"</span>:</span><br><span class="line">                tmpnewchar = <span class="string">"柒"</span> + tmpnewchar;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"8"</span>:</span><br><span class="line">                tmpnewchar = <span class="string">"捌"</span> + tmpnewchar;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"9"</span>:</span><br><span class="line">                tmpnewchar = <span class="string">"玖"</span> + tmpnewchar;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">switch</span> (part[<span class="number">0</span>].length - i - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                tmpnewchar = tmpnewchar + <span class="string">"元"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> (perchar != <span class="number">0</span>) tmpnewchar = tmpnewchar + <span class="string">"拾"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                <span class="keyword">if</span> (perchar != <span class="number">0</span>) tmpnewchar = tmpnewchar + <span class="string">"佰"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                <span class="keyword">if</span> (perchar != <span class="number">0</span>) tmpnewchar = tmpnewchar + <span class="string">"仟"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                tmpnewchar = tmpnewchar + <span class="string">"万"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                <span class="keyword">if</span> (perchar != <span class="number">0</span>) tmpnewchar = tmpnewchar + <span class="string">"拾"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                <span class="keyword">if</span> (perchar != <span class="number">0</span>) tmpnewchar = tmpnewchar + <span class="string">"佰"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                <span class="keyword">if</span> (perchar != <span class="number">0</span>) tmpnewchar = tmpnewchar + <span class="string">"仟"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">                tmpnewchar = tmpnewchar + <span class="string">"亿"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">                tmpnewchar = tmpnewchar + <span class="string">"拾"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> newchar = tmpnewchar + newchar;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//小数点之后进行转化</span></span><br><span class="line">    <span class="keyword">if</span> (Num.indexOf(<span class="string">"."</span>) != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (part[<span class="number">1</span>].length &gt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">// alert("小数点之后只能保留两位,系统将自动截断");</span></span><br><span class="line">            part[<span class="number">1</span>] = part[<span class="number">1</span>].substr(<span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; part[<span class="number">1</span>].length; i++) &#123;</span><br><span class="line">            tmpnewchar = <span class="string">""</span></span><br><span class="line">            perchar = part[<span class="number">1</span>].charAt(i)</span><br><span class="line">            <span class="keyword">switch</span> (perchar) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"0"</span>:</span><br><span class="line">                    tmpnewchar = <span class="string">"零"</span> + tmpnewchar;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"1"</span>:</span><br><span class="line">                    tmpnewchar = <span class="string">"壹"</span> + tmpnewchar;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"2"</span>:</span><br><span class="line">                    tmpnewchar = <span class="string">"贰"</span> + tmpnewchar;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"3"</span>:</span><br><span class="line">                    tmpnewchar = <span class="string">"叁"</span> + tmpnewchar;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"4"</span>:</span><br><span class="line">                    tmpnewchar = <span class="string">"肆"</span> + tmpnewchar;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"5"</span>:</span><br><span class="line">                    tmpnewchar = <span class="string">"伍"</span> + tmpnewchar;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"6"</span>:</span><br><span class="line">                    tmpnewchar = <span class="string">"陆"</span> + tmpnewchar;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"7"</span>:</span><br><span class="line">                    tmpnewchar = <span class="string">"柒"</span> + tmpnewchar;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"8"</span>:</span><br><span class="line">                    tmpnewchar = <span class="string">"捌"</span> + tmpnewchar;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">"9"</span>:</span><br><span class="line">                    tmpnewchar = <span class="string">"玖"</span> + tmpnewchar;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>) tmpnewchar = tmpnewchar + <span class="string">"角"</span>;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">1</span>) tmpnewchar = tmpnewchar + <span class="string">"分"</span>;</span><br><span class="line">            newchar = newchar + tmpnewchar;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//替换所有无用汉字</span></span><br><span class="line">    <span class="keyword">while</span> (newchar.search(<span class="string">"零零"</span>) != <span class="number">-1</span>)</span><br><span class="line">        newchar = newchar.replace(<span class="string">"零零"</span>, <span class="string">"零"</span>);</span><br><span class="line">    newchar = newchar.replace(<span class="string">"零亿"</span>, <span class="string">"亿"</span>);</span><br><span class="line">    newchar = newchar.replace(<span class="string">"亿万"</span>, <span class="string">"亿"</span>);</span><br><span class="line">    newchar = newchar.replace(<span class="string">"零万"</span>, <span class="string">"万"</span>);</span><br><span class="line">    newchar = newchar.replace(<span class="string">"零元"</span>, <span class="string">"元"</span>);</span><br><span class="line">    newchar = newchar.replace(<span class="string">"零角"</span>, <span class="string">""</span>);</span><br><span class="line">    newchar = newchar.replace(<span class="string">"零分"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">if</span> (newchar.charAt(newchar.length - <span class="number">1</span>) == <span class="string">"元"</span>) &#123;</span><br><span class="line">        newchar = newchar + <span class="string">"整"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newchar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>判断一个元素是否在数组中</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> contains = <span class="function">(<span class="params">arr, val</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> arr.indexOf(val) != <span class="number">-1</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>数组排序，{type} 1：从小到大 2：从大到小 3：随机</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sort = <span class="function">(<span class="params">arr, type = <span class="number">1</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> a - b;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                <span class="keyword">return</span> b - a;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">return</span> arr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>数组去重</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> unique = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Array</span>.hasOwnProperty(<span class="string">'from'</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> n = &#123;&#125;, r = [];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!n[arr[i]]) &#123;</span><br><span class="line">                n[arr[i]] = <span class="literal">true</span>;</span><br><span class="line">                r.push(arr[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>求两个集合的并集</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> union = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> newArr = a.concat(b);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.unique(newArr);   <span class="comment">//上面的去重方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>求两个集合的交集</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> intersect = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line">    a = <span class="keyword">this</span>.unique(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.map(a, <span class="function"><span class="keyword">function</span> (<span class="params">o</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _this.contains(b, o) ? o : <span class="literal">null</span>;    <span class="comment">//上面的**判断一个元素是否在数组中**</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>删除其中一个元素</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> remove = <span class="function">(<span class="params">arr, ele</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> index = arr.indexOf(ele);</span><br><span class="line">    <span class="keyword">if</span> (index &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">        arr.splice(index, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>将类数组转换为数组</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> formArray = <span class="function">(<span class="params">ary</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(ary)) &#123;</span><br><span class="line">        arr = ary;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        arr = <span class="built_in">Array</span>.prototype.slice.call(ary);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>最大值</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> max = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>最小值</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> min = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>, arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>求和</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sum = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">pre, cur</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> pre + cur</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>平均值</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> average = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.sum(arr) / arr.length</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>去除空格,type: 1-所有空格 2-前后空格 3-前空格 4-后空格</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> trim = <span class="function">(<span class="params">str, type</span>) =&gt;</span> &#123;</span><br><span class="line">    type = type || <span class="number">1</span></span><br><span class="line">    <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> str.replace(<span class="regexp">/\s+/g</span>, <span class="string">""</span>);</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> str.replace(<span class="regexp">/(^\s*)|(\s*$)/g</span>, <span class="string">""</span>);</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">return</span> str.replace(<span class="regexp">/(^\s*)/g</span>, <span class="string">""</span>);</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">return</span> str.replace(<span class="regexp">/(\s*$)/g</span>, <span class="string">""</span>);</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>字符转换，type: 1:首字母大写 2：首字母小写 3：大小写转换 4：全部大写</strong> <strong>5：全部小写</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> changeCase = <span class="function">(<span class="params">str, type</span>) =&gt;</span> &#123;</span><br><span class="line">    type = type || <span class="number">4</span></span><br><span class="line">    <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> str.replace(<span class="regexp">/\b\w+\b/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">word</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> word.substring(<span class="number">0</span>, <span class="number">1</span>).toUpperCase() + word.substring(<span class="number">1</span>).toLowerCase();</span><br><span class="line"></span><br><span class="line">            &#125;);</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> str.replace(<span class="regexp">/\b\w+\b/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">word</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> word.substring(<span class="number">0</span>, <span class="number">1</span>).toLowerCase() + word.substring(<span class="number">1</span>).toUpperCase();</span><br><span class="line">            &#125;);</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">return</span> str.split(<span class="string">''</span>).map(<span class="function"><span class="keyword">function</span> (<span class="params">word</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="regexp">/[a-z]/</span>.test(word)) &#123;</span><br><span class="line">                    <span class="keyword">return</span> word.toUpperCase();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> word.toLowerCase()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).join(<span class="string">''</span>)</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">return</span> str.toUpperCase();</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">            <span class="keyword">return</span> str.toLowerCase();</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>检测密码强度</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> checkPwd = <span class="function">(<span class="params">str</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> Lv = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (str.length &lt; <span class="number">6</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> Lv</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/[0-9]/</span>.test(str)) &#123;</span><br><span class="line">        Lv++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/[a-z]/</span>.test(str)) &#123;</span><br><span class="line">        Lv++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/[A-Z]/</span>.test(str)) &#123;</span><br><span class="line">        Lv++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/[\.|-|_]/</span>.test(str)) &#123;</span><br><span class="line">        Lv++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Lv;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>函数节流器</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> debouncer = <span class="function">(<span class="params">fn, time, interval = <span class="number">200</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (time - (<span class="built_in">window</span>.debounceTimestamp || <span class="number">0</span>) &gt; interval) &#123;</span><br><span class="line">        fn &amp;&amp; fn();</span><br><span class="line">        <span class="built_in">window</span>.debounceTimestamp = time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>在字符串中插入新字符串</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> insertStr = <span class="function">(<span class="params">soure, index, newStr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> str = soure.slice(<span class="number">0</span>, index) + newStr + soure.slice(index);</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>判断两个对象是否键值相同</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isObjectEqual = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> aProps = <span class="built_in">Object</span>.getOwnPropertyNames(a);</span><br><span class="line">    <span class="keyword">var</span> bProps = <span class="built_in">Object</span>.getOwnPropertyNames(b);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (aProps.length !== bProps.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; aProps.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> propName = aProps[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (a[propName] !== b[propName]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>16进制颜色转RGBRGBA字符串</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> colorToRGB = <span class="function">(<span class="params">val, opa</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> pattern = <span class="regexp">/^(#?)[a-fA-F0-9]&#123;6&#125;$/</span>; <span class="comment">//16进制颜色值校验规则</span></span><br><span class="line">    <span class="keyword">var</span> isOpa = <span class="keyword">typeof</span> opa == <span class="string">'number'</span>; <span class="comment">//判断是否有设置不透明度</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!pattern.test(val)) &#123; <span class="comment">//如果值不符合规则返回空字符</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> v = val.replace(<span class="regexp">/#/</span>, <span class="string">''</span>); <span class="comment">//如果有#号先去除#号</span></span><br><span class="line">    <span class="keyword">var</span> rgbArr = [];</span><br><span class="line">    <span class="keyword">var</span> rgbStr = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> item = v.substring(i * <span class="number">2</span>, i * <span class="number">2</span> + <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">var</span> num = <span class="built_in">parseInt</span>(item, <span class="number">16</span>);</span><br><span class="line">        rgbArr.push(num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    rgbStr = rgbArr.join();</span><br><span class="line">    rgbStr = <span class="string">'rgb'</span> + (isOpa ? <span class="string">'a'</span> : <span class="string">''</span>) + <span class="string">'('</span> + rgbStr + (isOpa ? <span class="string">','</span> + opa : <span class="string">''</span>) + <span class="string">')'</span>;</span><br><span class="line">    <span class="keyword">return</span> rgbStr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>追加url参数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> appendQuery = <span class="function">(<span class="params">url, key, value</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> options = key;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> options == <span class="string">'string'</span>) &#123;</span><br><span class="line">        options = &#123;&#125;;</span><br><span class="line">        options[key] = value;</span><br><span class="line">    &#125;</span><br><span class="line">    options = $.param(options);</span><br><span class="line">    <span class="keyword">if</span> (url.includes(<span class="string">'?'</span>)) &#123;</span><br><span class="line">        url += <span class="string">'&amp;'</span> + options</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        url += <span class="string">'?'</span> + options</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>附上<a href="https://mp.weixin.qq.com/s/3f1PSCd6vDV6mu3wvXUSEQ" target="_blank" rel="noopener">原文地址</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/04/从简单制作npm包到制作vue插件/" rel="next" title="从简单制作npm包到制作vue插件">
+                <i class="fa fa-chevron-left"></i> 从简单制作npm包到制作vue插件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/xiaobu.png" alt="shenxiaobu">
+            
+              <p class="site-author-name" itemprop="name">shenxiaobu</p>
+              <div class="site-description motion-element" itemprop="description">如果有一腔热血，又足够努力，人生最坏的结果，也不过是大器晚成而已！</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="https://tech.meituan.com/" rel="noopener" target="_blank">美团技术团队</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="https://75team.com/" rel="noopener" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fex.baidu.com/" title="http://fex.baidu.com/" rel="noopener" target="_blank">百度FEX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taobaofed.org/" title="http://taobaofed.org/" rel="noopener" target="_blank">淘宝FED</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cdc.tencent.com/" title="https://cdc.tencent.com/" rel="noopener" target="_blank">腾讯CDC</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.npmjs.com/" title="https://www.npmjs.com/" rel="noopener" target="_blank">npm官网</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前端常用60种工具方法"><span class="nav-number">1.</span> <span class="nav-text">前端常用60种工具方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#验证邮箱"><span class="nav-number">1.1.</span> <span class="nav-text">验证邮箱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#手机号"><span class="nav-number">1.2.</span> <span class="nav-text">手机号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#电话号码"><span class="nav-number">1.3.</span> <span class="nav-text">电话号码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#是否url地址"><span class="nav-number">1.4.</span> <span class="nav-text">是否url地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#是否字符串"><span class="nav-number">1.5.</span> <span class="nav-text">是否字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#是否数字"><span class="nav-number">1.6.</span> <span class="nav-text">是否数字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#是否函数"><span class="nav-number">1.7.</span> <span class="nav-text">是否函数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-shenyanxiang"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenxiaobu.github.io</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">850k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">12:53</span>
+  
+<img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
+<a href="http://www.beian.miit.gov.cn/" style="color:#f72b07" target="_blank">闽ICP备19017889号-1</a>
+</div>
+
+
+
+
+
+
+
+
+<div>友情链接：
+ <a class="theme-link" href="http://collect.w3ctrain.com/"> 前端收藏夹 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="http://www.alloyteam.com/nav/"> Web前端导航 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
+ <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
+</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'zu1NA5ftKmWCJyVXjIaynYDO-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'zu1NA5ftKmWCJyVXjIaynYDO-gzGzoHsz',
+                'X-LC-Key': 'KyI0BMKwyVPDMUjBvTrLQL73',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
