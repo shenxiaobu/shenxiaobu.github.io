@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一步一步实现element-theme主题切换 | 爆米花小布</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <script defer="defer" async="async" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/assets/css/0.styles.e13b80d3.css" as="style"><link rel="preload" href="/assets/js/app.9f075be9.js" as="script"><link rel="preload" href="/assets/js/2.5449f5c7.js" as="script"><link rel="preload" href="/assets/js/12.1ab71b02.js" as="script"><link rel="prefetch" href="/assets/js/10.0a02bda1.js"><link rel="prefetch" href="/assets/js/11.7c8d5810.js"><link rel="prefetch" href="/assets/js/13.96026720.js"><link rel="prefetch" href="/assets/js/14.cda7781d.js"><link rel="prefetch" href="/assets/js/15.86badb8a.js"><link rel="prefetch" href="/assets/js/16.0358baf8.js"><link rel="prefetch" href="/assets/js/17.188a42cd.js"><link rel="prefetch" href="/assets/js/18.892d77e6.js"><link rel="prefetch" href="/assets/js/19.8259f0ba.js"><link rel="prefetch" href="/assets/js/20.872d84df.js"><link rel="prefetch" href="/assets/js/21.daa66e46.js"><link rel="prefetch" href="/assets/js/22.537fd259.js"><link rel="prefetch" href="/assets/js/23.f04af47c.js"><link rel="prefetch" href="/assets/js/24.d12750a8.js"><link rel="prefetch" href="/assets/js/25.9a87c16c.js"><link rel="prefetch" href="/assets/js/26.6430b7c1.js"><link rel="prefetch" href="/assets/js/27.3df3081d.js"><link rel="prefetch" href="/assets/js/28.ba6f7a53.js"><link rel="prefetch" href="/assets/js/29.9e188b97.js"><link rel="prefetch" href="/assets/js/3.df6a0100.js"><link rel="prefetch" href="/assets/js/30.1c936dbe.js"><link rel="prefetch" href="/assets/js/31.2b19da7e.js"><link rel="prefetch" href="/assets/js/32.f5b01bf4.js"><link rel="prefetch" href="/assets/js/33.45179d81.js"><link rel="prefetch" href="/assets/js/34.1f5d1d0c.js"><link rel="prefetch" href="/assets/js/35.0de1e2cb.js"><link rel="prefetch" href="/assets/js/36.cb17011d.js"><link rel="prefetch" href="/assets/js/37.2cbd5350.js"><link rel="prefetch" href="/assets/js/38.f88d7af5.js"><link rel="prefetch" href="/assets/js/39.d3c0116f.js"><link rel="prefetch" href="/assets/js/4.f822add4.js"><link rel="prefetch" href="/assets/js/40.47b05f9f.js"><link rel="prefetch" href="/assets/js/41.5dfb852e.js"><link rel="prefetch" href="/assets/js/42.1d7cf4c2.js"><link rel="prefetch" href="/assets/js/43.43f59d94.js"><link rel="prefetch" href="/assets/js/44.19309bf6.js"><link rel="prefetch" href="/assets/js/45.dbee3f0a.js"><link rel="prefetch" href="/assets/js/46.a373745d.js"><link rel="prefetch" href="/assets/js/5.036698ee.js"><link rel="prefetch" href="/assets/js/6.4ab99520.js"><link rel="prefetch" href="/assets/js/7.d3b5fa76.js"><link rel="prefetch" href="/assets/js/8.f736522b.js"><link rel="prefetch" href="/assets/js/9.35398d1a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e13b80d3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">爆米花小布</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/element-ui/el-table-select-all/" class="nav-link">
+  前端博客
+</a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-element-dict/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  PC端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-vant-dict" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  移动端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/element-ui/el-table-select-all/" class="nav-link">
+  前端博客
+</a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-element-dict/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  PC端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-vant-dict" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  移动端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Element-ui组件使用经验</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/element-ui/el-table-select-all/" class="sidebar-link">使用el-table实现全选功能</a></li><li><a href="/element-ui/el-table-sku/" class="sidebar-link">利用element实现sku规格相关功能</a></li><li><a href="/element-ui/el-cropper/" class="sidebar-link">利用vue-cropper实现图片裁剪功能</a></li><li><a href="/element-ui/el-form-nesting/" class="sidebar-link">el-form嵌套表单校验</a></li><li><a href="/element-ui/el-theme/" aria-current="page" class="active sidebar-link">使用element-ui组件库实现主题切换功能</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/element-ui/el-theme/#踩坑" class="sidebar-link">踩坑</a></li><li class="sidebar-sub-header"><a href="/element-ui/el-theme/#具体操作" class="sidebar-link">具体操作</a></li><li class="sidebar-sub-header"><a href="/element-ui/el-theme/#实现切换主题功能" class="sidebar-link">实现切换主题功能</a></li><li class="sidebar-sub-header"><a href="/element-ui/el-theme/#总结" class="sidebar-link">总结</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>JS必备知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/JS/call-apply-bind/" class="sidebar-link">js中的call、apply和bind</a></li><li><a href="/JS/debounce-throttle/" class="sidebar-link">JS中防抖与节流的讲解与封装</a></li><li><a href="/JS/tree-data/" class="sidebar-link">JS中树形结构数据相关方法</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>CSS实战经验</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/CSS/contour-layout/" class="sidebar-link">css实现等高布局</a></li><li><a href="/CSS/fixed-aspect-ratio/" class="sidebar-link">css实现固定宽高比</a></li><li><a href="/CSS/draw-triangle/" class="sidebar-link">CSS画一个三角形</a></li><li><a href="/CSS/draw-ring/" class="sidebar-link">CSS画一个环形进度条</a></li><li><a href="/CSS/pseudo-class/" class="sidebar-link">伪类和伪元素的区别与使用</a></li><li><a href="/CSS/clear-float/" class="sidebar-link">清除浮动的原理与时机</a></li><li><a href="/CSS/layout/" class="sidebar-link">三栏布局问题（左右固定宽度 中间自适应）</a></li><li><a href="/CSS/flex/" class="sidebar-link">flex布局祥解</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>实用的npm包</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/npm/xiaobu-pic-zoom/" class="sidebar-link">xiaobu-pic-zoom图片放大镜</a></li><li><a href="/npm/vue-message-code/" class="sidebar-link">vue-message-code短信验证码</a></li><li><a href="/npm/xiaobu-water-marker/" class="sidebar-link">xiaobu-water-marker水印</a></li><li><a href="/npm/vue-flutter/" class="sidebar-link">vue-flutter漂浮动画</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>VUE小妙招</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-config/search-menu/" class="sidebar-link">利用fuse.js实现搜索菜单功能</a></li><li><a href="/vue-config/alias/" class="sidebar-link">vue项目配置别名</a></li><li><a href="/vue-config/svg-sprite-loader/" class="sidebar-link">vue项目配置使用svg图标</a></li><li><a href="/vue-config/vue-mode-env/" class="sidebar-link">vue项目的模式和环境变量</a></li><li><a href="/vue-config/system-config/" class="sidebar-link">vue项目配置系统变量</a></li><li><a href="/vue-config/axios-optimization-one/" class="sidebar-link">vue项目axios请求优化（一）</a></li><li><a href="/vue-config/axios-optimization-two/" class="sidebar-link">vue项目axios请求优化（二）</a></li><li><a href="/vue-config/axios-optimization-three/" class="sidebar-link">vue项目axios请求优化（三）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>前端工具</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/tool/use-nvm/" class="sidebar-link">nvm的使用</a></li><li><a href="/tool/vscode/sftp/" class="sidebar-link">vscode插件之sftp</a></li><li><a href="/tool/vscode/koroFileHeader/" class="sidebar-link">vscode插件之koroFileHeader</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="一步一步实现element-theme主题切换"><a href="#一步一步实现element-theme主题切换" class="header-anchor">#</a> 一步一步实现element-theme主题切换</h1> <p>​		曾经玩QQ空间，就有切换主题功能，一直想给自己的系统也加上切换主题功能，今天终于抽出时间迈出一步，查阅element主题相关文档，先根据文档进行简单操作，但是过程十分艰辛，一度把项目跑死掉（捂脸）。接下来讲讲踩坑经历。</p> <h2 id="踩坑"><a href="#踩坑" class="header-anchor">#</a> 踩坑</h2> <p><img src="/assets/img/1.f127d448.png" alt="1"></p> <p>根据文档，模仿如上代码，代码顺利运行，且改变primary变量，确实会改变主题的颜色。于是此处算是顺利度过，接下来继续查阅文档</p> <p><img src="/assets/img/3.93febfe7.png" alt="1"></p> <p>查阅到此处，以为上面生成的  element-variable.scss  文件里面的变量 就是 给上面用的，于是将此处生成的变量名都粘贴到上面的文件，结果项目都跑不起来了，报各种问题。后面继续查阅文档，才发现，是两种方式。完全不一样的。</p> <p><img src="/assets/img/4.ce56d54e.png" alt="1"></p> <p>原来上述生成的文件是用来编译的，编译完再引入，然后编译默认不会实时编译，如需实时编译 加上参数  -w
+且编译后的目录默认是  根目录下  ./theme 文件夹   如果想自定义 可  加上 参数    -o ./src/theme</p> <p>然后引入方式 改为</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token string">&quot;@/theme/index.css&quot;</span>
+</code></pre></div><p>此处说明下 安装和跑项目会遇到的坑</p> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>npm i element-theme -g   node版本12以下</p> <p>npm i element-theme-chalk -D node版本 12以上</p> <p>et -i    node版本 12以下</p> <p>运行项目，node12以上</p> <p>et -w   node 12以下   然后改变主题变量值就会实时刷新</p></div> <h2 id="具体操作"><a href="#具体操作" class="header-anchor">#</a> 具体操作</h2> <ol><li><p>切换node版本到12 以下，<a href="/tool/use-nvm">点击前往学习nvm</a>   管理员方式打开终端</p></li> <li><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 全局安装 element-theme</span>
+<span class="token function">npm</span> i element-theme -g 
+</code></pre></div></li> <li><p>切换node版本到12 以上，<a href="/tool/use-nvm">点击前往学习nvm</a> 管理员方式打开终端</p></li> <li><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 在项目根目录安装 element-theme-chalk</span>
+<span class="token function">npm</span> i element-theme-chalk -D
+</code></pre></div></li> <li><p>切换node版本到12 以下，<a href="/tool/use-nvm">点击前往学习nvm</a>  管理员方式打开终端</p></li> <li><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 执行以下命令  会生成  element-variables.scss 文件</span>
+et -i 
+</code></pre></div></li> <li><p>修改element-variables.scss文件变量值</p></li> <li><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 执行下列命令会生成主题css文件</span>
+et
+</code></pre></div></li> <li><p>项目main.js文件引入主题文件</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token string">&quot;../themes/index.css&quot;</span>
+</code></pre></div><p>此时文件变量就能用</p></li> <li><p>但是改变变量值，不能实时刷新，且生成文件的目录不是理想的目录结构，因此可以执行下列操作</p> <div class="language-shell extra-class"><pre class="language-shell"><code>et -w -o ./src/theme
+</code></pre></div><p>-w 可以实时实时编译，-o 可以自定义生成文件目录位置</p> <p>然后重新引入对应路径的主题文件</p></li></ol> <p>至此我们可以使用我们自定义的主题。但是还不能实现切换不同主题</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>et命令是根据element-variables.scss 文件生成主题变量文件</p> <p>每当想生成不同主题的变量值时，就得改到这个文件，为了避免混淆，我们得保存主题对应的变量文件</p> <p>normal-element-variables.scss</p> <p>night-element-variables.scss</p> <p>这样需要编辑的时候，就可以把这个文件内容覆盖element-variables.scss，确定完再把element-variables.scss文件覆盖对应主题变量文件。</p></div> <!----> <h2 id="实现切换主题功能"><a href="#实现切换主题功能" class="header-anchor">#</a> 实现切换主题功能</h2> <p>实现主题切换有两种方式，一种就是使用命名空间的方法，将样式文件以命名空间的形式存在，然后切换类名。</p> <p>一种就是动态切换引入的主题样式文件，但是<strong>样式文件还是得使用命名空间的命名方式，因为相同类名，可能会导致样式不刷新</strong></p> <h4 id="命名空间方式"><a href="#命名空间方式" class="header-anchor">#</a> 命名空间方式</h4> <ol><li>使用et命令生成多套主题样式文件</li> <li>使用gulp生成对应命名空间的主题变量</li> <li>引入全部主题变量，切换类名即可实现主题切换</li></ol> <p>​	命名空间方式，故名思议，就是让每个样式前面添加一个主题命名空间</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.title</span> <span class="token punctuation">{</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">//命名空间后就变成 
+.theme.title</span> <span class="token punctuation">{</span>
+   <span class="token property">color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+</code></pre></div><p>​	那么多的样式，难道要一个一个给样式新增命名空间？ 作为程序员，当然不能用那么笨的方法。我们可以借助构建工具 gulp，帮我们实现命名空间。</p> <h5 id="搭建gulp环境"><a href="#搭建gulp环境" class="header-anchor">#</a> 搭建gulp环境</h5> <div class="language-shell extra-class"><pre class="language-shell"><code>//1.安装gulp 
+<span class="token function">npm</span> <span class="token function">install</span> gulp
+
+//2.安装gulp-clean-css
+<span class="token function">npm</span> <span class="token function">install</span> gulp-clean-css
+
+//3.安装gulp-css-wrap
+<span class="token function">npm</span> <span class="token function">install</span> gulp-css-wrap
+</code></pre></div><h5 id="根目录新建一个gulpfile-js文件"><a href="#根目录新建一个gulpfile-js文件" class="header-anchor">#</a> 根目录新建一个gulpfile.js文件</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//引入path</span>
+<span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">//引入gulp</span>
+<span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">//引入gulp-clean-css</span>
+<span class="token keyword">var</span> cleanCSS <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-clean-css&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">//引入gulp-css-wrap</span>
+<span class="token keyword">var</span> cssWrap <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-css-wrap&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">//创建一个命令（任务）  normal-theme  执行此命令，会进行如下操作</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&quot;normal-theme&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">//导入文件</span>
+  <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&quot;./src/themes/normal/index.css&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment">/* 找需要添加命名空间的css文件，支持正则表达式 */</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cssWrap</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">selector</span><span class="token operator">:</span> <span class="token string">&quot;.bu-normal&quot;</span> <span class="token comment">/* 添加的命名空间 */</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cleanCSS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&quot;./src/styles/themes/normal&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">/* 存放的目录 */</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">//把字体文件也导入</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&quot;normal-theme-font&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;./src/themes/normal/fonts/**&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&quot;./src/styles/themes/normal/fonts&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">//创建一个命令（任务）  normal-theme  执行此命令，会进行如下操作</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&quot;night-theme&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">//导入文件</span>
+  <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&quot;./src/themes/night/index.css&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment">/* 找需要添加命名空间的css文件，支持正则表达式 */</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cssWrap</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">selector</span><span class="token operator">:</span> <span class="token string">&quot;.bu-night&quot;</span> <span class="token comment">/* 添加的命名空间 */</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cleanCSS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&quot;./src/styles/themes/night&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">/* 存放的目录 */</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">//把字体文件也导入</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&quot;night-theme-font&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;./src/themes/night/fonts/**&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&quot;./src/styles/themes/night/fonts&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>执行上述命令，就会生成两套命名空间的样式。</p> <h5 id="使用主题"><a href="#使用主题" class="header-anchor">#</a> 使用主题</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token literal-property property">computed</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">//获取当前主题</span>
+    <span class="token function">theme</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>setting<span class="token punctuation">.</span>theme
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">watch</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">theme</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">handler</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//监听主题，然后设置主题命名空间 的类名</span>
+        <span class="token keyword">const</span> body <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;body&quot;</span><span class="token punctuation">)</span>
+        body<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>className <span class="token operator">=</span> val
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">immediate</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>这样就可以切换element-ui的主题了。但是对于普通我们自定义的变量，还不能跟随主题变换，这个最后面一起说。</p> <h4 id="动态添加主题css样式文件"><a href="#动态添加主题css样式文件" class="header-anchor">#</a> 动态添加主题css样式文件</h4> <div class="language- extra-class"><pre><code>对于需要很多套主题的情况下，上面的方式就会把这两个主题都打包在了项目里，如果你的项目主题需要七八种，这种模式就不适合了。我们就需要动态的加载css。
+</code></pre></div><h5 id="生成多套主题文件"><a href="#生成多套主题文件" class="header-anchor">#</a> 生成多套主题文件</h5> <p>​	生成多套主题文件，并执行命令生成相应命名空间方式的文件，然后放到服务器供链接访问。</p> <h5 id="使用"><a href="#使用" class="header-anchor">#</a> 使用</h5> <div class="language-js extra-class"><pre class="language-js"><code><span class="token literal-property property">computed</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">theme</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>setting<span class="token punctuation">.</span>theme
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">watch</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">theme</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">handler</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">const</span> body <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;body&quot;</span><span class="token punctuation">)</span>
+        body<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>className <span class="token operator">=</span> val
+          
+        <span class="token keyword">const</span> theme <span class="token operator">=</span> val
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setHeadStyle</span><span class="token punctuation">(</span>theme<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">immediate</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * @description: 动态加载主题样式
+     * @return {*}
+     * @author: syx
+     */</span>
+    <span class="token function">setHeadStyle</span><span class="token punctuation">(</span><span class="token parameter">themeName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> head <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;HEAD&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">item</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+      <span class="token keyword">var</span> style <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&quot;link&quot;</span><span class="token punctuation">)</span>
+      <span class="token comment">//给样式添加一个id 用于切换主题时删除标签</span>
+      style<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">&quot;theme_link&quot;</span>
+      style<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">服务器访问路径</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>themeName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/index.css</span><span class="token template-punctuation string">`</span></span>
+      style<span class="token punctuation">.</span>rel <span class="token operator">=</span> <span class="token string">&quot;stylesheet&quot;</span>
+      style<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">&quot;text/css&quot;</span>
+
+      <span class="token keyword">const</span> themeLinkTag <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;theme_link&quot;</span><span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>themeLinkTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        head<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>themeLinkTag<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>style<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><p>这样就可以实现多套element-ui主题的动态切换了。</p> <h3 id="最全样式切换"><a href="#最全样式切换" class="header-anchor">#</a> 最全样式切换</h3> <p>​		上面说的切换主题仅仅只是切换了 element-ui的主题。对于我们自定义的变量，并不会切换，所以我们要将自己的主题变量也按不同主题来控制。</p> <p>​		因此我们需要用到强大的scss。</p> <p>目录结构大致如下</p> <blockquote><p>src</p> <blockquote><p>styles</p> <blockquote><p>themes      //主题文件夹</p> <blockquote><p>index.scss  //引入所有主题</p> <p>normal.scss //正常模式主题变量</p> <p>night.scss  //夜间模式主题变量</p></blockquote></blockquote> <p>themes           //其实把这主题放在服务器上，项目以链接方式访问更ok</p> <blockquote><p>night          //基于element-variables.scss 生成的主题样式文件</p> <p>night-gulp   //经过gulp命令生成的命门空间样式文件</p> <p>normal     //基于element-variables.scss 生成的，然后使用gulp构建的命名空间样式</p> <p>normal-gulp  //经过gulp命令生成的命门空间样式文件</p></blockquote></blockquote></blockquote> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token comment">// /src/styles/themes/index.scss</span>
+
+<span class="token keyword">@import</span> <span class="token string">&quot;./night.scss&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">@import</span> <span class="token string">&quot;./normal.scss&quot;</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$themes</span></span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+  <span class="token property">normal</span><span class="token punctuation">:</span> <span class="token variable">$normal_theme</span><span class="token punctuation">,</span>
+  <span class="token property">night</span><span class="token punctuation">:</span> <span class="token variable">$night_theme</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//遍历主题map</span>
+<span class="token keyword">@mixin</span> <span class="token selector">themeify </span><span class="token punctuation">{</span>
+	<span class="token keyword">@each</span> <span class="token selector"><span class="token variable">$theme-name</span>,
+	<span class="token variable">$theme-map</span> in <span class="token variable">$themes</span> </span><span class="token punctuation">{</span>
+		<span class="token comment">//global 把局部变量强升为全局变量</span>
+		<span class="token property"><span class="token variable">$theme-map</span></span><span class="token punctuation">:</span> <span class="token variable">$theme-map</span> !global<span class="token punctuation">;</span>
+ 
+		<span class="token comment">//判断html的data-theme的属性值  #{}是sass的插值表达式</span>
+		<span class="token comment">//&amp; sass嵌套里的父容器标识   @content是混合器插槽，像vue的slot</span>
+		<span class="token selector">[data-theme=&quot;<span class="token variable">#{$theme-name}</span>&quot;] <span class="token parent important">&amp;</span> </span><span class="token punctuation">{</span>
+			<span class="token keyword">@content</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token comment">//声明一个根据Key获取颜色的function</span>
+<span class="token keyword">@function</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">@return</span> <span class="token function">map-get</span><span class="token punctuation">(</span><span class="token variable">$theme-map</span><span class="token punctuation">,</span> <span class="token variable">$key</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//获取背景颜色</span>
+<span class="token keyword">@mixin</span> background_<span class="token function">color</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">@include</span> <span class="token selector">themeify </span><span class="token punctuation">{</span>
+		<span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token comment">//获取字体颜色</span>
+<span class="token keyword">@mixin</span> font_<span class="token function">color</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">@include</span> <span class="token selector">themeify </span><span class="token punctuation">{</span>
+		<span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token comment">//获取边框颜色</span>
+<span class="token keyword">@mixin</span> border_<span class="token function">color</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">@include</span> <span class="token selector">themeify </span><span class="token punctuation">{</span>
+		<span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//获取边框颜色</span>
+<span class="token keyword">@mixin</span> border_line_<span class="token function">color</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">,</span><span class="token property"><span class="token variable">$num</span></span><span class="token punctuation">:</span>1px<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">@include</span> <span class="token selector">themeify </span><span class="token punctuation">{</span>
+		<span class="token property">border</span><span class="token punctuation">:</span> <span class="token variable">$num</span>  solid <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 阴影</span>
+<span class="token keyword">@mixin</span> <span class="token function">box-shadowr</span><span class="token punctuation">(</span><span class="token variable">$shadows</span><span class="token punctuation">,</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">@include</span> <span class="token selector">themeify </span><span class="token punctuation">{</span>
+		<span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token variable">$shadows</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//还可以自定义其他属性....</span>
+
+</code></pre></div><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token comment">// /src/styles/themes/normal.scss</span>
+<span class="token property"><span class="token variable">$night_theme</span></span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+  <span class="token property">main_color</span><span class="token punctuation">:</span> #217acb<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token comment">// /src/styles/themes/night.scss</span>
+<span class="token property"><span class="token variable">$night_theme</span></span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+  <span class="token property">main_color</span><span class="token punctuation">:</span> #001e3d<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>然后加载项目时先加载主题变量</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//vue.config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">css</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 是否使用css分离插件 ExtractTextPlugin</span>
+    <span class="token comment">//如果需要css热更新就设置为false,打包时候要改为true</span>
+    <span class="token literal-property property">extract</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token comment">// 开启 CSS source maps?</span>
+    <span class="token literal-property property">sourceMap</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment">// css预设器配置项</span>
+    <span class="token literal-property property">loaderOptions</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">sass</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// @/ is an alias to src/</span>
+        <span class="token comment">// so this assumes you have a file named `src/variables.scss`</span>
+        <span class="token literal-property property">prependData</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">@import &quot;@/styles/themes/index.scss&quot;;</span><span class="token template-punctuation string">`</span></span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>页面上使用主题变量</p> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token comment">//设置背景颜色</span>
+<span class="token keyword">@include</span> background_<span class="token function">color</span><span class="token punctuation">(</span><span class="token string">&quot;main_color&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//设置字体颜色</span>
+<span class="token keyword">@include</span> font_<span class="token function">color</span><span class="token punctuation">(</span><span class="token string">&quot;main_color&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//设置边框颜色</span>
+<span class="token keyword">@include</span> border_<span class="token function">color</span><span class="token punctuation">(</span><span class="token string">&quot;main_color&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//设置 1px边框   1px可不传 或传 其他像素值</span>
+<span class="token keyword">@include</span> border_line_<span class="token function">color</span><span class="token punctuation">(</span><span class="token string">&quot;main_color&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;1px&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//设置 阴影</span>
+<span class="token keyword">@include</span> <span class="token function">shadowr</span><span class="token punctuation">(</span><span class="token string">&quot;main_color&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>在store状态管理器新增一个theme主题变量值</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>app<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 页面切换容器 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;App&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">computed</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">theme</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>setting<span class="token punctuation">.</span>theme
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">watch</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">theme</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token function">handler</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//命名空间切换样式类</span>
+        <span class="token keyword">const</span> body <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;body&quot;</span><span class="token punctuation">)</span>
+        body<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>className <span class="token operator">=</span> val
+        
+        <span class="token keyword">const</span> theme <span class="token operator">=</span> val
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setHeadStyle</span><span class="token punctuation">(</span>theme<span class="token punctuation">)</span>
+        window<span class="token punctuation">.</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">&quot;data-theme&quot;</span><span class="token punctuation">,</span> theme<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">immediate</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * @description: 动态加载主题样式
+     * @return {*}
+     * @author: syx
+     */</span>
+    <span class="token function">setHeadStyle</span><span class="token punctuation">(</span><span class="token parameter">themeName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> head <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">&quot;HEAD&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">item</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+      <span class="token keyword">var</span> style <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&quot;link&quot;</span><span class="token punctuation">)</span>
+      style<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">&quot;theme_link&quot;</span>
+      style<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">@/themes/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>themeName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">-gulp/index.css</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+      style<span class="token punctuation">.</span>rel <span class="token operator">=</span> <span class="token string">&quot;stylesheet&quot;</span>
+      style<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">&quot;text/css&quot;</span>
+
+      <span class="token keyword">const</span> themeLinkTag <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;theme_link&quot;</span><span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>themeLinkTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        head<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>themeLinkTag<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>style<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">#app</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//引入path</span>
+<span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">//引入gulp</span>
+<span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">//引入gulp-clean-css</span>
+<span class="token keyword">var</span> cleanCSS <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-clean-css&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">//引入gulp-css-wrap</span>
+<span class="token keyword">var</span> cssWrap <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-css-wrap&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">//创建一个命令（任务）  normal-theme  执行此命令，会进行如下操作</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&quot;normal-theme&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">//导入文件</span>
+  <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&quot;./src/themes/normal/index.css&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment">/* 找需要添加命名空间的css文件，支持正则表达式 */</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cssWrap</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">selector</span><span class="token operator">:</span> <span class="token string">&quot;.normal&quot;</span> <span class="token comment">/* 添加的命名空间 */</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cleanCSS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&quot;./src/themes/normal-gulp&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">/* 存放的目录 */</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">//把字体文件也导入</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&quot;normal-theme-font&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;./src/themes/normal/fonts/**&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&quot;./src/themes/normal-gulp/fonts&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">//创建一个命令（任务）  normal-theme  执行此命令，会进行如下操作</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&quot;night-theme&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">//导入文件</span>
+  <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&quot;./src/themes/night/index.css&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment">/* 找需要添加命名空间的css文件，支持正则表达式 */</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cssWrap</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">selector</span><span class="token operator">:</span> <span class="token string">&quot;.night&quot;</span> <span class="token comment">/* 添加的命名空间 */</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cleanCSS</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&quot;./src/themes/night-gulp&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">/* 存放的目录 */</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">//把字体文件也导入</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&quot;night-theme-font&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;./src/themes/night/fonts/**&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&quot;./src/themes/night-gulp/fonts&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>执行gulp命令时，别忘了同时字体文件也要执行一下。</p> <p>gulp normal-theme</p> <p>gulp normal-theme-font</p> <p>gulp 还得在 node12版本以下运行</p></div> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>上述目录结构不是您喜欢的也可修改代码，生成别的目录结构</p></div> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>​	实践是检验真理的唯一标准，坚持就是胜利。珍爱头发，原理编程。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/element-ui/el-form-nesting/" class="prev">
+        el-form嵌套表单校验
+      </a></span> <span class="next"><a href="/JS/call-apply-bind/">
+        js中的call、apply和bind
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div id="loading-mask"><div class="loading-wrapper"><span class="loading-dot loading-dot-spin"><i></i> <i></i> <i></i> <i></i></span></div></div><!----><!----></div></div>
+    <script src="/assets/js/app.9f075be9.js" defer></script><script src="/assets/js/2.5449f5c7.js" defer></script><script src="/assets/js/12.1ab71b02.js" defer></script>
+  </body>
+</html>

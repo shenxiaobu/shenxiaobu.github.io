@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>三栏布局问题（左右固定宽度 中间自适应） | 爆米花小布</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <script defer="defer" async="async" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/assets/css/0.styles.e13b80d3.css" as="style"><link rel="preload" href="/assets/js/app.9f075be9.js" as="script"><link rel="preload" href="/assets/js/2.5449f5c7.js" as="script"><link rel="preload" href="/assets/js/16.0358baf8.js" as="script"><link rel="prefetch" href="/assets/js/10.0a02bda1.js"><link rel="prefetch" href="/assets/js/11.7c8d5810.js"><link rel="prefetch" href="/assets/js/12.1ab71b02.js"><link rel="prefetch" href="/assets/js/13.96026720.js"><link rel="prefetch" href="/assets/js/14.cda7781d.js"><link rel="prefetch" href="/assets/js/15.86badb8a.js"><link rel="prefetch" href="/assets/js/17.188a42cd.js"><link rel="prefetch" href="/assets/js/18.892d77e6.js"><link rel="prefetch" href="/assets/js/19.8259f0ba.js"><link rel="prefetch" href="/assets/js/20.872d84df.js"><link rel="prefetch" href="/assets/js/21.daa66e46.js"><link rel="prefetch" href="/assets/js/22.537fd259.js"><link rel="prefetch" href="/assets/js/23.f04af47c.js"><link rel="prefetch" href="/assets/js/24.d12750a8.js"><link rel="prefetch" href="/assets/js/25.9a87c16c.js"><link rel="prefetch" href="/assets/js/26.6430b7c1.js"><link rel="prefetch" href="/assets/js/27.3df3081d.js"><link rel="prefetch" href="/assets/js/28.ba6f7a53.js"><link rel="prefetch" href="/assets/js/29.9e188b97.js"><link rel="prefetch" href="/assets/js/3.df6a0100.js"><link rel="prefetch" href="/assets/js/30.1c936dbe.js"><link rel="prefetch" href="/assets/js/31.2b19da7e.js"><link rel="prefetch" href="/assets/js/32.f5b01bf4.js"><link rel="prefetch" href="/assets/js/33.45179d81.js"><link rel="prefetch" href="/assets/js/34.1f5d1d0c.js"><link rel="prefetch" href="/assets/js/35.0de1e2cb.js"><link rel="prefetch" href="/assets/js/36.cb17011d.js"><link rel="prefetch" href="/assets/js/37.2cbd5350.js"><link rel="prefetch" href="/assets/js/38.f88d7af5.js"><link rel="prefetch" href="/assets/js/39.d3c0116f.js"><link rel="prefetch" href="/assets/js/4.f822add4.js"><link rel="prefetch" href="/assets/js/40.47b05f9f.js"><link rel="prefetch" href="/assets/js/41.5dfb852e.js"><link rel="prefetch" href="/assets/js/42.1d7cf4c2.js"><link rel="prefetch" href="/assets/js/43.43f59d94.js"><link rel="prefetch" href="/assets/js/44.19309bf6.js"><link rel="prefetch" href="/assets/js/45.dbee3f0a.js"><link rel="prefetch" href="/assets/js/46.a373745d.js"><link rel="prefetch" href="/assets/js/5.036698ee.js"><link rel="prefetch" href="/assets/js/6.4ab99520.js"><link rel="prefetch" href="/assets/js/7.d3b5fa76.js"><link rel="prefetch" href="/assets/js/8.f736522b.js"><link rel="prefetch" href="/assets/js/9.35398d1a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e13b80d3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">爆米花小布</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/element-ui/el-table-select-all/" class="nav-link">
+  前端博客
+</a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-element-dict/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  PC端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-vant-dict" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  移动端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/element-ui/el-table-select-all/" class="nav-link">
+  前端博客
+</a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-element-dict/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  PC端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-vant-dict" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  移动端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Element-ui组件使用经验</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/element-ui/el-table-select-all/" class="sidebar-link">使用el-table实现全选功能</a></li><li><a href="/element-ui/el-table-sku/" class="sidebar-link">利用element实现sku规格相关功能</a></li><li><a href="/element-ui/el-cropper/" class="sidebar-link">利用vue-cropper实现图片裁剪功能</a></li><li><a href="/element-ui/el-form-nesting/" class="sidebar-link">el-form嵌套表单校验</a></li><li><a href="/element-ui/el-theme/" class="sidebar-link">使用element-ui组件库实现主题切换功能</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>JS必备知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/JS/call-apply-bind/" class="sidebar-link">js中的call、apply和bind</a></li><li><a href="/JS/debounce-throttle/" class="sidebar-link">JS中防抖与节流的讲解与封装</a></li><li><a href="/JS/tree-data/" class="sidebar-link">JS中树形结构数据相关方法</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>CSS实战经验</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/CSS/contour-layout/" class="sidebar-link">css实现等高布局</a></li><li><a href="/CSS/fixed-aspect-ratio/" class="sidebar-link">css实现固定宽高比</a></li><li><a href="/CSS/draw-triangle/" class="sidebar-link">CSS画一个三角形</a></li><li><a href="/CSS/draw-ring/" class="sidebar-link">CSS画一个环形进度条</a></li><li><a href="/CSS/pseudo-class/" class="sidebar-link">伪类和伪元素的区别与使用</a></li><li><a href="/CSS/clear-float/" class="sidebar-link">清除浮动的原理与时机</a></li><li><a href="/CSS/layout/" aria-current="page" class="active sidebar-link">三栏布局问题（左右固定宽度 中间自适应）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/CSS/layout/#float-margin-浮动布局" class="sidebar-link">float + margin（浮动布局）</a></li><li class="sidebar-sub-header"><a href="/CSS/layout/#position-绝对布局" class="sidebar-link">position（绝对布局）</a></li><li class="sidebar-sub-header"><a href="/CSS/layout/#flex-弹性盒子布局" class="sidebar-link">flex（弹性盒子布局）</a></li><li class="sidebar-sub-header"><a href="/CSS/layout/#table-表格布局" class="sidebar-link">table(表格布局)</a></li><li class="sidebar-sub-header"><a href="/CSS/layout/#grid-网格布局" class="sidebar-link">Grid(网格布局)</a></li></ul></li><li><a href="/CSS/flex/" class="sidebar-link">flex布局祥解</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>实用的npm包</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/npm/xiaobu-pic-zoom/" class="sidebar-link">xiaobu-pic-zoom图片放大镜</a></li><li><a href="/npm/vue-message-code/" class="sidebar-link">vue-message-code短信验证码</a></li><li><a href="/npm/xiaobu-water-marker/" class="sidebar-link">xiaobu-water-marker水印</a></li><li><a href="/npm/vue-flutter/" class="sidebar-link">vue-flutter漂浮动画</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>VUE小妙招</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-config/search-menu/" class="sidebar-link">利用fuse.js实现搜索菜单功能</a></li><li><a href="/vue-config/alias/" class="sidebar-link">vue项目配置别名</a></li><li><a href="/vue-config/svg-sprite-loader/" class="sidebar-link">vue项目配置使用svg图标</a></li><li><a href="/vue-config/vue-mode-env/" class="sidebar-link">vue项目的模式和环境变量</a></li><li><a href="/vue-config/system-config/" class="sidebar-link">vue项目配置系统变量</a></li><li><a href="/vue-config/axios-optimization-one/" class="sidebar-link">vue项目axios请求优化（一）</a></li><li><a href="/vue-config/axios-optimization-two/" class="sidebar-link">vue项目axios请求优化（二）</a></li><li><a href="/vue-config/axios-optimization-three/" class="sidebar-link">vue项目axios请求优化（三）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>前端工具</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/tool/use-nvm/" class="sidebar-link">nvm的使用</a></li><li><a href="/tool/vscode/sftp/" class="sidebar-link">vscode插件之sftp</a></li><li><a href="/tool/vscode/koroFileHeader/" class="sidebar-link">vscode插件之koroFileHeader</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="三栏布局问题-左右固定宽度-中间自适应"><a href="#三栏布局问题-左右固定宽度-中间自适应" class="header-anchor">#</a> 三栏布局问题（左右固定宽度 中间自适应）</h1> <h2 id="float-margin-浮动布局"><a href="#float-margin-浮动布局" class="header-anchor">#</a> float + margin（浮动布局）</h2> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt;
+     &lt;!-- 右栏部分要写在中间内容之前 --&gt;
+    &lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt;
+    &lt;div class=&quot;main&quot;&gt;Main&lt;/div&gt;
+&lt;/div&gt;
+
+
+body,html,.containerl</span><span class="token punctuation">{</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/*左边栏左浮动*/</span>
+<span class="token selector">.left</span><span class="token punctuation">{</span>
+    <span class="token property">float</span><span class="token punctuation">:</span>left<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span>#333<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/*中间栏自适应*/</span>
+<span class="token selector">.main</span><span class="token punctuation">{</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span>0 200px<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/*右边栏右浮动*/</span>
+<span class="token selector">.right</span><span class="token punctuation">{</span>
+    <span class="token property">float</span><span class="token punctuation">:</span>right<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span>#333<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>优点：快捷 简单 兼容性较好
+缺点: 有局限性 脱离文档流 需要清除浮动等
+</code></pre></div><h2 id="position-绝对布局"><a href="#position-绝对布局" class="header-anchor">#</a> position（绝对布局）</h2> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt;
+    &lt;div class=&quot;main&quot;&gt;Main&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt;
+&lt;/div&gt;
+
+
+body,html,.container</span><span class="token punctuation">{</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/*左右进行绝对定位*/</span>
+<span class="token selector">.left,.right</span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #333<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.left</span><span class="token punctuation">{</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.right</span><span class="token punctuation">{</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/*中间用margin空出左右元素所占的空间*/</span>
+<span class="token selector">.main</span><span class="token punctuation">{</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0 200px<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/*或者中间也进行绝对定位*/</span>
+<span class="token selector">.main</span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>优点：简单粗暴
+缺点: 脱离文档流 高度未知会出现问题 可用性差
+</code></pre></div><h2 id="flex-弹性盒子布局"><a href="#flex-弹性盒子布局" class="header-anchor">#</a> flex（弹性盒子布局）</h2> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt;
+    &lt;div class=&quot;main&quot;&gt;Main&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt;
+&lt;/div&gt;
+
+
+ body,html</span><span class="token punctuation">{</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.container</span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.left</span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.main</span><span class="token punctuation">{</span>
+    <span class="token property">flex</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.right</span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>优点：比较完美 移动端首选
+缺点: 不兼容 ie9 及以下
+</code></pre></div><h2 id="table-表格布局"><a href="#table-表格布局" class="header-anchor">#</a> table(表格布局)</h2> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt;
+    &lt;div class=&quot;main&quot;&gt;Main&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt;
+&lt;/div&gt;
+
+
+ body,html</span><span class="token punctuation">{</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.container</span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.container&gt;div</span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> table-cell<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.left</span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.main</span><span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.right</span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>优点：兼容性很好（ie8 及以上） 父元素高度会被子元素撑开（不担心高度塌陷）
+缺点: seo 不友好 当其中一个单元格高度超出的时候，其他的单元格也是会跟着一起变高的
+</code></pre></div><!----> <h2 id="grid-网格布局"><a href="#grid-网格布局" class="header-anchor">#</a> Grid(网格布局)</h2> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;Left&lt;/div&gt;
+    &lt;div class=&quot;main&quot;&gt;Main&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;Right&lt;/div&gt;
+&lt;/div&gt;
+
+
+ body,html</span><span class="token punctuation">{</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.container</span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">grid-template-rows</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>  <span class="token comment">/*设置行高*/</span>
+    <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 200px auto 200px<span class="token punctuation">;</span>  <span class="token comment">/*设置列数属性*/</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.left</span><span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.main</span><span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.right</span><span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span>red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>优点：简单强大 解决二维布局问题
+缺点: 不兼容 ie9 及以下
+</code></pre></div><ul><li><p>css盒模型</p> <p><img src="/assets/img/1.631b0902.png" alt="image-20200516125527265"></p> <p><img src="/assets/img/2.f08e3b09.png" alt="image-20200516125757956"></p></li></ul> <h4 id=""><a href="#" class="header-anchor">#</a></h4></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/CSS/clear-float/" class="prev">
+        清除浮动的原理与时机
+      </a></span> <span class="next"><a href="/CSS/flex/">
+        flex布局祥解
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div id="loading-mask"><div class="loading-wrapper"><span class="loading-dot loading-dot-spin"><i></i> <i></i> <i></i> <i></i></span></div></div><!----><!----></div></div>
+    <script src="/assets/js/app.9f075be9.js" defer></script><script src="/assets/js/2.5449f5c7.js" defer></script><script src="/assets/js/16.0358baf8.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实现请求可配置是否展示全局加载动画 | 爆米花小布</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <script defer="defer" async="async" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/assets/css/0.styles.e13b80d3.css" as="style"><link rel="preload" href="/assets/js/app.9f075be9.js" as="script"><link rel="preload" href="/assets/js/2.5449f5c7.js" as="script"><link rel="preload" href="/assets/js/18.892d77e6.js" as="script"><link rel="prefetch" href="/assets/js/10.0a02bda1.js"><link rel="prefetch" href="/assets/js/11.7c8d5810.js"><link rel="prefetch" href="/assets/js/12.1ab71b02.js"><link rel="prefetch" href="/assets/js/13.96026720.js"><link rel="prefetch" href="/assets/js/14.cda7781d.js"><link rel="prefetch" href="/assets/js/15.86badb8a.js"><link rel="prefetch" href="/assets/js/16.0358baf8.js"><link rel="prefetch" href="/assets/js/17.188a42cd.js"><link rel="prefetch" href="/assets/js/19.8259f0ba.js"><link rel="prefetch" href="/assets/js/20.872d84df.js"><link rel="prefetch" href="/assets/js/21.daa66e46.js"><link rel="prefetch" href="/assets/js/22.537fd259.js"><link rel="prefetch" href="/assets/js/23.f04af47c.js"><link rel="prefetch" href="/assets/js/24.d12750a8.js"><link rel="prefetch" href="/assets/js/25.9a87c16c.js"><link rel="prefetch" href="/assets/js/26.6430b7c1.js"><link rel="prefetch" href="/assets/js/27.3df3081d.js"><link rel="prefetch" href="/assets/js/28.ba6f7a53.js"><link rel="prefetch" href="/assets/js/29.9e188b97.js"><link rel="prefetch" href="/assets/js/3.df6a0100.js"><link rel="prefetch" href="/assets/js/30.1c936dbe.js"><link rel="prefetch" href="/assets/js/31.2b19da7e.js"><link rel="prefetch" href="/assets/js/32.f5b01bf4.js"><link rel="prefetch" href="/assets/js/33.45179d81.js"><link rel="prefetch" href="/assets/js/34.1f5d1d0c.js"><link rel="prefetch" href="/assets/js/35.0de1e2cb.js"><link rel="prefetch" href="/assets/js/36.cb17011d.js"><link rel="prefetch" href="/assets/js/37.2cbd5350.js"><link rel="prefetch" href="/assets/js/38.f88d7af5.js"><link rel="prefetch" href="/assets/js/39.d3c0116f.js"><link rel="prefetch" href="/assets/js/4.f822add4.js"><link rel="prefetch" href="/assets/js/40.47b05f9f.js"><link rel="prefetch" href="/assets/js/41.5dfb852e.js"><link rel="prefetch" href="/assets/js/42.1d7cf4c2.js"><link rel="prefetch" href="/assets/js/43.43f59d94.js"><link rel="prefetch" href="/assets/js/44.19309bf6.js"><link rel="prefetch" href="/assets/js/45.dbee3f0a.js"><link rel="prefetch" href="/assets/js/46.a373745d.js"><link rel="prefetch" href="/assets/js/5.036698ee.js"><link rel="prefetch" href="/assets/js/6.4ab99520.js"><link rel="prefetch" href="/assets/js/7.d3b5fa76.js"><link rel="prefetch" href="/assets/js/8.f736522b.js"><link rel="prefetch" href="/assets/js/9.35398d1a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e13b80d3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">爆米花小布</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/element-ui/el-table-select-all/" class="nav-link">
+  前端博客
+</a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-element-dict/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  PC端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-vant-dict" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  移动端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/element-ui/el-table-select-all/" class="nav-link">
+  前端博客
+</a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-element-dict/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  PC端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://shenxiaobu.github.io/vue-vant-dict" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  移动端字典插件包
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Element-ui组件使用经验</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/element-ui/el-table-select-all/" class="sidebar-link">使用el-table实现全选功能</a></li><li><a href="/element-ui/el-table-sku/" class="sidebar-link">利用element实现sku规格相关功能</a></li><li><a href="/element-ui/el-cropper/" class="sidebar-link">利用vue-cropper实现图片裁剪功能</a></li><li><a href="/element-ui/el-form-nesting/" class="sidebar-link">el-form嵌套表单校验</a></li><li><a href="/element-ui/el-theme/" class="sidebar-link">使用element-ui组件库实现主题切换功能</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>JS必备知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/JS/call-apply-bind/" class="sidebar-link">js中的call、apply和bind</a></li><li><a href="/JS/debounce-throttle/" class="sidebar-link">JS中防抖与节流的讲解与封装</a></li><li><a href="/JS/tree-data/" class="sidebar-link">JS中树形结构数据相关方法</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>CSS实战经验</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/CSS/contour-layout/" class="sidebar-link">css实现等高布局</a></li><li><a href="/CSS/fixed-aspect-ratio/" class="sidebar-link">css实现固定宽高比</a></li><li><a href="/CSS/draw-triangle/" class="sidebar-link">CSS画一个三角形</a></li><li><a href="/CSS/draw-ring/" class="sidebar-link">CSS画一个环形进度条</a></li><li><a href="/CSS/pseudo-class/" class="sidebar-link">伪类和伪元素的区别与使用</a></li><li><a href="/CSS/clear-float/" class="sidebar-link">清除浮动的原理与时机</a></li><li><a href="/CSS/layout/" class="sidebar-link">三栏布局问题（左右固定宽度 中间自适应）</a></li><li><a href="/CSS/flex/" class="sidebar-link">flex布局祥解</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>实用的npm包</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/npm/xiaobu-pic-zoom/" class="sidebar-link">xiaobu-pic-zoom图片放大镜</a></li><li><a href="/npm/vue-message-code/" class="sidebar-link">vue-message-code短信验证码</a></li><li><a href="/npm/xiaobu-water-marker/" class="sidebar-link">xiaobu-water-marker水印</a></li><li><a href="/npm/vue-flutter/" class="sidebar-link">vue-flutter漂浮动画</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>VUE小妙招</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-config/search-menu/" class="sidebar-link">利用fuse.js实现搜索菜单功能</a></li><li><a href="/vue-config/alias/" class="sidebar-link">vue项目配置别名</a></li><li><a href="/vue-config/svg-sprite-loader/" class="sidebar-link">vue项目配置使用svg图标</a></li><li><a href="/vue-config/vue-mode-env/" class="sidebar-link">vue项目的模式和环境变量</a></li><li><a href="/vue-config/system-config/" class="sidebar-link">vue项目配置系统变量</a></li><li><a href="/vue-config/axios-optimization-one/" aria-current="page" class="active sidebar-link">vue项目axios请求优化（一）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue-config/axios-optimization-one/#第一步-新增全局加载动画组件" class="sidebar-link">第一步：新增全局加载动画组件</a></li><li class="sidebar-sub-header"><a href="/vue-config/axios-optimization-one/#第二步-在app-vue文件上引入动画组件" class="sidebar-link">第二步：在app.vue文件上引入动画组件</a></li><li class="sidebar-sub-header"><a href="/vue-config/axios-optimization-one/#第三步-vuex新增showloading变量-以及设置showloading值的方法" class="sidebar-link">第三步：vuex新增showLoading变量，以及设置showLoading值的方法</a></li><li class="sidebar-sub-header"><a href="/vue-config/axios-optimization-one/#第四步-实现累加-以及累减方法" class="sidebar-link">第四步：实现累加，以及累减方法</a></li><li class="sidebar-sub-header"><a href="/vue-config/axios-optimization-one/#第五步-在axios请求文件上使用" class="sidebar-link">第五步：在axios请求文件上使用</a></li><li class="sidebar-sub-header"><a href="/vue-config/axios-optimization-one/#第六步-实现可配置是否要展示加载动画" class="sidebar-link">第六步：实现可配置是否要展示加载动画</a></li><li class="sidebar-sub-header"><a href="/vue-config/axios-optimization-one/#第七步-以上6步即可实现可配置的展示加载动画-但是存在一个问题-就是可能会出现双加载动画的问题。" class="sidebar-link">第七步：以上6步即可实现可配置的展示加载动画，但是存在一个问题，就是可能会出现双加载动画的问题。</a></li><li class="sidebar-sub-header"><a href="/vue-config/axios-optimization-one/#总结" class="sidebar-link">总结</a></li><li class="sidebar-sub-header"><a href="/vue-config/axios-optimization-one/#好npm包推荐" class="sidebar-link">好NPM包推荐</a></li><li class="sidebar-sub-header"><a href="/vue-config/axios-optimization-one/#广告" class="sidebar-link">广告</a></li></ul></li><li><a href="/vue-config/axios-optimization-two/" class="sidebar-link">vue项目axios请求优化（二）</a></li><li><a href="/vue-config/axios-optimization-three/" class="sidebar-link">vue项目axios请求优化（三）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>前端工具</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/tool/use-nvm/" class="sidebar-link">nvm的使用</a></li><li><a href="/tool/vscode/sftp/" class="sidebar-link">vscode插件之sftp</a></li><li><a href="/tool/vscode/koroFileHeader/" class="sidebar-link">vscode插件之koroFileHeader</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="实现请求可配置是否展示全局加载动画"><a href="#实现请求可配置是否展示全局加载动画" class="header-anchor">#</a> 实现请求可配置是否展示全局加载动画</h1> <p>​		很多接口请求都需要展示全局加载动画，每次请求就写一行代码开启动画，请求结束和响应结束就关闭动画，这显得很繁琐，且存在一个问题：<strong>那就是当多个请求时，可能会导致其余接口还没请求结束，但是加载动画被前面某个请求结束的接口给提前关闭了</strong></p> <p><strong>解决方法</strong>： 每当请求接口时，累加请求接口数量，响应时累减请求接口数量，当请求数量为0 时 才关闭全局请求动画。</p> <p><strong>上代码</strong></p> <h2 id="第一步-新增全局加载动画组件"><a href="#第一步-新增全局加载动画组件" class="header-anchor">#</a> 第一步：新增全局加载动画组件</h2> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>[<span class="token punctuation">'</span>xiaobu-loading-mask<span class="token punctuation">'</span>, show ? <span class="token punctuation">'</span>show<span class="token punctuation">'</span> : <span class="token punctuation">'</span>hide<span class="token punctuation">'</span>]<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-show</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>show<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>loading-wrapper<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>loading-dot loading-dot-spin<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;Loading&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">unAutoRegister</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">computed</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>app<span class="token punctuation">.</span>showLoading
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>scss<span class="token punctuation">&quot;</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.xiaobu-loading-mask</span> <span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">user-select</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">z-index</span><span class="token punctuation">:</span> 9999<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden
+  <span class="token punctuation">}</span>
+
+  <span class="token selector">.loading-wrapper</span> <span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span> -100%<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token selector">.loading-dot</span> <span class="token punctuation">{</span>
+    <span class="token property">animation</span><span class="token punctuation">:</span> antRotate 1.2s infinite linear<span class="token punctuation">;</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>45deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 64px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 37px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 37px<span class="token punctuation">;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box
+  <span class="token punctuation">}</span>
+
+  <span class="token selector">.loading-dot i</span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 15px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 15px<span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+    <span class="token atrule"><span class="token rule">@include</span> background_<span class="token function">color</span><span class="token punctuation">(</span><span class="token string">&quot;main_color&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>.75<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">transform-origin</span><span class="token punctuation">:</span> 50% 50%<span class="token punctuation">;</span>
+    <span class="token property">opacity</span><span class="token punctuation">:</span> .3<span class="token punctuation">;</span>
+    <span class="token property">animation</span><span class="token punctuation">:</span> antSpinMove 1s infinite linear alternate
+  <span class="token punctuation">}</span>
+
+  <span class="token selector">.loading-dot i:nth-child(1)</span> <span class="token punctuation">{</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 0
+  <span class="token punctuation">}</span>
+
+  <span class="token selector">.loading-dot i:nth-child(2)</span> <span class="token punctuation">{</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">-webkit-animation-delay</span><span class="token punctuation">:</span> .4s<span class="token punctuation">;</span>
+    <span class="token property">animation-delay</span><span class="token punctuation">:</span> .4s
+  <span class="token punctuation">}</span>
+
+  <span class="token selector">.loading-dot i:nth-child(3)</span> <span class="token punctuation">{</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">-webkit-animation-delay</span><span class="token punctuation">:</span> .8s<span class="token punctuation">;</span>
+    <span class="token property">animation-delay</span><span class="token punctuation">:</span> .8s
+  <span class="token punctuation">}</span>
+
+  <span class="token selector">.loading-dot i:nth-child(4)</span> <span class="token punctuation">{</span>
+    <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">-webkit-animation-delay</span><span class="token punctuation">:</span> 1.2s<span class="token punctuation">;</span>
+    <span class="token property">animation-delay</span><span class="token punctuation">:</span> 1.2s
+  <span class="token punctuation">}</span>
+
+  <span class="token atrule"><span class="token rule">@keyframes</span> antRotate</span> <span class="token punctuation">{</span>
+    <span class="token selector">to</span> <span class="token punctuation">{</span>
+      <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>405deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>405deg<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token atrule"><span class="token rule">@-webkit-keyframes</span> antRotate</span> <span class="token punctuation">{</span>
+    <span class="token selector">to</span> <span class="token punctuation">{</span>
+      <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>405deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>405deg<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token atrule"><span class="token rule">@keyframes</span> antSpinMove</span> <span class="token punctuation">{</span>
+    <span class="token selector">to</span> <span class="token punctuation">{</span>
+      <span class="token property">opacity</span><span class="token punctuation">:</span> 1
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token atrule"><span class="token rule">@-webkit-keyframes</span> antSpinMove</span> <span class="token punctuation">{</span>
+    <span class="token selector">to</span> <span class="token punctuation">{</span>
+      <span class="token property">opacity</span><span class="token punctuation">:</span> 1
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="第二步-在app-vue文件上引入动画组件"><a href="#第二步-在app-vue文件上引入动画组件" class="header-anchor">#</a> 第二步：在app.vue文件上引入动画组件</h2> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>app<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 加载动画，要在router-view上面，解决双加载动画问题 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>loading</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>loading</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 页面切换容器 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>xiaobu-app-container<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> Loading <span class="token keyword">from</span> <span class="token string">&quot;@/components/loading&quot;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;App&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    Loading
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">#app</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre></div><h2 id="第三步-vuex新增showloading变量-以及设置showloading值的方法"><a href="#第三步-vuex新增showloading变量-以及设置showloading值的方法" class="header-anchor">#</a> 第三步：vuex新增showLoading变量，以及设置showLoading值的方法</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">showLoading</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token comment">//展示全局加载动画</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> mutations <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">//设置请求动画状态</span>
+  <span class="token function-variable function">SET_LOADING_STATUS</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> showLoading</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">.</span>showLoading <span class="token operator">=</span> showLoading
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> actions <span class="token operator">=</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">namespaced</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  state<span class="token punctuation">,</span>
+  mutations<span class="token punctuation">,</span>
+  actions
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="第四步-实现累加-以及累减方法"><a href="#第四步-实现累加-以及累减方法" class="header-anchor">#</a> 第四步：实现累加，以及累减方法</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// req-loading.js 文件</span>
+
+<span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">&quot;@/store&quot;</span>
+
+<span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">// 监听计数中间变量</span>
+
+<span class="token comment">/**
+ * 
+ * @param {Number} count http请求列队个数
+ */</span>
+<span class="token keyword">function</span> <span class="token function">showLoading</span><span class="token punctuation">(</span><span class="token parameter">count</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 当http请求列队个数为0时关闭loading</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>count <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">&quot;app/SET_LOADING_STATUS&quot;</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">&quot;app/SET_LOADING_STATUS&quot;</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">addHttpLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  count<span class="token operator">++</span>
+  <span class="token function">showLoading</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// http请求列队计数减一</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">removeHttpLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  count<span class="token operator">--</span>
+  <span class="token function">showLoading</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+
+</code></pre></div><h2 id="第五步-在axios请求文件上使用"><a href="#第五步-在axios请求文件上使用" class="header-anchor">#</a> 第五步：在axios请求文件上使用</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">&quot;axios&quot;</span>
+<span class="token keyword">import</span> Message <span class="token keyword">from</span> <span class="token string">&quot;@/plugins/reset-message.js&quot;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>addHttpLoading<span class="token punctuation">,</span> removeHttpLoading<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./req-loading&quot;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>getToken<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@/utils/cookie&quot;</span>
+<span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">&quot;@/store&quot;</span>
+
+<span class="token comment">// 创建axios实例</span>
+<span class="token keyword">const</span> service <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">baseURL</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">VUE_APP_BASE_URL</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">timeout</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">VUE_APP_TIME_OUT</span> <span class="token comment">// 请求超时时间</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// request拦截器</span>
+service<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+  <span class="token parameter">config</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">addHttpLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> token <span class="token operator">=</span> <span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>token<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      config<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>Authorization <span class="token operator">=</span> <span class="token string">&quot;Bearer &quot;</span> <span class="token operator">+</span> token
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> config
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment">// respone拦截器</span>
+service<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+  <span class="token keyword">async</span> <span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">removeHttpLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> res <span class="token operator">=</span> response<span class="token punctuation">.</span>data
+    <span class="token comment">// 如果自定义代码不是200，则判断为错误。</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>status <span class="token operator">!==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">Message</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> res<span class="token punctuation">.</span>message <span class="token operator">||</span> <span class="token string">&quot;Error&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;error&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">1000</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>message <span class="token operator">||</span> <span class="token string">&quot;Error&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">// code为200 或 返回的是文件流 直接返回</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">200</span> <span class="token operator">||</span> response<span class="token punctuation">.</span>config<span class="token punctuation">.</span>responseType <span class="token operator">===</span> <span class="token string">&quot;blob&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> res
+      <span class="token punctuation">}</span>
+      <span class="token function">Message</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> res<span class="token punctuation">.</span>message <span class="token operator">||</span> <span class="token string">&quot;Error&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;error&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">duration</span><span class="token operator">:</span> <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">1000</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">401</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">await</span> store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">&quot;user/logout&quot;</span><span class="token punctuation">)</span>
+        window<span class="token punctuation">.</span>location<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>message <span class="token operator">||</span> <span class="token string">&quot;Error&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">removeHttpLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">&quot;AxiosError&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      Message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> service
+  
+</code></pre></div><p>这样即可实现有请求就会带上动画，所有请求结束才关闭动画</p> <h2 id="第六步-实现可配置是否要展示加载动画"><a href="#第六步-实现可配置是否要展示加载动画" class="header-anchor">#</a> 第六步：实现可配置是否要展示加载动画</h2> <p><strong>在axios请求中的config添加变量</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @description: 登录
+ * @param {*}
+ * @return {*}
+ * @author: syx
+ */</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">login</span><span class="token punctuation">(</span><span class="token parameter">data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token literal-property property">showLoading</span><span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> axiosRequest<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">&quot;/xiaobu-admin/login&quot;</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> config<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在第五步的文件中，新增判断</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 请求拦截中判断 </span>
+service<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+  <span class="token parameter">config</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>showLoading<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">addHttpLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> config
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+<span class="token comment">// 响应拦截中判断</span>
+service<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+  <span class="token keyword">async</span> <span class="token parameter">response</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>config<span class="token punctuation">.</span>showLoading<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">removeHttpLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> res <span class="token operator">=</span> response<span class="token punctuation">.</span>data
+    <span class="token keyword">return</span> res
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 有配置showLoading为true的接口，请求异常才会减少请求接口</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>config<span class="token operator">&amp;&amp;</span>error<span class="token punctuation">.</span>config<span class="token punctuation">.</span>showLoading<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    	<span class="token function">removeHttpLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">&quot;AxiosError&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      Message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+</code></pre></div><h2 id="第七步-以上6步即可实现可配置的展示加载动画-但是存在一个问题-就是可能会出现双加载动画的问题。"><a href="#第七步-以上6步即可实现可配置的展示加载动画-但是存在一个问题-就是可能会出现双加载动画的问题。" class="header-anchor">#</a> 第七步：以上6步即可实现可配置的展示加载动画，但是存在一个问题，就是可能会出现双加载动画的问题。</h2> <p><img src="/assets/img/1.b4f26622.png" alt="image-20230114213153806"></p> <p><strong>解决方法：</strong> 采用css解决此问题，思路就是 出现全局加载动画的时候 里面的动画添加display：none样式。</p> <p>以element的loading为例。其加载动画类名为 el-loading-mask。</p> <p>全局添加CSS代码</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.xiaobu-loading-mask.show  + .xiaobu-app-container .el-loading-mask</span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这就是为什么 loading组件要放在router-view前面的原因</p> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>element的loading动画不能放在body元素下。放在body的话只能通过js判断了，能用css解决的问题就不要用js，所以为了避免出现问题，请不要将loading的body设置为true。</p></div> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>​		此篇文章为axios请求优化其一，关注微信公众号【爆米花小布】不迷路。如有问题，可私信。</p> <h2 id="好npm包推荐"><a href="#好npm包推荐" class="header-anchor">#</a> 好NPM包推荐</h2> <ol><li><p>vue-element-dict  基于element组件库的vue项目轻松使用字典组件，一行代码解决字典问题。</p> <p>自带字典，时间，日期以及脱敏等过滤器及方法</p> <p>https://www.npmjs.com/package/vue-element-dict</p></li> <li><p>vue-vant-dict         基于vant组件库的vue项目轻松使用字典组件，一行代码解决字典问题。</p> <p>自带字典，时间，日期以及脱敏等过滤器及方法</p> <p>https://www.npmjs.com/package/vue-vant-dict</p></li></ol> <h2 id="广告"><a href="#广告" class="header-anchor">#</a> 广告</h2> <p>此处可接受广告</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue-config/system-config/" class="prev">
+        vue项目配置系统变量
+      </a></span> <span class="next"><a href="/vue-config/axios-optimization-two/">
+        vue项目axios请求优化（二）
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div id="loading-mask"><div class="loading-wrapper"><span class="loading-dot loading-dot-spin"><i></i> <i></i> <i></i> <i></i></span></div></div><!----><!----></div></div>
+    <script src="/assets/js/app.9f075be9.js" defer></script><script src="/assets/js/2.5449f5c7.js" defer></script><script src="/assets/js/18.892d77e6.js" defer></script>
+  </body>
+</html>
