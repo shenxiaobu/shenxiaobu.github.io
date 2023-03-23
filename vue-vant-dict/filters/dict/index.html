@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>字典过滤器 | vue-vant-dict</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/vue-vant-dict/favicon.ico">
+    <meta name="description" content="vue-vant-dict字典包官方使用文档">
+    
+    <link rel="preload" href="/vue-vant-dict/assets/css/0.styles.0b4658ac.css" as="style"><link rel="preload" href="/vue-vant-dict/assets/js/app.9df61f11.js" as="script"><link rel="preload" href="/vue-vant-dict/assets/js/4.26b5ef84.js" as="script"><link rel="preload" href="/vue-vant-dict/assets/js/30.876960d7.js" as="script"><link rel="preload" href="/vue-vant-dict/assets/js/7.0d774f51.js" as="script"><link rel="prefetch" href="/vue-vant-dict/assets/js/1.36f7807e.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/10.d48d8a23.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/11.31ffb92c.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/12.d7459c70.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/13.c8b13fd3.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/14.22cc5cd8.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/15.03c6b36a.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/16.ad9e73e0.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/17.f75f81bf.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/18.10a4f1d3.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/19.1c1550fb.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/2.9436e793.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/20.64f0c48c.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/21.20221a8b.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/22.d734747f.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/23.9ec6e2b7.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/24.c0cb48ef.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/25.7a2ed731.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/26.9f2648b8.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/27.55c8a42a.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/28.f287f53d.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/29.23744430.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/31.a45d2722.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/32.038f015a.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/33.38065433.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/34.24a6e7d0.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/35.b86edc52.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/36.af3e4354.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/37.042e520a.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/38.6751da02.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/39.e9cebb52.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/40.c5b4b5f3.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/5.d28dadb9.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/6.204a1b45.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/8.cc069f39.js"><link rel="prefetch" href="/vue-vant-dict/assets/js/9.a9e12de4.js">
+    <link rel="stylesheet" href="/vue-vant-dict/assets/css/0.styles.0b4658ac.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-vant-dict/" class="home-link router-link-active"><!----> <span class="site-name">vue-vant-dict</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-vant-dict/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/vue-vant-dict/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><a href="https://www.npmjs.com/package/vue-element-dict" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  npm地址
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-vant-dict/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/vue-vant-dict/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><a href="https://www.npmjs.com/package/vue-element-dict" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  npm地址
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>指南</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-vant-dict/guide/" class="sidebar-link">介绍</a></li><li><a href="/vue-vant-dict/guide/fast/" class="sidebar-link">快速开始</a></li><li><a href="/vue-vant-dict/guide/directory-structure/" class="sidebar-link">目录结构</a></li><li><a href="/vue-vant-dict/guide/config/" class="sidebar-link">字典包配置</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>普通字典组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-vant-dict/components/van-field-dict/" class="sidebar-link">van-field-dict脱敏</a></li><li><a href="/vue-vant-dict/components/van-select-dict/" class="sidebar-link">van-select-dict下拉选项</a></li><li><a href="/vue-vant-dict/components/van-cascader-dict/" class="sidebar-link">van-cascader-dict联级选项</a></li><li><a href="/vue-vant-dict/components/van-datetime-dict/" class="sidebar-link">van-datetime-dict时间选择器</a></li><li><a href="/vue-vant-dict/components/van-calendar-dict/" class="sidebar-link">van-calendar-dict日历选择器</a></li><li><a href="/vue-vant-dict/components/van-radio-dict/" class="sidebar-link">van-radio-dict单选项</a></li><li><a href="/vue-vant-dict/components/van-checkbox-dict/" class="sidebar-link">van-checkbox-dict多选项</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>树形字典组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-vant-dict/filters/dict/" aria-current="page" class="active sidebar-link">字典过滤器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue-vant-dict/filters/dict/#filters-dict-api" class="sidebar-link">Filters Dict Api</a></li></ul></li><li><a href="/vue-vant-dict/filters/other/" class="sidebar-link">其他过滤器</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>其他组件</span> <!----></p> <!----></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>过滤器</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-vant-dict/filters/dict/" aria-current="page" class="active sidebar-link">字典过滤器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue-vant-dict/filters/dict/#filters-dict-api" class="sidebar-link">Filters Dict Api</a></li></ul></li><li><a href="/vue-vant-dict/filters/tree-dict/" class="sidebar-link">树形字典过滤器</a></li><li><a href="/vue-vant-dict/filters/other/" class="sidebar-link">其他过滤器</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>方法</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-vant-dict/functions/dict/" class="sidebar-link">字典方法</a></li><li><a href="/vue-vant-dict/functions/tree-dict/" class="sidebar-link">树形字典方法</a></li><li><a href="/vue-vant-dict/functions/other/" class="sidebar-link">其他方法</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="字典过滤器"><a href="#字典过滤器" class="header-anchor">#</a> 字典过滤器</h1> <p>与字典相关的全局过滤器，使用这些过滤器，您可以轻松将label和value随意转换</p> <div class="demo-block demo-filters demo-"><div class="source-bg" style="padding:24px;"><!----></div> <div class="meta"><div class="description"><p><code>getLabelByCode</code> <code>getCodeByLabel</code> 值必须是单个字符串</p> <p><code>getLabelByCodes</code> <code>getCodeByLabels</code> 值可以是数组也可以是字符串，并用某个分隔符分开，分隔符可配置</p></div> <div class="sourceCode"><div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dict-normal<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>info-box flex-c-s flex-wrap<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>row flex-c-s flex-col<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>field<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>getLabelByCode<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ personUserInfo.gend | getLabelByCode(&quot;AAC004&quot;)}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>row flex-c-s flex-col<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>field<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>getCodeByLabel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ personUserInfo.gendLabel | getCodeByLabel(&quot;AAC004&quot;)}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>row flex-c-s flex-col<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>field<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>getLabelByCodes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ personUserInfo.fruits | getLabelByCodes(&quot;FRUITS&quot;)}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>row flex-c-s flex-col<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>field<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>getCodeByLabels<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ personUserInfo.fruitsLabel | getCodeByLabels(&quot;FRUITS&quot;)}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>row flex-c-s flex-col<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>field<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>getTreeLabelByCode<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ personUserInfo.cityCode | getTreeLabelByCode(&quot;city&quot;)}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>row flex-c-s flex-col<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>field<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>getTreeLabelByCodes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ personUserInfo.cityCodes | getTreeLabelByCodes(&quot;city&quot;)}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>row flex-c-s flex-col<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>field<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>getTreeCodeByLabel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ personUserInfo.cityName | getTreeCodeByLabel(&quot;city&quot;)}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>row flex-c-s flex-col<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>field<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>getTreeLabelByCode<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>value<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ personUserInfo.cityNames | getTreeCodeByLabels(&quot;city&quot;)}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;filters-dict-normal&quot;</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">personUserInfo</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">gend</span><span class="token operator">:</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">gendLabel</span><span class="token operator">:</span> <span class="token string">&quot;男&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">fruits</span><span class="token operator">:</span> <span class="token string">&quot;1,2,3,5&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">fruitsLabel</span><span class="token operator">:</span> <span class="token string">&quot;草莓,西瓜,芒果&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">cityCode</span><span class="token operator">:</span> <span class="token string">&quot;35062400&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">cityCodes</span><span class="token operator">:</span> <span class="token string">&quot;35062400,35062401&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">cityName</span><span class="token operator">:</span> <span class="token string">&quot;漳州市&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">cityNames</span><span class="token operator">:</span> <span class="token string">&quot;诏安县,金星乡&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>less<span class="token punctuation">&quot;</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.info-box</span> <span class="token punctuation">{</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0 20px<span class="token punctuation">;</span>
+    <span class="token selector">.row</span> <span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+      <span class="token property">margin-top</span><span class="token punctuation">:</span> 32px<span class="token punctuation">;</span>
+      <span class="token property">align-items</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span>
+      <span class="token selector">.field</span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 144px<span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> #666666<span class="token punctuation">;</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector">.value</span> <span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> #333333<span class="token punctuation">;</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span></code></pre></div></div></div> <div class="demo-block-control"><i class="el-icon-caret-bottom"></i> <span style="display:none;">显示代码</span></div></div> <h2 id="filters-dict-api"><a href="#filters-dict-api" class="header-anchor">#</a> Filters Dict Api</h2> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token comment">/**
+   * @description: getLabelByCode 通过code获取label
+   * @param {*} val 字典值
+   * @param {*} type 字典类型
+   * @param {*} defaultVal 默认值  默认 &quot;&quot;
+   * @return {*} label  返回字典表查找后的字典值  如果没有  则展示默认值
+   * @author: syx
+   */</span>  
+<span class="token keyword">const</span> getLabelByCode <span class="token operator">=</span> <span class="token punctuation">(</span>val<span class="token punctuation">,</span> type<span class="token punctuation">,</span> defaultVal <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+
+ <span class="token comment">/**
+   * @description: getCodeByLabel 通过label获取code
+   * @param {*} val 字典值
+   * @param {*} type 字典类型
+   * @param {*} defaultVal 默认值  默认 &quot;&quot;
+   * @return {*} code  返回字典表查找后的字典值  如果没有  则展示默认值
+   * @author: syx
+   */</span>  
+<span class="token keyword">const</span> getCodeByLabel <span class="token operator">=</span> <span class="token punctuation">(</span>val<span class="token punctuation">,</span> type<span class="token punctuation">,</span> defaultVal <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+
+
+	<span class="token comment">/**
+     * @description: 通过codes 获取 labels
+     * @param {*} vals 字典值 多个的话 可传数组形式，字符串形式默认英文逗号隔开，如果不是的话，可配置spacer
+     * @param {*} type 字典类型
+     * @param {*} defaultVal 默认值
+     * @param {*} formatFun 配置数据展示格式
+     * @param {*} spacer 字典值间隔符
+     * @return {*} labels 返回字典表查找后的字典值  如果没有  则展示默认值 对应位置展示
+     * @author: syx
+     */</span>  
+<span class="token keyword">const</span> getLabelByCodes <span class="token operator">=</span> <span class="token punctuation">(</span>vals<span class="token punctuation">,</span> type<span class="token punctuation">,</span> defaultVal <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> formatFun<span class="token punctuation">,</span> spacer <span class="token operator">=</span> <span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+
+
+	<span class="token comment">/**
+     * @description: 通过labels 获取 codes
+     * @param {*} vals 字典值 多个的话 可传数组形式，字符串形式默认英文逗号隔开，如果不是的话，可配置spacer
+     * @param {*} type 字典类型
+     * @param {*} defaultVal 默认值
+     * @param {*} formatFun 配置数据展示格式
+     * @param {*} spacer 字典值间隔符
+     * @return {*} codes 返回字典表查找后的字典值  如果没有  则展示默认值 对应位置展示
+     * @author: syx
+     */</span>  
+<span class="token keyword">const</span> getCodeByLabels <span class="token operator">=</span> <span class="token punctuation">(</span>vals<span class="token punctuation">,</span> type<span class="token punctuation">,</span> defaultVal <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> formatFun<span class="token punctuation">,</span> spacer <span class="token operator">=</span> <span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">/**
+ * @description: getTreeLabelByCode
+ * @param {*} val 数据值
+ * @param {*} type 字典类型
+ * @param {*} defaultVal 展示默认值
+ * @param {*} formatFun 对展示值进行方法格式化
+ * @param {*} setting 设置，字段同字典包配置中的 treeSetting
+ * @return {*} &quot;350624&quot;  =》 &quot;福建省/漳州市/诏安县&quot;
+ * @author: syx
+ */</span>
+<span class="token keyword">function</span> <span class="token function">getTreeLabelByCode</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span> type<span class="token punctuation">,</span> defaultVal <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> formatFun<span class="token punctuation">,</span> setting<span class="token punctuation">)</span>
+
+<span class="token comment">/**
+ * @description: getTreeCodeByLabel
+ * @param {*} val 数据值
+ * @param {*} type 字典类型
+ * @param {*} defaultVal 展示默认值
+ * @param {*} formatFun 对展示值进行方法格式化
+ * @param {*} setting 设置，字段同字典包配置中的 treeSetting
+ * @return {*} &quot;诏安县&quot; =&gt; &quot;35000/350600/350624&quot;
+ * @author: syx
+ */</span>
+<span class="token keyword">function</span> <span class="token function">getTreeCodeByLabel</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span> type<span class="token punctuation">,</span> defaultVal <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> formatFun<span class="token punctuation">,</span> setting<span class="token punctuation">)</span>
+
+
+<span class="token comment">/**
+ * @description: getTreeLabelByCodes
+ * @param {*} vals 数据值
+ * @param {*} type 字典类型
+ * @param {*} defaultVal 展示默认值
+ * @param {*} formatFunIn 对里面的数组进行方法格式化
+ * @param {*} setting 设置，字段同字典包配置中的 treeSetting
+ * @param {*} formatFunOut 对外面的数组进行方法格式化
+ * @param {*} spacer 数据值间隔符
+ * @return {*} &quot;350624,350600&quot; =&gt; &quot;福建省/漳州市/诏安县,福建省/漳州市&quot;
+ * @author: syx
+ */</span>
+<span class="token keyword">function</span> <span class="token function">getTreeLabelByCodes</span><span class="token punctuation">(</span>vals<span class="token punctuation">,</span> type<span class="token punctuation">,</span> defaultVal <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> formatFunIn<span class="token punctuation">,</span> setting<span class="token punctuation">,</span> formatFunOut<span class="token punctuation">,</span> spacer <span class="token operator">=</span> <span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">/**
+ * @description: getTreeCodeByLabels
+ * @param {*} vals 数据值
+ * @param {*} type 字典类型
+ * @param {*} defaultVal 展示默认值
+ * @param {*} formatFunIn 对里面的数组进行方法格式化
+ * @param {*} setting 设置，字段同字典包配置中的 treeSetting
+ * @param {*} formatFunOut 对外面的数组进行方法格式化
+ * @param {*} spacer 数据值间隔符
+ * @return {*} &quot;诏安县,漳州市&quot; =&gt; &quot;35000/350600/350624,35000/350600&quot;
+ * @author: syx
+ */</span>
+<span class="token keyword">function</span> <span class="token function">getTreeCodeByLabels</span><span class="token punctuation">(</span>vals<span class="token punctuation">,</span> type<span class="token punctuation">,</span> defaultVal <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> formatFunIn<span class="token punctuation">,</span> setting<span class="token punctuation">,</span> formatFunOut<span class="token punctuation">,</span> spacer <span class="token operator">=</span> <span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">February 20th 2022, 8:12:12</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue-vant-dict/components/van-checkbox-dict/" class="prev">
+        van-checkbox-dict多选项
+      </a></span> <span class="next"><a href="/vue-vant-dict/filters/other/">
+        其他过滤器
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div id="loading-mask"><div class="loading-wrapper"><span class="loading-dot loading-dot-spin"><i></i> <i></i> <i></i> <i></i></span></div></div><!----><!----><!----></div></div>
+    <script src="/vue-vant-dict/assets/js/app.9df61f11.js" defer></script><script src="/vue-vant-dict/assets/js/4.26b5ef84.js" defer></script><script src="/vue-vant-dict/assets/js/30.876960d7.js" defer></script><script src="/vue-vant-dict/assets/js/7.0d774f51.js" defer></script>
+  </body>
+</html>
